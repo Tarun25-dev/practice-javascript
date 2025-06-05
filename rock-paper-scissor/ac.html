@@ -1,0 +1,96 @@
+<!--  ROCK PAPER SCISSOR GAME  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAME</title>
+    <style>
+        *{
+            
+            box-sizing: border-box;
+        }
+        button{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 45px;
+            border-radius: 10px;
+        }
+        button:hover{
+            color: black;
+            background-color: lavenderblush;
+            border:0.1px solid black;
+            font-size:50px;
+            transition: 0.2s ease-out;
+        }
+        .btn-section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            height:120px;
+        }
+    </style>
+</head>
+<body>
+    <div class="head-section" style="background-color:lavenderblush;">
+    <hr color="teal">
+    <h1 style="text-align: center; color: teal;"><b>Rock Paper Scissor</b></h1>
+    <hr color="teal"></div>
+    <div class="btn-section">
+    <script>
+        // Math.randomm() picks a random number from 0 to 1 including faction part
+        let randomValue = Math.random();
+        let result='';
+        if(randomValue>=0 && randomValue<=1/3){
+            result='ROCK';
+        }
+        else if(randomValue>=1/3 && randomValue<=2/3){
+            result='PAPER';
+        }
+        else{
+            result='SCISSOR'
+        }
+        let output='';
+    </script>
+    <button onclick="
+    
+    if (result === 'ROCK'){
+        output='TIE';
+    }
+    else if(result === 'PAPER'){
+        output='YOU LOOSE ~';
+    }
+    else{
+        output='YOU WIN !';
+    }
+    alert(`YOU CHOOSE ROCK \nCOMPUTER CHOOSE ${result} \nRESULT IS ${output}`);
+    ">ROCK</button>
+    <button onclick="
+    
+    if (result === 'ROCK'){
+        output='YOU WON !';
+    }
+    else if(result === 'PAPER'){
+        output='TIE';
+    }
+    else{
+        output='YOU LOSE ~';
+    }
+    alert(`YOU CHOOSE PAPER \nCOMPUTER CHOOSE ${result} \nRESULT IS ${output}`);
+    ">PAPER</button>
+    <button onclick=" if (result === 'ROCK'){
+        output='YOU LOOSE ~';
+    }
+    else if(result === 'PAPER'){
+        output='YOU WON !';
+    }
+    else{
+        output='TIE';
+    }
+    alert(`YOU CHOOSE SCISSOR \nCOMPUTER CHOOSE ${result} \nRESULT IS ${output}`);
+    
+    ">SCISSOR</button>
+    </div>
+
+</body>
+</html>
