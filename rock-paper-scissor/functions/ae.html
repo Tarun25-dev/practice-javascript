@@ -1,0 +1,123 @@
+<!--  ROCK PAPER SCISSOR GAME  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAME</title>
+    <style>
+        *{
+            
+            box-sizing: border-box;
+        }
+        body{
+            margin:0;
+            padding:0;
+            max-width:100vw;
+            overflow-x:hidden;
+        button{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 45px;
+            border-radius: 10px;
+            max-width:100%;
+            flex:1 1 auto;
+        }
+        button:hover{
+            color: black;
+            background-color: lavenderblush;
+            border:0.1px solid black;
+            font-size:50px;
+            transition: 0.2s ease-out;
+        }
+        .btn-section{
+            display: flex;
+            flex-wrap:wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            height:120px;
+        }
+        .reset{
+            font-size:15px;
+            display:flex;
+            position:relative;
+            left:50%;
+            transform:translateX(-50%);
+            margin-top:35px;
+            
+        }
+        .reset:hover{
+            font-size:17px;
+            transition: 0.2s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="head-section" style="background-color:lavenderblush;">
+    <hr color="teal">
+    <h1 style="text-align: center; color: teal;"><b>Rock Paper Scissor</b></h1>
+    <hr color="teal"></div>
+    <div class="btn-section">
+    <script>
+        let result='';
+        let output='';
+        computerMove();
+        function computerMove(){
+        // Math.randomm() picks a random number from 0 to 1 including faction part
+         let randomValue = Math.random();
+        if(randomValue>=0 && randomValue<=1/3){
+            result='ROCK';
+        }
+        else if(randomValue>=1/3 && randomValue<=2/3){
+            result='PAPER';
+        }
+        else{
+            result='SCISSOR'
+        }
+        }
+        let selectOne ='';
+        function userMove(selectOne){
+            if(selectOne === 'ROCK'){
+              if (result === 'ROCK'){
+              output='TIE 😯';
+              }
+              else if(result === 'PAPER'){
+              output='YOU LOSE 😔';
+              }
+              else{
+              output='YOU WIN 🎉';
+              }
+            }
+            else if(selectOne === 'PAPER'){
+              if (result === 'ROCK'){
+              output='YOU WIN 🎉';
+              }
+              else if(result === 'PAPER'){
+              output='TIE 😯';
+              }
+              else{
+              output='YOU LOSE 😔';
+              }
+            }
+            else if(selectOne === 'SCISSOR'){
+            if (result === 'ROCK'){
+            output='YOU LOSE 😔';
+            }
+            else if(result === 'PAPER'){
+            output='YOU WIN 🎉';
+            }
+            else{
+            output='TIE 😯';
+            }
+            }
+            alert(`YOU PICKED ${selectOne} \nCOMPUTER PICKED ${result} \nRESULT: ${output}`);
+        }
+        
+    </script>
+<button onclick="userMove('ROCK');">ROCK</button>
+<button onclick="userMove('PAPER');">PAPER</button>
+<button onclick=" userMove('SCISSOR');">SCISSOR</button>
+</div>
+<button class="reset" onclick="location.reload()">Reset</button>  
+</body>
+</html>
