@@ -1,1 +1,107 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toss</title>
+    <style>
+        body{
+            padding: 10px;
+            margin: 10px;
+            box-sizing: border-box;
+        }
+        header{
+            background-color: transparent;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 50px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .toss-btn{
+            
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+            gap: 50px;
+        }
+        .btn{
+            text-align: center;
+            height: 70px;
+            width: 70px;
+            border-radius: 50%;
+            border:1px solid black;
+            color:black ;
+            background-color: gold;
+            cursor:pointer;
+            letter-spacing: 2px;
+            
+        }
+        .btn:hover{
+            height:72px;
+            width:72px;
+            border:none;
+            font-weight: bold;
+            font-size: medium;
+            letter-spacing: 5px;
+            border:0.5px solid brown;
+            transition:0.1s ease-in;
+        }
+        .btn1{
+            position: relative;
+            left:50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:35px;
+            width: 55px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 1px solid black;
+        }
+        .btn1:hover{
+            height:36px;
+            width:56px;
+            font-size:small ;
+            font-weight: bolder;
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+    <header>TOSS</header>
+    <hr color="black">
+    <div class="toss-btn">
+    <button class="btn" onclick="
+        if(realValue === 'HEAD'){
+            alert('YOU WIN 🎯');
+        }
+        else{
+            alert('YOU LOSE 😢');
+        }
+        ">HEAD</button>
+    <bUtton class="btn" onclick="
+    if(realValue === 'TAIL'){
+            alert('YOU WIN 🎯');
+        }
+        else{
+            alert('YOU LOSE 😢');
+        }
+    ">TAIL</bUtton>
+    </div>
+    <script>
+        //Math.floor gives a non fractional part and *2 repesents taking range betweem 0 to 1 total 2values
+        let randomValue = Math.floor(Math.random()*2);
+        let realValue='';
+        if(randomValue === 0){
+            realValue='HEAD';
+        }
+        else{
+            realValue='TAIL';
+        }
+    </script>
+<button class="btn1" onclick="location.reload()">RESET</button>
+</body>
+</html>
