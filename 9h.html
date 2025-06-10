@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <input class="js-type" placeholder="type..." onkeyup="keyRelease();">
+    <p class="js-display"></p>
+    <script>
+        function keyRelease(){
+        let txt = document.querySelector('.js-type').value;
+        document.querySelector('.js-display').innerHTML = txt ;
+        }
+        
+    </script>
+</body>
+</html>
