@@ -1,0 +1,32 @@
+<!--whenever we give floating point type that th result should be long interms of digits
+to ignore this problem and set original digits in decimal parts as in the result we use this function called toFixed(n)
+n represents the no.of decimal digits you want -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUBSCRIBE</title>
+</head>
+<body>
+    <p>Amazon shipping calculator</p>
+<input class="js-input" placeholder="type cost..." onkeydown="
+if(event.key === 'Enter'){
+    calculateTotal();
+}
+">
+<button class="js-calculate-btn" onclick="calculateTotal();">Calculate</button>
+<p class="js-display-cost"></p>
+<p>Free shipping only available above 100₹ otherwise shipping charge will be applied </p>
+<script>
+    function calculateTotal(){
+        let cost = Number(document.querySelector('.js-input').value);
+        cost.toFixed(2);
+        if(cost < 100){
+           cost +=10;
+        }
+        document.querySelector('.js-display-cost').innerHTML= `TotalCost : ₹${cost}`;
+    }
+</script>
+</body>
+</html>
