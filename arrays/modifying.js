@@ -29,7 +29,7 @@ console.log(temperature); //[35, 32, 40, 41, 30]
 //in this two properties 
 // first - starting index (default 0)
 //second - ending index (default is arraylength)
-
+//slice is non destructive means it doesnt make any effect on original array
 let exam = [1,2,3,4,5,6];
 console.log(exam.slice(2,5));
  
