@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <script src="aa.js"></script>
+    <h1>ITEM</h1>
+    <button onclick="
+    cartQty++;
+    cartDisplay();
+    ">Add to Cart</button>
+    <button onclick="
+    cartQty+=2;
+    cartDisplay();
+    ">+2</button>
+    <button onclick="
+    cartQty+=3;
+    cartDisplay();
+    ">+3</button>
+    <button onclick="
+    if(cartQty==0){
+        cartDisplay();
+    }
+    else{
+    cartQty=0;
+    cartDisplay();
+    }
+    ">Reset Cart</button>
+    <p class="js-display"></p>
+    <script>
+        function cartDisplay(){
+        document.querySelector('.js-display').innerHTML =`quantity is :  ${cartQty}`;
+        }
+    </script>
+</body>
+</html>
