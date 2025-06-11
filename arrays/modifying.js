@@ -24,6 +24,14 @@ console.log(speed); //[100, 97, 112, 88, 55]
 let temperature = [38,35,32,40,41,30];
 temperature.shift();
 console.log(temperature); //[35, 32, 40, 41, 30]
+
+//slice method is used for to make a copy of array 
+//in this two properties 
+// first - starting index (default 0)
+//second - ending index (default is arraylength)
+
+let exam = [1,2,3,4,5,6];
+console.log(exam.slice(2,5));
  
 //splice consists of three proprties
 //first property- represents index value to be select
