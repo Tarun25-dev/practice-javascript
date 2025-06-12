@@ -1,3 +1,11 @@
+//adding two strings using concat()
+/*
+let call1='tarun';
+let call2='kumar';
+let call=call1.concat(call2);
+console.log(call);
+*/
+
 //using length method in strings
 /*
 let name ='tharun kumar';
