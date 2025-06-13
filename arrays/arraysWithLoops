@@ -90,7 +90,7 @@ function minmax(arr){
         console.log(minmaxObject);
 };
 minmax([1,4,3,2,5,6,3]);
-*/
+
 
 function countWords(arr){
     let words ={};
@@ -129,3 +129,12 @@ function fun(arr){
 
 }
 console.log(fun(['tarun','tarun','kumar','nani','kumar'])); //{tarun: 2, kumar: 2, nani: 1}
+*/
+
+// in the given list of array with strings if searching element is found then display corresponding index value otherwise return -1
+
+function findString(arr){
+  let indexValue=arr.indexOf('search');
+  console.log(indexValue);
+}
+findString(['tarun','kumar','nani','search']); //3
