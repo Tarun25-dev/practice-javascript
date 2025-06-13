@@ -1,0 +1,131 @@
+/*
+const nums = [10,20,30];
+nums.splice(nums.length-1,1,99);
+console.log(nums); // [10, 20, 99]
+
+
+function getLastValue(array){
+    return array[array.length-1];
+}
+console.log(getLastValue([1,2,3,4,5,6,7])); //7
+console.log(getLastValue(['tarun','kumar','nani'])); //nani
+
+function arraySwap(arr){
+   let temp=arr[0];
+   arr[0]=arr[arr.length-1];
+   arr[arr.length-1]=temp;
+   return arr;
+}
+console.log(arraySwap([1,2,3,4,5,6,7,8,9])); //[9, 2, 3, 4, 5, 6, 7, 8, 1]
+
+for(let i=0;i<=10;i+=2){
+    console.log(i); // 0 2 4 6 8 10
+    
+}
+
+for(let i=5;i>=0;i--){
+    console.log(i); //5 4 3 2 1
+}
+
+let arrayNum = [1,2,3,4,5];
+let arrayNum2=arrayNum.map(s=>s+1);
+console.log(arrayNum2);  //[2, 3, 4, 5, 6]
+
+*/
+// a function adds a num value to sum with each element in array
+/*
+function addNum(array,num){
+ for(let i=0;i<array.length;i++){
+    array[i]+=num;
+ }
+ console.log(array);
+}
+addNum([1,2,3,4,5],5);
+
+*/
+/*
+//sum of two arrays 
+const arr3 = [];
+function sumOfArrays(arr1,arr2){
+          if(arr1.length == arr2.length){
+             for(let i=0;i<arr1.length;i++){
+                arr3[i] = arr1[i]+arr2[i];
+             }
+             console.log(arr3);
+          }
+          else{
+            console.log('no.of elements in arr1 is not same as arr2');
+          }
+}
+sumOfArrays([1,2,3,4],[1,2,3,4]); //[2, 4, 6, 8]
+*/
+//counts no.of positive values
+/*
+let count =0;
+function counts(arr1){
+    for(let i=0;i<arr1.length;i++){
+        if(arr1[i]>0){
+            count++;
+        }
+    }
+    console.log(count);
+}
+counts([1,2,3,-1,4,5]); //5
+*/
+
+// finding min max values
+/*
+function minmax(arr){
+        for(let i=0;i<arr.length;i++){
+            for(let j=0;j<arr.length-1;j++){
+                if(arr[j]>arr[j+1]){
+                    let temp = arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        } 
+        console.log(arr);
+        let minmaxObject = {min:arr[0], max:arr[arr.length-1]};
+        console.log(minmaxObject);
+};
+minmax([1,4,3,2,5,6,3]);
+*/
+
+function countWords(arr){
+    let words ={};
+    for(let i=0;i<arr.length;i++){
+        let count=0;
+        for(let j=0;j<arr.length-1;j++){
+          if(arr[i]===arr[j]){
+                count++;
+          }
+        }
+        words[arr[i]]=count;
+    }
+    return words;
+}
+console.log(countWords(['one','two','three','one','two','four'])); // {one: 2, two: 2, three: 1, four: 0}
+// this method also reexecute all duplicates even it doesnt need to compare
+
+//advanced method
+
+function fun(arr){
+    let newObj={};
+    for(let i=0;i<arr.length;i++){
+        let counter=0;
+        let word=arr[i];
+        if(newObj[word]!==undefined){
+            continue;
+        }
+        for(let j=0;j<arr.length;j++){
+            if(arr[i]===arr[j]){
+                counter++;
+            }
+        }
+        newObj[word]=counter;
+    }
+    return newObj;
+
+}
+console.log(fun(['tarun','tarun','kumar','nani','kumar'])); //{tarun: 2, kumar: 2, nani: 1}
