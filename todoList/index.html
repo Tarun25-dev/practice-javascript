@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <p><b>To-Do List1</b></p>
+    <input type="text" class="js-input" placeholder="Enter list">
+    <input type="date" class="js-date">
+    <button onclick="consoleDisplay();">Add</button>
+    <div class="js-div-display-input"></div>
+    <script>
+        let array1 = [{name:'sleeping',dueDate:'12-06-2025'},{name:'playing',dueDate:'12-06-2025'},{name:'learning',dueDate:'12-06-2025'}];
+        let dueDate = document.querySelector('.js-date').value;
+
+        fun();
+
+        function fun(){
+        let todolistHTML = '';
+        for(let i=0;i<array1.length;i++){
+            const value1=array1[i];
+            const name = value1.name;
+            const dueDate=value1.dueDate;
+            const html = 
+            `<p>
+            <span class="todoNames">${name}</span>
+            <span class="todoDates">${dueDate}</span>
+            <button onclick = "deleteItem(${i});" >Delete</button>
+            </p>` ;
+            todolistHTML += html;
+        }
+        document.querySelector('.js-div-display-input').innerHTML = todolistHTML;
+        }
+        function deleteItem(index){
+            array1.splice(index,1);
+            fun();
+        }
+        function consoleDisplay(){
+                let inputElement = document.querySelector('.js-input');
+                const dateElement = document.querySelector('.js-date');
+                let value = inputElement.value;
+                const dueDate=dateElement.value;
+                array1.push({
+                    name : value,
+                    dueDate :dueDate
+                });
+                inputElement.value = '';
+                dateElement.value='';
+                fun();
+            }
+
+    </script>
+</body>
+</html>
