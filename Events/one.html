@@ -1,0 +1,73 @@
+<!-- using addEventListener() displays bg color through input by event using click -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventListener</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .ctr{
+   
+            border:1px solid black;
+            display: flex;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+            font-size: 50px;
+            width: 500px;
+            height: 300px;
+            margin-top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bolder;
+            color: teal;
+        }
+        .ctr2{
+            display: flex;
+            position: absolute;
+            align-items: center;
+            justify-content: center;
+            margin-top:15%;
+            left:50%;
+            transform: translateX(-50%);
+            gap: 15px;
+        }
+        .ctr2 input{
+            height:40px;
+            width:40px;
+            border-radius: 10%;
+            
+        }
+        .ctr2 button{
+            height:40px;
+            width:100px;
+            font-weight: bold;
+            font-size:15px;
+            border:0.5px solid black;
+            
+        } 
+    </style>
+</head>
+<body>
+    <div class="ctr">THARUN KUMAR</div>
+    <div class="ctr2">
+    <input type="color" class="js-color">
+    <button class="js-btn">Apply Color</button>
+    </div>
+    <script>
+        let ctr1 = document.querySelector('.ctr');
+        let button = document.querySelector('.js-btn');
+        let color = document.querySelector('.js-color');
+        button.addEventListener('click',function(){
+             let selectedColor = color.value;
+             ctr1.style.backgroundColor = selectedColor;
+        });
+    </script>
+</body>
+</html>
