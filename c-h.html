@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💬 Chat App</title>
+</head>
+<body>
+    <button onclick="jsFun();" class="js-btn">Finish</button>
+    <br>
+    <br>
+    <button onclick="jsCart();" class="js-btn2">Add to cart</button>
+    <p class="js-paraDisplay"></p>
+    <br>
+    <br>
+    <button onclick="addTitlemsg();">add</button>
+    <button onclick="removeTitlemsg();">remove</button>
+    <script>
+        //setTimeout is method that execute a function once declared time reached nad here it calculates time in milliseconds
+        // 1000 milliseconds === 1 second
+        function jsFun(){
+        document.querySelector('.js-btn').innerText='Loading...';
+        setTimeout(function delay(){
+            document.querySelector('.js-btn').innerText='finished!';
+            },5000);
+        }
+        //
+        function jsCart(){
+            let delayTime = 2000;
+            document.querySelector('.js-btn2').innerText='Adding';
+            setTimeout(function delay(){
+            document.querySelector('.js-btn2').innerText='Added to cart';
+            },delayTime);
+            setTimeout(function delay(){
+            document.querySelector('.js-paraDisplay').innerHTML='Added';
+            },delayTime);
+        }
+
+        // adding msg count at the title
+        let msg = 0;
+        setInterval(()=>{
+            if(msg > 0){
+              document.title = `${msg} Chat App`;
+            }
+            else{
+                document.title = '💬 Chat App';
+            }
+        });
+        function addTitlemsg(){
+          msg+=1;
+        }
+        function removeTitlemsg(){
+          msg-=1;
+        }
+    </script>
+</body>
+</html>
