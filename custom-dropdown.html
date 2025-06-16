@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Images</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .menu-list{
+      /* this property doesnt display any this until any event is happen for this element */ 
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="drop-down-ctr">
+  <div class="user-select">Menu</div>
+  <div class="menu-list">
+  <!-- data-value represents the corresponding elements to hold the value for interaction with js -->
+      <div data-value="1">one</div>
+      <div data-value="2">two</div>
+      <div data-value="3">three</div>
+      <div data-value="4">four</div>
+      <div data-value="5">five</div>
+      <div data-value="6">six</div>
+      <div data-value="7">seven</div>
+  </div>
+  </div>
+  <script>
+    const userSelect = document.querySelector('.user-select');
+    const menuList = document.querySelector('.menu-list');
+    userSelect.addEventListener('click',()=>{
+      //condition if menu list is display(block) then when we click on menu element and making it display(none)
+      //condition if menu list is not display(none) then when we click on menu element and making it display(block)
+      //this switching is called as a toggle
+
+      menuList.style.display=(menuList.style.display==='block')?'none':'block';
+    });
+    // a is a temporary variable which takes on by one element from menu list and execute the function on it
+    //dataset.value represents the data-value in html
+    menuList.addEventListener('click',(a)=>{
+      if(a.target.dataset.value){
+        userSelect.textContent=a.target.textContent;
+        menuList.style.display='none';
+      }
+    });
+    //when ever we click on ouside the drop-down-ctr then we want make that menu list hide(none)
+    //thats why we use not closest proprty with classname which means exclude that element click any where then menulist hide
+    document.addEventListener('click',(e)=>{
+      if(!e.target.closest('.drop-down-ctr')){
+        menuList.style.display='none';
+      }
+    });
+  </script>
+</body>
+</html>
