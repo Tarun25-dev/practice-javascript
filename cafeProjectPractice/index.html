@@ -5,42 +5,187 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Magic Cafe</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
 
-    body {
-      background-color: lightgray;
-    }
+        body {
+          background-color: lightgray;
+        }
+        .css-video {
+          position: fixed;
+          z-index: 999;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 1;
+          transition: opacity 1.5s ease-out;
+        }
+        .js-mainpage{
+          display: none;
+          opacity: 0;
+          transition: opacity 1.5s ease-in;
+        }
+        header{
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bolder;
+            font-size: clamp(25px,8vw,80px);
+            text-align: center;
+            background-color: lightblue;
+            border:2px solid black;
+            border-top-left-radius:15px ;
+            border-top-right-radius:15px;
+            user-select:none;
+        }
+        span{
+            cursor: pointer;
+            align-items: center;
+            padding: 1px;
+        }
+        .ca:hover{
+            border:1px solid black; 
+            background-color: teal;
+            transition:1s ease-in;
+         
+        }
+        .cb:hover{
+            border:1px solid black;
+            background-color: #D4A017;
+            transition:1s ease-out;
+            
+        }
+        /* has() is used to acess another non relationship element when particular element happen*/
+        /* the following one is i want when hover my span the i need to change header background*/
+        header:has(.ca:hover){
+            background-color: #D4A017;
+           transition:1s ease-out;
+        }
+        header:has(.cb:hover){
+            background-color: teal;
+           transition:1s ease-in;
+        }
 
-    .css-video {
-      position: fixed;
-      z-index: 999;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 1;
-      transition: opacity 1.5s ease-out;
-    }
+        .main-poster-ctr img{
+                 width: 100%;
+                 height: auto;
+                 object-fit: cover;
+                 position: relative;
+                 border-top: 1.5px solid black;
+                 border-bottom: 1.5px solid black;
+        }
+        .coffee-poster-ctr img{
+                width: 100%;
+                 height: auto;
+                 object-fit: cover;
+                 position: relative;
+                 border-top: 1.5px solid black;
+                 border-bottom: 1.5px solid black;
+        }
+        .tea-poster-ctr img{
+                width: 100%;
+                 height: auto;
+                 object-fit: cover;
+                 position: relative;
+                 
+                 border-top: 1.5px solid black;
+                 border-bottom: 1.5px solid black;
+        }
+        .tea2-poster-ctr img{
+                width: 100%;
+                 height: auto;
+                 object-fit: cover;
+                 position: relative;
+                
+                 border-top: 1.5px solid black;
+                 border-bottom: 1.5px solid black;
+        }
+        .coffee-btn{
+            
+            display:flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            overflow: hidden;
+            margin:0 0 4px 0;
+            position:relative;
+            height:40px;
+            width:100%;
+            border:1px solid black;
+            background-color: transparent;
+            align-items: center;
+            justify-content: center;
+            border-left: transparent;
+            border-right: transparent;
+            background-color:#e6d3b3;
+        }
+        @media (max-width:789PX) {
+            .coffee-btn P{
+                font-size:10PX;
+                letter-spacing:2PX;
+            }
+            
+        }
+        .coffee-btn p{
+            font-family:serif;
+            font-size: 20px;
+            letter-spacing:3px;
+            font-weight:bold;
 
-    .img1 {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      position: relative;
-      top: 90px;
-      border-top: 1.5px solid black;
-      border-bottom: 1.5px solid black;
-    }
+            left:50%;
+        }
+        .coffee-btn button{
+            padding:2px 3px;
+            font-size:18px;
+            font-family: serif;
+            letter-spacing:1px;
+            border-radius:10%;
+        }
+        .coffee-btn button:hover{
+            background-color: brown;
+            color: white;
+            font-size: 20px;
+        }
+        .tea-btn{
+            display:flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            overflow: hidden;
+            margin:0 0 4px 0;
+            position:relative;
+            height:40px;
+            width:100%;
+            border:1px solid black;
+            background-color: transparent;
+            align-items: center;
+            justify-content: center;
+            border-left: transparent;
+            border-right: transparent;
+            background-color:#e2c7a0;
+        }
+        .tea-btn p{
+            font-family:serif;
+            font-size: 20px;
+            letter-spacing:3px;
+            font-weight:bold;
 
+            left:50%;
+        }
+        .tea-btn button{
+            padding:2px 3px;
+            font-size:18px;
+            font-family: serif;
+            letter-spacing:1px;
+            border-radius:10%;
+        }
+        .tea-btn button:hover{
+            background-color: brown;
+            color: white;
+            font-size: 20px;
+        }
 
+      
 
-
-    .wallpaper {
-      display: none;
-    }
   </style>
 </head>
 <body>
@@ -50,37 +195,65 @@
   </video>
 
   <div class="js-mainpage">
-    <div class="wallpaper">
-      <img class="img1" src="source/one.png" alt="Background Image">
+     <header>
+        <span class="ca">C</span>
+        <span class="cb">A</span>
+        <span class="ca">F</span>
+        <span class="cb">E</span>
+        <span class="ca">N</span>
+        <span class="cb">A</span>
+        <span class="ca">M</span>
+        <span class="cb">E</span>
+    </header>
+    <div class="main-poster-ctr">
+        <img src="source/one.png" alt="">
     </div>
+    <div class="coffee-poster-ctr">
+        <img src="source/coffee/coffeeMenu.png" alt="">
+    </div>
+    <div class="coffee-btn"><p>Choose your coffee ➡</p>
+        <button onclick="window.location.href='anay.html' ">Coffee</button>
+    </div>
+    <div class="tea-poster-ctr">
+        <img src="source/tea/teaMenu.png" alt="">
+    </div>
+     <div class="tea-btn"><p>Choose your Tea ➡</p>
+        <button>Tea</button>
+    </div>
+    <div class="tea2-poster-ctr">
+        <img src="source/tea/teaMenu.png" alt="">
+    </div>
+
   </div>
 
   <script>
-    const video = document.querySelector('.css-video');
-    const mainPage = document.querySelector('.js-mainpage');
-    const wallpaper = document.querySelector('.wallpaper');
+  const video = document.querySelector('.css-video');
+  const mainPage = document.querySelector('.js-mainpage');
 
-    function showMainPage() {
-      // Fade out the video
-      video.style.opacity = '0';
-      video.style.pointerEvents = 'none';
+  function showMainPage() {
+    //  Fade out the video
+    video.style.opacity = '0';
+    video.style.pointerEvents = 'none';
 
-      // After fade transition, hide video
-      setTimeout(() => {
-        video.style.display = 'none';
-      }, 1500);
+    //  Display and fade in the main content immediately
+    mainPage.style.display = 'block';
+    requestAnimationFrame(() => {
+      mainPage.style.opacity = '1';
+    });
 
-      // Show content
-      mainPage.style.display = 'block';
-      wallpaper.style.display = 'block';
-    }
+    //  After fade-out completes, remove the video from layout
+    setTimeout(() => {
+      video.style.display = 'none';
+    }, 500); // Slightly less than CSS 1.5s for smooth transition (no delay bump)
+  }
 
-    // On video end or error, show main content
-    video.onended = showMainPage;
-    video.play().catch(showMainPage);
+  // Trigger showMainPage when video ends or if playback fails
+  video.onended = showMainPage;
+  video.play().catch(showMainPage);
 
-    // Extra fallback in case video takes too long
-    setTimeout(showMainPage, 5350);
+  // Fallback: safety timeout in case video stalls
+  setTimeout(showMainPage, 5500);
+
   </script>
 
 </body>
