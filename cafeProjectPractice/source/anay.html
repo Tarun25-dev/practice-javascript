@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+           margin:0;
+           padding:0;
+           box-sizing: border-box;
+        }
+        body{  
+            background-color:#4b2e2b;
+        }
+        .nav{
+            top:0;
+            position: fixed;
+            height:70px;
+            width:100%;
+            border:2px solid black;
+            z-index:999;  
+            margin-top:0px;
+            margin-left:0px;
+            margin-bottom:50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            flex-wrap: nowrap;
+            padding:8px 12px;
+           
+        }
+        .nav.color{
+            background-color:white;
+            color:black;
+        }
+        .nav.transparent{
+            background-color: transparent;
+            color: white;
+        }
+        .nav-left,.nav-right{
+               display: flex;
+               align-items: center;
+               gap:10px;
+               flex-shrink: 0;
+        }
+        .nav-left-menu{
+            position: relative;
+            font-size:15px;
+            cursor: pointer;
+            white-space: nowrap;
+            margin-left:20px;
+            letter-spacing:2px;
+            font-weight: bold;
+        }
+        .menu-items{
+            display: none;
+            position: absolute;
+            top:100%;
+            left:0;
+            background-color: #444;
+            list-style: none;
+            padding: 8px;
+            border-radius:5px;
+            min-width: 140px;
+            z-index:10;
+        }
+        .nav-left-menu:hover .menu-items{
+            display: block;
+        }
+        .menu-items li{
+            padding:6px 10px;
+            color:white;
+            cursor: pointer;
+
+        }
+        .menu-items li:hover{
+            background-color: grey;
+        }
+        .nav-center{
+            flex:1;
+            display: flex;
+            justify-content: center;
+            min-width:50px;
+            margin-left:20px;
+        }
+        .search-bar{
+            width:100%;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: none;
+            font-size: 14px;
+        }
+        .search-bar input{
+            width: 100%;
+            max-width:300px;
+            padding:6px 10px;
+            font-size: 14px;
+            border:1px solid #ccc;
+            border-radius:4px;
+        }
+        @media (min-width:768px) {
+            .search-bar input{
+                max-width:400px;
+            }
+            
+        }
+        .icon{
+            position:relative;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .icon span{
+            position: absolute;
+            top:-8px;
+            right:-10px;
+            background-color:red;
+            color: white;
+            font-size:11px;
+            padding: 2px 5px;
+            border-radius:50%;
+        }
+        @media (max-width:600px) {
+            .menu{
+                font-size: 14px;
+            }
+            .search-bar input{
+                font-size: 12px;
+                padding: 5px 8px;
+            }
+            .icon{
+                font-size: 18px;
+            }
+            .icon span{
+                font-size: 10px;
+                padding:2px 4px;
+            }
+        }
+        .nav-ctr p{
+            border:2px solid black;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size:25px;
+            font-weight: bolder;
+            letter-spacing:3px;
+            left:50%;
+            position: relative;
+            margin-top:70px;
+            transform: translateX(-50%);   
+            width:fit-content;    
+            background-color: #4b2e2b;
+            color:white;
+            border-bottom: transparent;
+            height:auto;
+            width:100%;
+            font-size: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        @media (max-width:799px) {
+           .nav-ctr p{
+            font-size: 30px;
+           }
+        }
+
+        .ctr{
+            margin-top:90px;
+            max-width:1200px;
+            margin:20px auto;
+            padding:10px;
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+            gap:14px;
+            
+        }
+        @media (min-width:768px){
+            .ctr{
+                grid-template-columns: repeat(3,1fr);
+                gap:15px;         
+            }
+        }
+        .box-ctr1,.box-ctr2,.box-ctr3,.box-ctr4,.box-ctr5,.box-ctr6,.box-ctr7,.box-ctr8,.box-ctr9,.box-ctr10,.box-ctr11,.box-ctr12,.box-ctr13,.box-ctr14,.box-ctr15,.box-ctr16,.box-ctr17,.box-ctr18{
+            position: relative;
+            border-radius:2%;
+            background:#fff; 
+            border:1px solid black;
+            height:480px;
+            background-color: #f5f0e5;
+        }
+        .img-ctr{
+             position:absolute;
+             height:230px;
+             width:355px;
+             border:1px solid black;
+             top:10px;
+             left:50%;
+             transform: translateX(-50%);
+             border-radius: 2%;
+        }
+        .img-ctr img {
+            width: 100%;
+            height:100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* for mobile screen */
+        @media (max-width:600px) {
+            .img-ctr{
+                max-width:280px;
+                
+            }
+        }
+        .space-between-nav-products{
+            width:auto;
+            height: 60px; 
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="nav color">
+        <div class="nav-left">
+            <div class="nav-left-menu">Menu 
+                <ul class="menu-items">
+                    <li>Cofee</li>
+                    <li>Tea</li>
+                    <li>Snacks</li>
+                    <li>Cool Drinks</li>
+                    <li>Chat</li>
+                    <li>Desserts</li>
+                    <li>Ice Creams</li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav-center">
+            <div class="search-bar"><input type="text" placeholder="Search..."></div>
+        </div>
+        <div class="nav-right">
+            <div class="icon">&#128722;<span>1</span></div>
+            <div class="icon">&#10084;<span>2</span></div>
+        </div>
+    </nav>
+    <div class="nav-ctr">
+    <p>COFFEE TIME</p>
+     </div> 
+
+   <div class="ctr">
+<div class="box-ctr1">
+    <div class="img-ctr"><img src="source/coffee1.png" alt=""></div>
+</div>
+<div class="box-ctr2">
+    <div class="img-ctr"><img src="source/coffee1.png" alt=""></div>
+</div>
+<div class="box-ctr3">
+    <div class="img-ctr"><img src="source/coffee1.png" alt=""></div>
+</div>
+<div class="box-ctr4">
+    <div class="img-ctr"><img src="source/coffee1.png" alt=""></div>
+</div>
+<div class="box-ctr5">
+    <div class="img-ctr"><img src="source/coffee1.png" alt=""></div>
+</div>
+<div class="box-ctr6">
+    <div class="img-ctr"><img src="source/coffee1.png" alt=""></div>
+</div>
+<div class="box-ctr7">
+    <div class="img-ctr"><img src="source/coffee1.png" alt=""></div>
+</div>
+<div class="box-ctr8">
+    <div class="img-ctr"><img src="source/coffee1.png" alt=""></div>
+</div>
+<div class="box-ctr9">
+    <div class="img-ctr"><img src="source/coffee1.png" alt=""></div>
+</div>
+<div class="box-ctr10">
+    <div class="img-ctr"><img src="source/coffee1.png" alt=""></div>
+</div>
+<div class="box-ctr11">
+    <div class="img-ctr"><img src="source/coffee1.png" alt=""></div>
+</div>
+<div class="box-ctr12">
+    <div class="img-ctr"><img src="source/coffee1.png" alt=""></div>
+</div>
+<div class="box-ctr13">
+    <div class="img-ctr"><img src="source/coffee1.png" alt=""></div>
+</div>
+<div class="box-ctr14">
+    <div class="img-ctr"><img src="source/coffee1.png" alt=""></div>
+</div>
+<div class="box-ctr15">
+    <div class="img-ctr"><img src="source/coffee1.png" alt=""></div>
+</div>
+<div class="box-ctr16">
+    <div class="img-ctr"><img src="source/coffee1.png" alt=""></div>
+</div>
+<div class="box-ctr17">
+    <div class="img-ctr"><img src="source/coffee1.png" alt=""></div>
+</div>
+<div class="box-ctr18">
+    <div class="img-ctr"><img src="source/coffee1.png" alt=""></div>
+</div>
+</div>  
+<script>
+    const navbar = document.querySelector('.nav');
+    window.addEventListener('scroll',()=>{
+        if(window.scrollY>0){
+            navbar.classList.remove('color');
+            navbar.classList.add('transparent');
+        }
+        else{
+            navbar.classList.add('color');
+            navbar.classList.remove('transparent');
+        }
+    });
+</script>  
+</body>
+</html>
