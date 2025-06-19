@@ -1076,18 +1076,23 @@
         element.textContent='🤍';
       }
     }
-        // for ratings
-    function setRating(outOf10, count) {
-      const starsInner = document.querySelector('.stars-inner');
-      const ratingCount = document.querySelector('.rating-count');
-      // Convert to 5-star and round to nearest 0.1
-      const ratingOutOf5 = Math.round((outOf10 / 10) * 5 * 10) / 10;
-      const percentage = (ratingOutOf5 / 5) * 100;
-      starsInner.style.width = `${percentage}%`;
-      ratingCount.textContent = count;
-      }
-      setRating(8.5, 85); 
+        function setAllRatings(outOf10, count) {
+  const starsInnerList = document.querySelectorAll('.stars-inner');
+  const ratingCountList = document.querySelectorAll('.rating-count');
+  
+  const ratingOutOf5 = Math.round((outOf10 / 10) * 5 * 10) / 10;
+  const percentage = (ratingOutOf5 / 5) * 100;
 
+  starsInnerList.forEach(starsInner => {
+    starsInner.style.width = `${percentage}%`;
+  });
+
+  ratingCountList.forEach(ratingCount => {
+    ratingCount.textContent = count;
+  });
+}
+
+setAllRatings(8.5, 85); // ✅ Call this to apply to all items
 </script>  
 </body>
 </html>
