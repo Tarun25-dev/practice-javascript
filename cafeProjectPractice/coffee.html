@@ -261,8 +261,8 @@
         }
         .first-details{
               position: relative;
-              max-height:70px;
-              width:320px;
+              max-height:50px;
+              width:350px;
               display: flex;
               flex-wrap: wrap;
               left:50%;
@@ -273,6 +273,7 @@
         }
         .first-details p{
           font-size:13px;
+          margin-left:2px;
         }
         @media (max-width:789px) {
           .first-details p{
@@ -283,19 +284,27 @@
           }
           .first-details{
             max-width:250px;
+            max-height:40px;
           }  
         }
         .second-details{
           position: relative;
-          top:2%;
-          height:90px;
+          top:0%;
+          height:130px;
           width:100%;
         }
         .rating{
-          margin-top:1%;
-          height:50%;
-          width:50%;
-          padding: 6px 12px;
+          display: flex;
+          flex: 1;
+          margin-top:2%;
+          border-radius: 8px;
+          width:49%;
+          margin-left:8px;
+          margin-bottom: 12px;
+          padding:8px;
+          color: #ffd700;
+          background-color:#2e2e2e;
+          border:1px solid goldenrod;
         }
         .star-rating {
         height:100%;
@@ -332,77 +341,107 @@
       .rating-count {
         font-size: 15px;
         margin-left: 5px;
+        font-weight: bold;
       }
       @media (max-width:789px) {
         .rating-count{
-          font-size: 12px;
-        }
-        .star-rating,.stars-outer{
-          font-size:20px;
+          margin-left:-3px;
+          margin-top:2px;
+          font-weight: bold;
         }
         
       }
-        .qty-details{
-                position: relative;
-                height:50%;
-                width:20%;
-                top:-50%;
-                left:65%;
-                padding: 5px 5px 5px 5px;
-                display: flex;
-                justify-content:center ;
-                align-items:center ;
-        }
-        .qty-details select{
-          position: absolute;
-          height:80%;
+
+      .product-price-qrt-cart-ctr{
+        display: flex;
+        flex:1;
+        position: absolute;
           width:100%;
-          font-size:15px;
-          font-weight: bold;
-          letter-spacing:2;
+          margin-left:8px;
+          top:0%;
+          left:50%;
+          margin-top:0%;
+        
+      }
+      .product-price{
+            background-color:#2e2e2e;
+            color: #ffd700;
+            padding:8px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 8px;
+            border:1px solid goldenrod;
+            margin-bottom: 12px;
+            
+      }
+      .product-qrt-cart-ctr{
+        display: flex;
+        position: relative;
+        width:100%;
+        margin-top: 8px;
+       
+      }
+      .cart-qty-ctr{
+        width:30%;
+        height:100%;
+         padding:8px;
+
+      }
+      .cart-qty-ctr label{
+         position: relative;
+         background-color:#2e2e2e;
+            color: #ffd700;
+            font-size: 20px;
+            margin-left:2px;
+            text-align: center;
+            border-radius: 8px;
+            border:1px solid goldenrod;
+            margin-bottom: 12px;
+            padding:7px;
+      }
+      .cart-qty-ctr select{
+        position: absolute;
+        padding: 7px;
+        font-size: 16px;
+        margin-bottom:12px;
+        margin-left:0%;
+        align-items: center;
+        border:none;
+        top:3%;
+        
+      }
+      .cart-btn-ctr{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:60%;
+        
+      }
+      .cart-btn-ctr button{
+        position: relative;
+        font-size:16px;
+        padding:10px;
+        background-color:#2e2e2e;
+        color:#ffd700;
+        font-weight: bold;
+        border:none;
+        border-radius:6px;
+        cursor: pointer;
+        transition: background-color 0.5s ease;
+        letter-spacing:1px;
+        left:-10%;
+      }
+
+      @media (max-width:789px) {
+        .cart-btn-ctr button{
+          left: 8%;
         }
-        .qty-label{
-          position: relative;
-                height:50%;
-                width:10%;
-                top:-100%;
-                left:85%;
-                padding: 5px 0px 5px 0px;
-        }
-        .qty-label p{
-          border:1px solid black;
-          position: absolute;
-          display: flex;
-          justify-content:center ;
-          align-items:center ;
-          height:80%;
-          width:100%;
-          font-size:14px;
-          font-weight: bold;
-          letter-spacing:2;
-          border-bottom-right-radius:10px;
-          border-top-right-radius:10px;
-          border-left:transparent;
-        }
-        .cart-btn-details{
-          position: absolute;
-          height:50%;
-          width:50%;
-          top:43%;
-          padding:5px 10px;
-          
-        }
-        .cart-btn-details button{
-          display:flex ;
-          justify-content: center;
-          align-items: center;
-          height:100%;
-          width: 100%;
-          font-size: 16px;
-          letter-spacing:1.5px;
-          background-color:goldenrod;
-          border:0.5ps solid black;
-        }
+        
+      }
+
+ 
 
 
     </style>
@@ -440,7 +479,7 @@
     <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
     <div class="img-details">
       <h1>black cofffee</h1>
-      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hic corporis aliquid numquam beatae deserunt. Quaerat odio velit deserunt at veniam deleniti, numquam dolorum eius architecto.</p></div>
+      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hicDolores nisi a, alias aliquam hic </p></div>
       <div class="second-details">
         <div class="rating">
           <div class="star-rating">
@@ -448,33 +487,38 @@
           <div class="stars-inner"></div>
           </div>
           <span class="rating-count">0</span>
+        </div>
+        <div class="product-price-qrt-cart-ctr">
+          <div class="product-price">INR : ₹120</div>
+        </div>
+        </div>
+        <div class="product-qrt-cart-ctr">
+          <div class="cart-qty-ctr">
+            <label for="qty1">Qty</label>
+            <select id="qty1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
           </div>
+          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
-        <div class="qty-details">
-          <select name="" id="">
-          <option value="">one</option>
-          <option value="">two</option>
-          <option value="">three</option>
-          <option value="">four</option>
-          <option value="">five</option>
-          <option value="">six</option>
-          <option value="">seven</option>
-          <option value="">eigth</option>
-          <option value="">nine</option>
-          </select>
         </div>
-        <div class="qty-label"><p>Qty</p></div>
-        <div class="cart-btn-details"><button>Add to Cart</button></div>
-    </div>
-</div>
-</div>
+        </div>
+        </div>
 </div>
 <div class="box-ctr2">
     <div class="img-ctr"><img src="source/coffee1.png" alt="">
     <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-      <div class="img-details">
+        <div class="img-details">
       <h1>black cofffee</h1>
-      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hic corporis aliquid numquam beatae deserunt. Quaerat odio velit deserunt at veniam deleniti, numquam dolorum eius architecto.</p></div>
+      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hicDolores nisi a, alias aliquam hic </p></div>
       <div class="second-details">
         <div class="rating">
           <div class="star-rating">
@@ -482,69 +526,77 @@
           <div class="stars-inner"></div>
           </div>
           <span class="rating-count">0</span>
+        </div>
+        <div class="product-price-qrt-cart-ctr">
+          <div class="product-price">INR : ₹120</div>
+        </div>
+        </div>
+        <div class="product-qrt-cart-ctr">
+          <div class="cart-qty-ctr">
+            <label for="qty1">Qty</label>
+            <select id="qty1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
           </div>
+          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
-        <div class="qty-details">
-          <select name="" id="">
-          <option value="">one</option>
-          <option value="">two</option>
-          <option value="">three</option>
-          <option value="">four</option>
-          <option value="">five</option>
-          <option value="">six</option>
-          <option value="">seven</option>
-          <option value="">eigth</option>
-          <option value="">nine</option>
-          </select>
         </div>
-        <div class="qty-label"><p>Qty</p></div>
-        <div class="cart-btn-details"><button>Add to Cart</button></div>
-    </div>
+        </div>
+        </div>
 </div>
-</div>
-</div>
-
 <div class="box-ctr3">
     <div class="img-ctr"><img src="source/coffee1.png" alt="">
     <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
         <div class="img-details">
-      <h1>black cofffee</h1>
-      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hic corporis aliquid numquam beatae deserunt. Quaerat odio velit deserunt at veniam deleniti, numquam dolorum eius architecto.</p></div>
-      <div class="second-details">
+        <h1>black cofffee</h1>
+        <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hicDolores nisi a, alias aliquam hic </p></div>
+        <div class="second-details">
         <div class="rating">
           <div class="star-rating">
           <div class="stars-outer">
           <div class="stars-inner"></div>
           </div>
           <span class="rating-count">0</span>
+        </div>
+        <div class="product-price-qrt-cart-ctr">
+          <div class="product-price">INR : ₹120</div>
+        </div>
+        </div>
+        <div class="product-qrt-cart-ctr">
+          <div class="cart-qty-ctr">
+            <label for="qty1">Qty</label>
+            <select id="qty1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
           </div>
+          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
-        <div class="qty-details">
-          <select name="" id="">
-          <option value="">one</option>
-          <option value="">two</option>
-          <option value="">three</option>
-          <option value="">four</option>
-          <option value="">five</option>
-          <option value="">six</option>
-          <option value="">seven</option>
-          <option value="">eigth</option>
-          <option value="">nine</option>
-          </select>
         </div>
-        <div class="qty-label"><p>Qty</p></div>
-        <div class="cart-btn-details"><button>Add to Cart</button></div>
-    </div>
+        </div>
+        </div>
 </div>
-</div>
-</div>
-
 <div class="box-ctr4">
     <div class="img-ctr"><img src="source/coffee1.png" alt="">
     <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-        <div class="img-details">
+      <div class="img-details">
       <h1>black cofffee</h1>
-      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hic corporis aliquid numquam beatae deserunt. Quaerat odio velit deserunt at veniam deleniti, numquam dolorum eius architecto.</p></div>
+      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hicDolores nisi a, alias aliquam hic </p></div>
       <div class="second-details">
         <div class="rating">
           <div class="star-rating">
@@ -552,34 +604,39 @@
           <div class="stars-inner"></div>
           </div>
           <span class="rating-count">0</span>
+        </div>
+        <div class="product-price-qrt-cart-ctr">
+          <div class="product-price">INR : ₹120</div>
+        </div>
+        </div>
+        <div class="product-qrt-cart-ctr">
+          <div class="cart-qty-ctr">
+            <label for="qty1">Qty</label>
+            <select id="qty1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
           </div>
+          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
-        <div class="qty-details">
-          <select name="" id="">
-          <option value="">one</option>
-          <option value="">two</option>
-          <option value="">three</option>
-          <option value="">four</option>
-          <option value="">five</option>
-          <option value="">six</option>
-          <option value="">seven</option>
-          <option value="">eigth</option>
-          <option value="">nine</option>
-          </select>
         </div>
-        <div class="qty-label"><p>Qty</p></div>
-        <div class="cart-btn-details"><button>Add to Cart</button></div>
-    </div>
-</div>
-</div>
+        </div>
+        </div>
 </div>
 
 <div class="box-ctr5">
     <div class="img-ctr"><img src="source/coffee1.png" alt="">
     <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-        <div class="img-details">
+      <div class="img-details">
       <h1>black cofffee</h1>
-      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hic corporis aliquid numquam beatae deserunt. Quaerat odio velit deserunt at veniam deleniti, numquam dolorum eius architecto.</p></div>
+      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hicDolores nisi a, alias aliquam hic </p></div>
       <div class="second-details">
         <div class="rating">
           <div class="star-rating">
@@ -587,26 +644,31 @@
           <div class="stars-inner"></div>
           </div>
           <span class="rating-count">0</span>
+        </div>
+        <div class="product-price-qrt-cart-ctr">
+          <div class="product-price">INR : ₹120</div>
+        </div>
+        </div>
+        <div class="product-qrt-cart-ctr">
+          <div class="cart-qty-ctr">
+            <label for="qty1">Qty</label>
+            <select id="qty1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
           </div>
+          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
-        <div class="qty-details">
-          <select name="" id="">
-          <option value="">one</option>
-          <option value="">two</option>
-          <option value="">three</option>
-          <option value="">four</option>
-          <option value="">five</option>
-          <option value="">six</option>
-          <option value="">seven</option>
-          <option value="">eigth</option>
-          <option value="">nine</option>
-          </select>
         </div>
-        <div class="qty-label"><p>Qty</p></div>
-        <div class="cart-btn-details"><button>Add to Cart</button></div>
-    </div>
-</div>
-</div>
+        </div>
+        </div>
 </div>
 
 <div class="box-ctr6">
@@ -614,7 +676,8 @@
     <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
         <div class="img-details">
       <h1>black cofffee</h1>
-      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hic corporis aliquid numquam beatae deserunt. Quaerat odio velit deserunt at veniam deleniti, numquam dolorum eius architecto.</p></div>
+      <h1>black cofffee</h1>
+      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hicDolores nisi a, alias aliquam hic </p></div>
       <div class="second-details">
         <div class="rating">
           <div class="star-rating">
@@ -622,35 +685,40 @@
           <div class="stars-inner"></div>
           </div>
           <span class="rating-count">0</span>
+        </div>
+        <div class="product-price-qrt-cart-ctr">
+          <div class="product-price">INR : ₹120</div>
+        </div>
+        </div>
+        <div class="product-qrt-cart-ctr">
+          <div class="cart-qty-ctr">
+            <label for="qty1">Qty</label>
+            <select id="qty1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
           </div>
+          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
-        <div class="qty-details">
-          <select name="" id="">
-          <option value="">one</option>
-          <option value="">two</option>
-          <option value="">three</option>
-          <option value="">four</option>
-          <option value="">five</option>
-          <option value="">six</option>
-          <option value="">seven</option>
-          <option value="">eigth</option>
-          <option value="">nine</option>
-          </select>
         </div>
-        <div class="qty-label"><p>Qty</p></div>
-        <div class="cart-btn-details"><button>Add to Cart</button></div>
-    </div>
-</div>
-</div>
+        </div>
+        </div>
 </div>
 
 
 <div class="box-ctr7">
     <div class="img-ctr"><img src="source/coffee1.png" alt="">
     <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-        <div class="img-details">
+      <div class="img-details">
       <h1>black cofffee</h1>
-      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hic corporis aliquid numquam beatae deserunt. Quaerat odio velit deserunt at veniam deleniti, numquam dolorum eius architecto.</p></div>
+      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hicDolores nisi a, alias aliquam hic </p></div>
       <div class="second-details">
         <div class="rating">
           <div class="star-rating">
@@ -658,34 +726,39 @@
           <div class="stars-inner"></div>
           </div>
           <span class="rating-count">0</span>
+        </div>
+        <div class="product-price-qrt-cart-ctr">
+          <div class="product-price">INR : ₹120</div>
+        </div>
+        </div>
+        <div class="product-qrt-cart-ctr">
+          <div class="cart-qty-ctr">
+            <label for="qty1">Qty</label>
+            <select id="qty1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
           </div>
+          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
-        <div class="qty-details">
-          <select name="" id="">
-          <option value="">one</option>
-          <option value="">two</option>
-          <option value="">three</option>
-          <option value="">four</option>
-          <option value="">five</option>
-          <option value="">six</option>
-          <option value="">seven</option>
-          <option value="">eigth</option>
-          <option value="">nine</option>
-          </select>
         </div>
-        <div class="qty-label"><p>Qty</p></div>
-        <div class="cart-btn-details"><button>Add to Cart</button></div>
-    </div>
-</div>
-</div>
+        </div>
+        </div>
 </div>
 
 <div class="box-ctr8">
     <div class="img-ctr"><img src="source/coffee1.png" alt="">
     <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-        <div class="img-details">
+      <div class="img-details">
       <h1>black cofffee</h1>
-      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hic corporis aliquid numquam beatae deserunt. Quaerat odio velit deserunt at veniam deleniti, numquam dolorum eius architecto.</p></div>
+      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hicDolores nisi a, alias aliquam hic </p></div>
       <div class="second-details">
         <div class="rating">
           <div class="star-rating">
@@ -693,34 +766,38 @@
           <div class="stars-inner"></div>
           </div>
           <span class="rating-count">0</span>
+        </div>
+        <div class="product-price-qrt-cart-ctr">
+          <div class="product-price">INR : ₹120</div>
+        </div>
+        </div>
+        <div class="product-qrt-cart-ctr">
+          <div class="cart-qty-ctr">
+            <label for="qty1">Qty</label>
+            <select id="qty1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
           </div>
+          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
-        <div class="qty-details">
-          <select name="" id="">
-          <option value="">one</option>
-          <option value="">two</option>
-          <option value="">three</option>
-          <option value="">four</option>
-          <option value="">five</option>
-          <option value="">six</option>
-          <option value="">seven</option>
-          <option value="">eigth</option>
-          <option value="">nine</option>
-          </select>
         </div>
-        <div class="qty-label"><p>Qty</p></div>
-        <div class="cart-btn-details"><button>Add to Cart</button></div>
-    </div>
+        </div>
+        </div>
 </div>
-</div>
-</div>
-
 <div class="box-ctr9">
     <div class="img-ctr"><img src="source/coffee1.png" alt="">
     <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-        <div class="img-details">
+      <div class="img-details">
       <h1>black cofffee</h1>
-      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hic corporis aliquid numquam beatae deserunt. Quaerat odio velit deserunt at veniam deleniti, numquam dolorum eius architecto.</p></div>
+      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hicDolores nisi a, alias aliquam hic </p></div>
       <div class="second-details">
         <div class="rating">
           <div class="star-rating">
@@ -728,33 +805,38 @@
           <div class="stars-inner"></div>
           </div>
           <span class="rating-count">0</span>
+        </div>
+        <div class="product-price-qrt-cart-ctr">
+          <div class="product-price">INR : ₹120</div>
+        </div>
+        </div>
+        <div class="product-qrt-cart-ctr">
+          <div class="cart-qty-ctr">
+            <label for="qty1">Qty</label>
+            <select id="qty1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
           </div>
+          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
-        <div class="qty-details">
-          <select name="" id="">
-          <option value="">one</option>
-          <option value="">two</option>
-          <option value="">three</option>
-          <option value="">four</option>
-          <option value="">five</option>
-          <option value="">six</option>
-          <option value="">seven</option>
-          <option value="">eigth</option>
-          <option value="">nine</option>
-          </select>
         </div>
-        <div class="qty-label"><p>Qty</p></div>
-        <div class="cart-btn-details"><button>Add to Cart</button></div>
-    </div>
-</div>
-</div>
+        </div>
+        </div>
 </div>
 <div class="box-ctr10">
     <div class="img-ctr"><img src="source/coffee1.png" alt="">
     <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-        <div class="img-details">
+      <div class="img-details">
       <h1>black cofffee</h1>
-      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hic corporis aliquid numquam beatae deserunt. Quaerat odio velit deserunt at veniam deleniti, numquam dolorum eius architecto.</p></div>
+      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hicDolores nisi a, alias aliquam hic </p></div>
       <div class="second-details">
         <div class="rating">
           <div class="star-rating">
@@ -762,33 +844,38 @@
           <div class="stars-inner"></div>
           </div>
           <span class="rating-count">0</span>
+        </div>
+        <div class="product-price-qrt-cart-ctr">
+          <div class="product-price">INR : ₹120</div>
+        </div>
+        </div>
+        <div class="product-qrt-cart-ctr">
+          <div class="cart-qty-ctr">
+            <label for="qty1">Qty</label>
+            <select id="qty1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
           </div>
+          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
-        <div class="qty-details">
-          <select name="" id="">
-          <option value="">one</option>
-          <option value="">two</option>
-          <option value="">three</option>
-          <option value="">four</option>
-          <option value="">five</option>
-          <option value="">six</option>
-          <option value="">seven</option>
-          <option value="">eigth</option>
-          <option value="">nine</option>
-          </select>
         </div>
-        <div class="qty-label"><p>Qty</p></div>
-        <div class="cart-btn-details"><button>Add to Cart</button></div>
-    </div>
-</div>
-</div>
+        </div>
+        </div>
 </div>
 <div class="box-ctr11">
     <div class="img-ctr"><img src="source/coffee1.png" alt="">
     <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-        <div class="img-details">
+      <div class="img-details">
       <h1>black cofffee</h1>
-      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hic corporis aliquid numquam beatae deserunt. Quaerat odio velit deserunt at veniam deleniti, numquam dolorum eius architecto.</p></div>
+      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hicDolores nisi a, alias aliquam hic </p></div>
       <div class="second-details">
         <div class="rating">
           <div class="star-rating">
@@ -796,33 +883,38 @@
           <div class="stars-inner"></div>
           </div>
           <span class="rating-count">0</span>
+        </div>
+        <div class="product-price-qrt-cart-ctr">
+          <div class="product-price">INR : ₹120</div>
+        </div>
+        </div>
+        <div class="product-qrt-cart-ctr">
+          <div class="cart-qty-ctr">
+            <label for="qty1">Qty</label>
+            <select id="qty1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
           </div>
+          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
-        <div class="qty-details">
-          <select name="" id="">
-          <option value="">one</option>
-          <option value="">two</option>
-          <option value="">three</option>
-          <option value="">four</option>
-          <option value="">five</option>
-          <option value="">six</option>
-          <option value="">seven</option>
-          <option value="">eigth</option>
-          <option value="">nine</option>
-          </select>
         </div>
-        <div class="qty-label"><p>Qty</p></div>
-        <div class="cart-btn-details"><button>Add to Cart</button></div>
-    </div>
-</div>
-</div>
+        </div>
+        </div>
 </div>
 <div class="box-ctr12">
     <div class="img-ctr"><img src="source/coffee1.png" alt="">
     <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-        <div class="img-details">
+      <div class="img-details">
       <h1>black cofffee</h1>
-      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hic corporis aliquid numquam beatae deserunt. Quaerat odio velit deserunt at veniam deleniti, numquam dolorum eius architecto.</p></div>
+      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hicDolores nisi a, alias aliquam hic </p></div>
       <div class="second-details">
         <div class="rating">
           <div class="star-rating">
@@ -830,33 +922,38 @@
           <div class="stars-inner"></div>
           </div>
           <span class="rating-count">0</span>
+        </div>
+        <div class="product-price-qrt-cart-ctr">
+          <div class="product-price">INR : ₹120</div>
+        </div>
+        </div>
+        <div class="product-qrt-cart-ctr">
+          <div class="cart-qty-ctr">
+            <label for="qty1">Qty</label>
+            <select id="qty1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
           </div>
+          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
-        <div class="qty-details">
-          <select name="" id="">
-          <option value="">one</option>
-          <option value="">two</option>
-          <option value="">three</option>
-          <option value="">four</option>
-          <option value="">five</option>
-          <option value="">six</option>
-          <option value="">seven</option>
-          <option value="">eigth</option>
-          <option value="">nine</option>
-          </select>
         </div>
-        <div class="qty-label"><p>Qty</p></div>
-        <div class="cart-btn-details"><button>Add to Cart</button></div>
-    </div>
-</div>
-</div>
+        </div>
+        </div>
 </div>
 <div class="box-ctr13">
     <div class="img-ctr"><img src="source/coffee1.png" alt="">
     <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-        <div class="img-details">
+      <div class="img-details">
       <h1>black cofffee</h1>
-      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hic corporis aliquid numquam beatae deserunt. Quaerat odio velit deserunt at veniam deleniti, numquam dolorum eius architecto.</p></div>
+      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hicDolores nisi a, alias aliquam hic </p></div>
       <div class="second-details">
         <div class="rating">
           <div class="star-rating">
@@ -864,33 +961,38 @@
           <div class="stars-inner"></div>
           </div>
           <span class="rating-count">0</span>
+        </div>
+        <div class="product-price-qrt-cart-ctr">
+          <div class="product-price">INR : ₹120</div>
+        </div>
+        </div>
+        <div class="product-qrt-cart-ctr">
+          <div class="cart-qty-ctr">
+            <label for="qty1">Qty</label>
+            <select id="qty1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
           </div>
+          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
-        <div class="qty-details">
-          <select name="" id="">
-          <option value="">one</option>
-          <option value="">two</option>
-          <option value="">three</option>
-          <option value="">four</option>
-          <option value="">five</option>
-          <option value="">six</option>
-          <option value="">seven</option>
-          <option value="">eigth</option>
-          <option value="">nine</option>
-          </select>
         </div>
-        <div class="qty-label"><p>Qty</p></div>
-        <div class="cart-btn-details"><button>Add to Cart</button></div>
-    </div>
-</div>
-</div>
+        </div>
+        </div>
 </div>
 <div class="box-ctr14">
     <div class="img-ctr"><img src="source/coffee1.png" alt="">
     <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-        <div class="img-details">
+      <div class="img-details">
       <h1>black cofffee</h1>
-      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hic corporis aliquid numquam beatae deserunt. Quaerat odio velit deserunt at veniam deleniti, numquam dolorum eius architecto.</p></div>
+      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hicDolores nisi a, alias aliquam hic </p></div>
       <div class="second-details">
         <div class="rating">
           <div class="star-rating">
@@ -898,33 +1000,38 @@
           <div class="stars-inner"></div>
           </div>
           <span class="rating-count">0</span>
+        </div>
+        <div class="product-price-qrt-cart-ctr">
+          <div class="product-price">INR : ₹120</div>
+        </div>
+        </div>
+        <div class="product-qrt-cart-ctr">
+          <div class="cart-qty-ctr">
+            <label for="qty1">Qty</label>
+            <select id="qty1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
           </div>
+          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
-        <div class="qty-details">
-          <select name="" id="">
-          <option value="">one</option>
-          <option value="">two</option>
-          <option value="">three</option>
-          <option value="">four</option>
-          <option value="">five</option>
-          <option value="">six</option>
-          <option value="">seven</option>
-          <option value="">eigth</option>
-          <option value="">nine</option>
-          </select>
         </div>
-        <div class="qty-label"><p>Qty</p></div>
-        <div class="cart-btn-details"><button>Add to Cart</button></div>
-    </div>
-</div>
-</div>
+        </div>
+        </div>
 </div>
 <div class="box-ctr15">
     <div class="img-ctr"><img src="source/coffee1.png" alt="">
     <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-        <div class="img-details">
+      <div class="img-details">
       <h1>black cofffee</h1>
-      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hic corporis aliquid numquam beatae deserunt. Quaerat odio velit deserunt at veniam deleniti, numquam dolorum eius architecto.</p></div>
+      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hicDolores nisi a, alias aliquam hic </p></div>
       <div class="second-details">
         <div class="rating">
           <div class="star-rating">
@@ -932,33 +1039,38 @@
           <div class="stars-inner"></div>
           </div>
           <span class="rating-count">0</span>
+        </div>
+        <div class="product-price-qrt-cart-ctr">
+          <div class="product-price">INR : ₹120</div>
+        </div>
+        </div>
+        <div class="product-qrt-cart-ctr">
+          <div class="cart-qty-ctr">
+            <label for="qty1">Qty</label>
+            <select id="qty1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
           </div>
+          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
-        <div class="qty-details">
-          <select name="" id="">
-          <option value="">one</option>
-          <option value="">two</option>
-          <option value="">three</option>
-          <option value="">four</option>
-          <option value="">five</option>
-          <option value="">six</option>
-          <option value="">seven</option>
-          <option value="">eigth</option>
-          <option value="">nine</option>
-          </select>
         </div>
-        <div class="qty-label"><p>Qty</p></div>
-        <div class="cart-btn-details"><button>Add to Cart</button></div>
-    </div>
-</div>
-</div>
+        </div>
+        </div>
 </div>
 <div class="box-ctr16">
     <div class="img-ctr"><img src="source/coffee1.png" alt="">
     <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-        <div class="img-details">
+      <div class="img-details">
       <h1>black cofffee</h1>
-      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hic corporis aliquid numquam beatae deserunt. Quaerat odio velit deserunt at veniam deleniti, numquam dolorum eius architecto.</p></div>
+      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hicDolores nisi a, alias aliquam hic </p></div>
       <div class="second-details">
         <div class="rating">
           <div class="star-rating">
@@ -966,33 +1078,38 @@
           <div class="stars-inner"></div>
           </div>
           <span class="rating-count">0</span>
+        </div>
+        <div class="product-price-qrt-cart-ctr">
+          <div class="product-price">INR : ₹120</div>
+        </div>
+        </div>
+        <div class="product-qrt-cart-ctr">
+          <div class="cart-qty-ctr">
+            <label for="qty1">Qty</label>
+            <select id="qty1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
           </div>
+          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
-        <div class="qty-details">
-          <select name="" id="">
-          <option value="">one</option>
-          <option value="">two</option>
-          <option value="">three</option>
-          <option value="">four</option>
-          <option value="">five</option>
-          <option value="">six</option>
-          <option value="">seven</option>
-          <option value="">eigth</option>
-          <option value="">nine</option>
-          </select>
         </div>
-        <div class="qty-label"><p>Qty</p></div>
-        <div class="cart-btn-details"><button>Add to Cart</button></div>
-    </div>
-</div>
-</div>
+        </div>
+        </div>
 </div>
 <div class="box-ctr17">
     <div class="img-ctr"><img src="source/coffee1.png" alt="">
     <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-        <div class="img-details">
+      <div class="img-details">
       <h1>black cofffee</h1>
-      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hic corporis aliquid numquam beatae deserunt. Quaerat odio velit deserunt at veniam deleniti, numquam dolorum eius architecto.</p></div>
+      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hicDolores nisi a, alias aliquam hic </p></div>
       <div class="second-details">
         <div class="rating">
           <div class="star-rating">
@@ -1000,33 +1117,38 @@
           <div class="stars-inner"></div>
           </div>
           <span class="rating-count">0</span>
+        </div>
+        <div class="product-price-qrt-cart-ctr">
+          <div class="product-price">INR : ₹120</div>
+        </div>
+        </div>
+        <div class="product-qrt-cart-ctr">
+          <div class="cart-qty-ctr">
+            <label for="qty1">Qty</label>
+            <select id="qty1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
           </div>
+          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
-        <div class="qty-details">
-          <select name="" id="">
-          <option value="">one</option>
-          <option value="">two</option>
-          <option value="">three</option>
-          <option value="">four</option>
-          <option value="">five</option>
-          <option value="">six</option>
-          <option value="">seven</option>
-          <option value="">eigth</option>
-          <option value="">nine</option>
-          </select>
         </div>
-        <div class="qty-label"><p>Qty</p></div>
-        <div class="cart-btn-details"><button>Add to Cart</button></div>
-    </div>
-</div>
-</div>
+        </div>
+        </div>
 </div>
 <div class="box-ctr18">
     <div class="img-ctr"><img src="source/coffee1.png" alt="">
     <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-        <div class="img-details">
+      <div class="img-details">
       <h1>black cofffee</h1>
-      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hic corporis aliquid numquam beatae deserunt. Quaerat odio velit deserunt at veniam deleniti, numquam dolorum eius architecto.</p></div>
+      <div class="first-details"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nisi a, alias aliquam hicDolores nisi a, alias aliquam hic </p></div>
       <div class="second-details">
         <div class="rating">
           <div class="star-rating">
@@ -1034,26 +1156,31 @@
           <div class="stars-inner"></div>
           </div>
           <span class="rating-count">0</span>
+        </div>
+        <div class="product-price-qrt-cart-ctr">
+          <div class="product-price">INR : ₹120</div>
+        </div>
+        </div>
+        <div class="product-qrt-cart-ctr">
+          <div class="cart-qty-ctr">
+            <label for="qty1">Qty</label>
+            <select id="qty1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
           </div>
+          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
-        <div class="qty-details">
-          <select name="" id="">
-          <option value="">one</option>
-          <option value="">two</option>
-          <option value="">three</option>
-          <option value="">four</option>
-          <option value="">five</option>
-          <option value="">six</option>
-          <option value="">seven</option>
-          <option value="">eigth</option>
-          <option value="">nine</option>
-          </select>
         </div>
-        <div class="qty-label"><p>Qty</p></div>
-        <div class="cart-btn-details"><button>Add to Cart</button></div>
-    </div>
-</div>
-</div>
+        </div>
+        </div>
 </div>
 </div>  
 <script>
@@ -1076,23 +1203,22 @@
         element.textContent='🤍';
       }
     }
-        function setAllRatings(outOf10, count) {
-  const starsInnerList = document.querySelectorAll('.stars-inner');
-  const ratingCountList = document.querySelectorAll('.rating-count');
-  
-  const ratingOutOf5 = Math.round((outOf10 / 10) * 5 * 10) / 10;
-  const percentage = (ratingOutOf5 / 5) * 100;
+        // for ratings
+    function setAllRatings(outOf10, count) {
+      const starsInnerList = document.querySelectorAll('.stars-inner');
+      const ratingCountList = document.querySelectorAll('.rating-count');
+      // Convert to 5-star and round to nearest 0.1
+      const ratingOutOf5 = Math.round((outOf10 / 10) * 5 * 10) / 10;
+      const percentage = (ratingOutOf5 / 5) * 100;
+      starsInnerList.forEach(starsInner =>{
+        starsInner.style.width = `${percentage}%`;
+      });
+      ratingCountList.forEach(ratingCount =>{
+        ratingCount.textContent = count;
+      });
+      }
+      setAllRatings(8.5,85);
 
-  starsInnerList.forEach(starsInner => {
-    starsInner.style.width = `${percentage}%`;
-  });
-
-  ratingCountList.forEach(ratingCount => {
-    ratingCount.textContent = count;
-  });
-}
-
-setAllRatings(8.5, 85); // ✅ Call this to apply to all items
 </script>  
 </body>
 </html>
