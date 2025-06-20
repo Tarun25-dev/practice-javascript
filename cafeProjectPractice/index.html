@@ -3,17 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Magic Cafe</title>
+  <title>Document</title>
   <style>
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-
-        body {
-          background-color: lightgray;
-        }
+    *{
+      margin:0;
+      padding: 0;
+      box-sizing: border-box;
+     }
+      header{
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bolder;
+            font-size: clamp(25px,8vw,80px);
+            text-align: center;
+            background-color: whitesmoke;
+            border:2px solid black;
+            user-select:none;
+      }
         .css-video {
           position: fixed;
           z-index: 999;
@@ -28,34 +33,22 @@
           opacity: 0;
           transition: opacity 1.5s ease-in;
         }
-        header{
-            font-family: 'Times New Roman', Times, serif;
-            font-weight: bolder;
-            font-size: clamp(25px,8vw,80px);
-            text-align: center;
-            background-color: lightblue;
-            border:2px solid black;
-            border-top-left-radius:15px ;
-            border-top-right-radius:15px;
-            user-select:none;
-        }
-        span{
+      span{
             cursor: pointer;
             align-items: center;
             padding: 1px;
-        }
-        .ca:hover{
+      }
+      .ca:hover{
             border:1px solid black; 
             background-color: teal;
             transition:1s ease-in;
          
-        }
-        .cb:hover{
+      }
+      .cb:hover{
             border:1px solid black;
             background-color: #D4A017;
             transition:1s ease-out;
-            
-        }
+      }
         /* has() is used to acess another non relationship element when particular element happen*/
         /* the following one is i want when hover my span the i need to change header background*/
         header:has(.ca:hover){
@@ -66,134 +59,111 @@
             background-color: teal;
            transition:1s ease-in;
         }
+    .img-ctr{
+      max-width:100%;
+      max-height:100%;
+      width: auto;
+      height: auto;
+      display: block;
+    }
+    .img-ctr img{
+      height:auto;
+      width:100%;
+      margin-bottom:20px;
+    }
+    @media (max-width:789px) {
+      .img-ctr img{
+        margin-bottom:10px;
+        min-height: 200px;
+        object-fit: cover;
+      }
+      
+    }
+     .img-ctr1 img{
+      height:auto;
+      width:100%;
+      
+     }
+    
+    .ctr-btn1-wrapper{
+      position: relative;
+      margin-top:0%;
+      height:90px;
+      width:100%;
+      background-color:black;
+    }
+    @media (max-width:789px) {
+      .ctr-btn1-wrapper{
+        height:40px;
+      }
+    }
+    .ctr-btn2-wrapper{
+      position: relative;
+      margin-top:0%;
+      height:90px;
+      width:100%;
+      background-color:#d7a85b;
+    }
+    @media (max-width:789px) {
+      .ctr-btn2-wrapper{
+        height:40px;
+      }
+    }
 
-        .main-poster-ctr img{
-                 width: 100%;
-                 height: auto;
-                 object-fit: cover;
-                 position: relative;
-                 border-top: 1.5px solid black;
-                 border-bottom: 1.5px solid black;
-        }
-        .coffee-poster-ctr img{
-                width: 100%;
-                 height: auto;
-                 object-fit: cover;
-                 position: relative;
-                 border-top: 1.5px solid black;
-                 border-bottom: 1.5px solid black;
-        }
-        .tea-poster-ctr img{
-                width: 100%;
-                 height: auto;
-                 object-fit: cover;
-                 position: relative;
-                 
-                 border-top: 1.5px solid black;
-                 border-bottom: 1.5px solid black;
-        }
-        .tea2-poster-ctr img{
-                width: 100%;
-                 height: auto;
-                 object-fit: cover;
-                 position: relative;
-                
-                 border-top: 1.5px solid black;
-                 border-bottom: 1.5px solid black;
-        }
-        .coffee-btn{
-            
-            display:flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            overflow: hidden;
-            margin:0 0 4px 0;
-            position:relative;
-            height:40px;
-            width:100%;
-            border:1px solid black;
-            align-items: center;
-            justify-content: center;
-            border-left: transparent;
-            border-right: transparent;
-            background-color:#f5eddc;
-        }
-        @media (max-width:789PX) {
-            .coffee-btn P{
-                font-size:10PX;
-                letter-spacing:2PX;
-            }
-            
-        }
-        .coffee-btn p{
-            font-family:serif;
-            font-size: 20px;
-            letter-spacing:3px;
-            font-weight:bold;
-
-            left:50%;
-        }
-        .coffee-btn button{
-            padding:2px 3px;
-            font-size:18px;
-            font-family: serif;
-            letter-spacing:1px;
-            border-radius:10%;
-        }
-        .coffee-btn button:hover{
-            background-color: brown;
-            color: white;
-            font-size: 20px;
-        }
-        .tea-btn{
-            display:flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            overflow: hidden;
-            margin:0 0 4px 0;
-            position:relative;
-            height:40px;
-            width:100%;
-            border:1px solid black;
-            align-items: center;
-            justify-content: center;
-            border-left: transparent;
-            border-right: transparent;
-            background-color:#d6ba91;
-        }
-        .tea-btn p{
-            font-family:serif;
-            font-size: 20px;
-            letter-spacing:3px;
-            font-weight:bold;
-
-            left:50%;
-        }
-        .tea-btn button{
-            padding:2px 3px;
-            font-size:18px;
-            font-family: serif;
-            letter-spacing:1px;
-            border-radius:10%;
-        }
-        .tea-btn button:hover{
-            background-color: brown;
-            color: white;
-            font-size: 20px;
-        }
+   
+    .img-btn-ctr{
+      height:100px;
+      width:100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position:absolute;
+      background-color: #f5eddc;
+      border:2px solid #dc143c;
+      left:50%;
+      bottom: 50px;
+      transform: translateX(-50%);
+      border-radius:50%;
 
       
+    }
+    .img-btn-ctr button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height:70%;
+      width:70%;
+      position: absolute;
+      border-radius:50%;
+      background-color:black;
+      border: none;
+      cursor: pointer;
+      font-size: 40px;
+    }
 
+    @media (max-width: 789px) {
+     .img-btn-ctr {
+      bottom:15px;
+     height: 40px; 
+     width: 40px ;
+     
+    }
+
+    .img-btn-ctr button {
+     height: 100%;
+     width: 100%;
+     font-size: 16px;
+   }
+ }
+  
   </style>
 </head>
 <body>
-
-  <video class="css-video" autoplay muted playsinline disablePictureInPicture>
+   <video class="css-video" autoplay muted playsinline disablePictureInPicture>
     <source src="source/cafe.mp4" type="video/mp4">
   </video>
-
-  <div class="js-mainpage">
-     <header>
+    <div class="js-mainpage">
+    <header>
         <span class="ca">C</span>
         <span class="cb">A</span>
         <span class="ca">F</span>
@@ -203,46 +173,62 @@
         <span class="ca">M</span>
         <span class="cb">E</span>
     </header>
-    <div class="main-poster-ctr">
-        <img src="source/one.png" alt="">
-    </div>
-    <div class="coffee-poster-ctr">
-        <img src="source/coffeeMenu2.png" alt="">
-    </div>
-    <div class="coffee-btn"><p>Choose your coffee ➡</p>
-        <button onclick="window.location.href='coffee.html' ">Coffee</button>
-    </div>
-    <div class="tea-poster-ctr">
-        <img src="source/teaMenu.png" alt="">
-    </div>
-     <div class="tea-btn"><p>Choose your Tea ➡</p>
-        <button>Tea</button>
-    </div>
-    <div class="tea2-poster-ctr">
-        <img src="source/teaMenu.png" alt="">
-    </div>
-
+  <div class="img-ctr">
+  <img src="source/cafe/caferoom (1).png" alt="">
+</div>
+   <div class="img-ctr">
+  <img src="source/coffee/first.jpg" alt="">
+</div>
+<div class="img-ctr">
+  <img src="source/coffee/second.jpg" alt="">
+</div>
+  <div class="img-ctr1">
+    <img src="source/coffee/third.jpg" alt="">
   </div>
-
-  <script>
-  const video = document.querySelector('.css-video');
+    <div class="ctr-btn1-wrapper">
+    <div class="btn-coffee-ctr">
+    <div class="img-btn-ctr">
+    <button class="img-btn" title="coffee" onclick="window.location.href='coffee.html' ">☕</button>
+    </div>
+    </div>
+ </div>
+     <div class="img-ctr">
+  <img src="source/tea/four.png" alt="">
+</div>
+<div class="img-ctr">
+  <img src="source/tea/five.png" alt="">
+</div>
+<div class="img-ctr1">
+    <img src="source/tea/six.png" alt="">
+  </div>
+    <div class="ctr-btn2-wrapper">
+    <div class="btn-coffee-ctr">
+    <div class="img-btn-ctr">
+    <button class="img-btn" title="tea" onclick="window.location.href='tea.html' ">☕</button>
+    </div>
+    </div>
+ </div>
+ </div>
+</div>
+<script>
+    const video = document.querySelector('.css-video');
   const mainPage = document.querySelector('.js-mainpage');
 
   function showMainPage() {
-    //  Fade out the video
+    // 1. Fade out the video
     video.style.opacity = '0';
     video.style.pointerEvents = 'none';
 
-    //  Display and fade in the main content immediately
+    // 2. Display and fade in the main content immediately
     mainPage.style.display = 'block';
     requestAnimationFrame(() => {
       mainPage.style.opacity = '1';
     });
 
-    //  After fade-out completes, remove the video from layout
+    // 3. After fade-out completes, remove the video from layout
     setTimeout(() => {
       video.style.display = 'none';
-    }, 500); // Slightly less than CSS 1.5s for smooth transition (no delay bump)
+    }, 500); // Slightly less than CSS's 1.5s for smooth transition (no delay bump)
   }
 
   // Trigger showMainPage when video ends or if playback fails
@@ -251,8 +237,6 @@
 
   // Fallback: safety timeout in case video stalls
   setTimeout(showMainPage, 5500);
-
-  </script>
-
+</script>
 </body>
 </html>
