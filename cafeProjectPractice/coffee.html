@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        *{
-           margin:0;
-           padding:0;
-           box-sizing: border-box;
-        }
-        body{  
-            background-color:#4b2e2b;
-        }
-        .nav{
-            top:0;
-            position: fixed;
-            height:70px;
-            width:100%;
-            border:2px solid black;
-            z-index:999;  
-            margin-top:0px;
-            margin-left:0px;
-            margin-bottom:50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-sizing: border-box;
-            flex-wrap: nowrap;
-            padding:8px 12px;
-           
-        }
-        .nav.color{
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coffee Cafe</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #4b2e2b;
+      min-height: 100vh;
+      font-family: sans-serif;
+    }
+
+    /* NAVBAR */
+    .nav {
+      top: 0;
+      position: fixed;
+      height: 70px;
+      width: 100%;
+      border: 2px solid black;
+      z-index: 999;
+      background-color: white;
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border-left:2px solid #4b2e2b;
+      border-right:2px solid #4b2e2b;
+    }
+     .nav.color{
             background-color:white;
             color:black;
         }
@@ -39,1152 +42,1082 @@
             background-color: transparent;
             color: white;
         }
-        .nav-left,.nav-right{
-               display: flex;
-               align-items: center;
-               gap:10px;
-               flex-shrink: 0;
-        }
-        .nav-left-menu{
-            position: relative;
-            font-size:15px;
-            cursor: pointer;
-            white-space: nowrap;
-            margin-left:20px;
-            letter-spacing:2px;
-            font-weight: bold;
-        }
-        .menu-items{
-            display: none;
-            position: absolute;
-            top:100%;
-            left:0;
-            background-color: #444;
-            list-style: none;
-            padding: 8px;
-            border-radius:5px;
-            min-width: 140px;
-            z-index:10;
-        }
-        .nav-left-menu:hover .menu-items{
-            display: block;
-        }
-        .menu-items li{
-            padding:6px 10px;
-            color:white;
-            cursor: pointer;
+    .nav-left, .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-        }
-        .menu-items li:hover{
-            background-color: grey;
-        }
-        .nav-center{
-            flex:1;
-            display: flex;
-            justify-content: center;
-            min-width:50px;
-            margin-left:20px;
-        }
-        .search-bar{
-            width:100%;
-            padding: 6px 10px;
-            border-radius: 4px;
-            border: none;
-            font-size: 14px;
-        }
-        .search-bar input{
-            width: 100%;
-            max-width:300px;
-            padding:6px 10px;
-            font-size: 14px;
-            border:1px solid #ccc;
-            border-radius:4px;
-        }
-        @media (min-width:768px) {
-            .search-bar input{
-                max-width:400px;
-            }
-            
-        }
-        .icon{
-            position:relative;
-            font-size: 20px;
-            cursor: pointer;
-        }
-        .icon span{
-            position: absolute;
-            top:-8px;
-            right:-10px;
-            background-color:red;
-            color: white;
-            font-size:11px;
-            padding: 2px 5px;
-            border-radius:50%;
-        }
-        @media (max-width:600px) {
-            .menu{
-                font-size: 14px;
-            }
-            .search-bar input{
-                font-size: 12px;
-                padding: 5px 8px;
-            }
-            .icon{
-                font-size: 18px;
-            }
-            .icon span{
-                font-size: 10px;
-                padding:2px 4px;
-            }
-        }
-        .nav-ctr p{
-            border:2px solid black;
-            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            font-size:25px;
-            font-weight: bolder;
-            letter-spacing:3px;
-            left:50%;
-            position: relative;
-            margin-top:70px;
-            transform: translateX(-50%);   
-            width:fit-content;    
-            background-color: #4b2e2b;
-            color:white;
-            border-bottom: transparent;
-            height:auto;
-            width:100%;
-            font-size: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
-        }
-        @media (max-width:799px) {
-           .nav-ctr p{
-            font-size: 30px;
-           }
-        }
+    .nav-left-menu {
+      position: relative;
+      font-size: 15px;
+      cursor: pointer;
+      white-space: nowrap;
+      margin-left: 20px;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
 
-        .ctr{
-            margin-top:90px;
-            max-width:1200px;
-            margin:20px auto;
-            padding:10px;
-            display: grid;
-            grid-template-columns: repeat(1,1fr);
-            gap:14px;
-            
-        }
-        @media (min-width:768px){
-            .ctr{
-                grid-template-columns: repeat(3,1fr);
-                gap:15px;         
-            }
-        }
-        .box-ctr1,.box-ctr2,.box-ctr3,.box-ctr4,.box-ctr5,.box-ctr6,.box-ctr7,.box-ctr8,.box-ctr9,.box-ctr10,.box-ctr11,.box-ctr12,.box-ctr13,.box-ctr14,.box-ctr15,.box-ctr16,.box-ctr17,.box-ctr18{
-            position: relative;
-            border-radius:2%;
-            background:#fff; 
-            border:1px solid black;
-            height:480px;
-            background-color: #f5f0e5;
-        }
-        .img-ctr{
-             position:absolute;
-             height:230px;
-             width:355px;
-             border:1px solid black;
-             top:10px;
-             left:50%;
-             transform: translateX(-50%);
-             border-radius: 2%;
-        }
-        .img-ctr img {
-            width: 100%;
-            height:100%;
-            object-fit: cover;
-            display: block;
-        }
+    .menu-items {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #444;
+      list-style: none;
+      padding: 8px;
+      border-radius: 5px;
+      min-width: 140px;
+      z-index: 10;
+    }
+    .menu-items a{
+      text-decoration: none;
+     color:inherit;
+    }
 
-        /* for mobile screen */
-        @media (max-width:600px) {
-            .img-ctr{
-                max-width:280px;
-                
-            }
-        }
-        .space-between-nav-products{
-            width:auto;
-            height: 60px; 
-        }
-        .heart-ctr{
-          position: absolute;
-          width:30px;
-          height: 30px;
-          border-radius: 50%;
-          background-color:white;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          bottom:4%;
-          right:3%;
-          cursor: pointer;
-          user-select: none;
+     .menu-items a:hover {
+       color: goldenrod;
+      } 
+    .nav-left-menu:hover .menu-items {
+      display: block;
+    }
 
-        }
-        @media (max-width:789px) {
-          .heart-ctr{
-            right:2%;
-            max-width:25px;
-            max-height:25px;
-          }  
-        }
-        .img-details{
-          position:relative;
-          height:200px;
-          top:5%;
-          width:355px;
-          border:1px solid black;
-          border-bottom-left-radius:2%;
-          border-bottom-right-radius:2%;
-        }
-         /* for mobile screen coffee details container*/
-        @media (max-width:600px) {
-            .img-details{
-             max-width:280px;
-                
-            }
-        }
-        .img-details h1{
-          font-family:serif;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        .first-details{
-              position: relative;
-              max-height:50px;
-              width:350px;
-              display: flex;
-              flex-wrap: wrap;
-              left:50%;
-              transform:translateX(-50%);
-              overflow: hidden;
-              text-overflow: ellipsis;
+    .menu-items li {
+      padding: 6px 10px;
+      color: white;
+      cursor: pointer;
+    }
 
-        }
-        .first-details p{
-          font-size:13px;
-          margin-left:2px;
-        }
-        @media (max-width:789px) {
-          .first-details p{
-             font-size:12px;
-            letter-spacing:1px;
-            line-height:1.5;
-            overflow-x: hidden;          
-          }
-          .first-details{
-            max-width:250px;
-            max-height:40px;
-          }  
-        }
-        .second-details{
-          position: relative;
-          top:0%;
-          height:130px;
-          width:100%;
-        }
-        @media (min-width:1200px) {
-          .second-details{
-            margin-top:25px;
-          }
-          .first-details p{
-            margin-top:5px;
-          }
-          
-        }
-        .rating{
-          display: flex;
-          height:30%;
-          margin-top:2%;
-          border-radius: 8px;
-          width:49%;
-          margin-left:8px;
-          margin-bottom: 12px;
-          padding:8px;
-          color: #ffd700;
-          background-color:#2e2e2e;
-          border:1px solid goldenrod;
-        }
-        .star-rating {
-        height:100%;
-        width:100%;
-        display: flex;
-        align-items: center;
-        font-size: 24px;
-        gap: 8px;
-      }
+    .menu-items li:hover {
+      background-color: grey;
+    }
 
-      .stars-outer {
-        position: relative;
-        display: inline-block;
-        color: #ccc; /* Gray empty stars */
-        font-size: 24px;
-        line-height: 1;
-      }
-      @media (max-width:789px){
-       .stars-outer {
-        font-size: 20px;
-       }
-      }
-      .stars-inner {
-        position: absolute;
-        top: 0;
-        left: 0;
-        white-space: nowrap;
-        overflow: hidden;
-        color: orange; /* Filled stars */
-        width: 0;
-      }
+    .nav-center {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      margin-left: 20px;
+    }
 
-      .stars-outer::before,
-      .stars-inner::before {
-        content: "★★★★★";
-      }
+    .search-bar input {
+      width: 100%;
+      max-width: 300px;
+      padding: 6px 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
 
-      .rating-count {
-        font-size: 15px;
-        margin-left: 5px;
-        font-weight: bold;
-      }
-      @media (max-width:789px) {
-        .rating-count{
-          margin-left:-3px;
-          margin-top:2px;
-          font-weight: bold;
-        }
-        
-      }
+    .icon {
+      position: relative;
+      font-size: 20px;
+      cursor: pointer;
+    }
 
-      .product-price-qrt-cart-ctr{
-         display: flex;
-          transform: translateX(90px);
-         align-items: center;
-         justify-content: center;
-          height:30%;
-          margin-top:4.8%;
-          border-radius: 8px;
-          width:46%;
-          margin-left:8px;
-          margin-bottom: 12px;
-          padding:8px;
-          color: #ffd700;
-          right:0%;
-          background-color:#2e2e2e;
-          border:1px solid goldenrod;
-          flex-wrap: nowrap;
-          white-space:nowrap;
-         
-        
-      }
-      @media (max-width:789px) {
-        .product-price-qrt-cart-ctr{
-          transform: translateX(55px);
-          margin-top:7%;
-        }
-        
-      }
-      .product-price{
-        position: absolute;
-            background-color:#2e2e2e;
-            color: #ffd700;
-            padding:8px;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
-            border-radius: 8px;
-            border:1px solid goldenrod;
-            margin-bottom: 12px;
-            
-      }
-      .product-qrt-cart-ctr{
-        display: flex;
-        position: relative;
-        width:100%;
-        margin-top: 8px;
-       
-      }
-      .cart-qty-ctr{
-        width:30%;
-        height:100%;
-         padding:8px;
+    .icon span {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background-color: red;
+      color: white;
+      font-size: 11px;
+      padding: 2px 5px;
+      border-radius: 50%;
+    }
+    .heading{
+      height:50px;
+      width:100%;
+      background-color: white;
+      margin-top:70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-left:2px solid #4b2e2b;
+      border-right:2px solid #4b2e2b;
+    }
 
-      }
-      .cart-qty-ctr label{
-         position: relative;
-         background-color:#2e2e2e;
-            color: #ffd700;
-            font-size: 20px;
-            margin-left:2px;
-            text-align: center;
-            border-radius: 8px;
-            border:1px solid goldenrod;
-            margin-bottom: 12px;
-            padding:7px;
-      }
-      .cart-qty-ctr select{
-        position: absolute;
-        padding: 7px;
-        font-size: 16px;
-        margin-bottom:12px;
-        margin-left:0%;
-        align-items: center;
-        border:none;
-        top:3%;
-        
-      }
-      .cart-btn-ctr{
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width:60%;
-        
-      }
-      .cart-btn-ctr button{
-        position: relative;
-        margin-left:0%;
-        font-size:16px;
-        padding:10px;
-        background-color:#2e2e2e;
-        color:#ffd700;
-        font-weight: bold;
-        border:none;
-        border-radius:6px;
-        cursor: pointer;
-        transition: background-color 0.5s ease;
-        letter-spacing:1px;
-        left:0%;
-      }
+    /* CARD CONTAINER GRID */
+    .ctr {
+      padding: 100px 15px 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 15px;
+    }
 
-      @media (max-width:789px) {
-        .cart-btn-ctr button{
-          left: 7%;
-        }
-        
+    @media (min-width: 768px) {
+      .ctr {
+        grid-template-columns: repeat(3, 1fr);
       }
-      .menu-items li a{
-        text-decoration: none; /*used to remove the undeline in anchor tag inside content */
-        color: inherit; /* this line takes color from parent */
-      }
+    }
 
- 
+    /* CARD */
+    .card-ctr {
+      padding: 5px;
+      border: 2px solid black;
+      border-radius: 10px;
+      background-color: oldlace;
+    }
 
+    .card {
+      width: 100%;
+      background: #f5f0e5;
+      border: 1px solid #000;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+    }
 
-    </style>
+    .img-section {
+      position: relative;
+    }
+
+    .img-section img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .heart-ctr {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: white;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .details-section {
+      padding: 10px 14px;
+    }
+
+    .details-section h1 {
+      font-size: 20px;
+      text-align: center;
+      font-family: serif;
+      margin-bottom: 4px;
+    }
+
+    .details-section .description {
+      font-size: 12px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .rating-price-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .rating-box,
+    .price-box {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #2e2e2e;
+      color: #ffd700;
+      border: 1px solid goldenrod;
+      border-radius: 6px;
+      padding: 6px;
+      font-size: 15px;
+    }
+
+    .star-rating {
+      display: flex;
+      align-items: center;
+    }
+
+    .stars-outer {
+      position: relative;
+      color: #ccc;
+    }
+
+    .stars-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      color: orange;
+      width: 0;
+    }
+
+    .stars-outer::before,
+    .stars-inner::before {
+      content: "★★★★★";
+    }
+
+    .rating-count {
+      margin-left: 10px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .cart-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .qty-box {
+      display: flex;
+      align-items: center;
+      background-color: #2e2e2e;
+      border: 1px solid goldenrod;
+      border-radius: 6px;
+      padding: 4px 6px;
+      color: #ffd700;
+    }
+
+    .qty-box label {
+      font-size: 14px;
+      margin-right: 4px;
+    }
+
+    .qty-box select {
+      font-size: 14px;
+      padding: 2px;
+      border: none;
+      background-color: #fffde0;
+      border-radius: 4px;
+    }
+
+    .order-btn button,
+    .add-to-cart-box button {
+      background: #2e2e2e;
+      color: #ffd700;
+      font-weight: bold;
+      padding: 8px 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .alert-cart {
+      max-height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 15px;
+    }
+  </style>
 </head>
 <body>
-    <nav class="nav color">
-        <div class="nav-left">
-            <div class="nav-left-menu">Menu 
-                <ul class="menu-items">
-                    <li> <a href="coffee.html">Cofee</a> </li>
-                    <li><a href="tea.html">Tea</a></li>
-                    <li>Snacks</li>
-                    <li>Cool Drinks</li>
-                    <li>Chat</li>
-                    <li>Desserts</li>
-                    <li>Ice Creams</li>
-                </ul>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-left">
+      <div class="nav-left-menu">Menu
+        <ul class="menu-items">
+          <li><a href="coffee.html">Coffee</a></li>
+          <li><a href="tea.html">Tea</a></li>
+          <li>Snacks</li>
+          <li>Cool Drinks</li>
+          <li>Chat</li>
+          <li>Desserts</li>
+          <li>Ice Creams</li>
+        </ul>
+      </div>
+    </div>
+    <div class="nav-center">
+      <div class="search-bar">
+        <input type="text" placeholder="Search..." />
+      </div>
+    </div>
+    <div class="nav-right">
+      <div class="icon">&#128722;<span>1</span></div>
+      <div class="icon">&#10084;<span>2</span></div>
+    </div>
+  </nav>
+  <div class="heading"><h1>COFFEE TIME</h1></div>
+
+  <!-- GRID CARD CONTAINER -->
+  <div class="ctr">
+
+    <!-- Repeat this .card-ctr for more cards -->
+    <div class="card-ctr">
+      <div class="card">
+        <div class="img-section">
+          <img src="source/espresso.jpg" alt="Espresso" />
+          <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
+        </div>
+        <div class="alert-cart">
+          <p class="cart-response-label"></p>
+        </div>
+        <div class="details-section">
+          <h1>Espresso</h1>
+          <p class="description">Espresso Pure coffee shot, bold and intense. </p>
+          <div class="rating-price-container">
+            <div class="rating-box">
+              <div class="star-rating">
+                <div class="stars-outer">
+                  <div class="stars-inner" style="width: 80%;"></div>
+                </div>
+                <span class="rating-count">4</span>
+              </div>
             </div>
+            <div class="price-box">INR : ₹60</div>
+          </div>
+          <div class="cart-controls">
+            <div class="qty-box">
+              <label for="qty">Qty</label>
+              <select id="qty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div class="order-btn"><button>Order Now</button></div>
+            <div class="add-to-cart-box">
+              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+            </div>
+          </div>
         </div>
-        <div class="nav-center">
-            <div class="search-bar"><input type="text" placeholder="Search..."></div>
-        </div>
-        <div class="nav-right">
-            <div class="icon">&#128722;<span>1</span></div>
-            <div class="icon">&#10084;<span>2</span></div>
-        </div>
-    </nav>
-    <div class="nav-ctr">
-    <p>COFFEE TIME</p>
-     </div> 
+      </div>
+    </div>
 
-<div class="ctr">
-    <div class="box-ctr1">
-    <div class="img-ctr"><img src="source/espresso.png" alt="">
-    <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-    <div class="img-details">
-      <h1>Espresso</h1>
-      <div class="first-details"><p>Espresso Pure coffee shot, bold and intense. </p></div>
-      <div class="second-details">
-        <div class="rating">
-          <div class="star-rating">
-          <div class="stars-outer">
-          <div class="stars-inner"></div>
+   <div class="card-ctr">
+      <div class="card">
+        <div class="img-section">
+          <img src="source/americano.jpg" alt="Espresso" />
+          <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
+        </div>
+        <div class="alert-cart">
+          <p class="cart-response-label"></p>
+        </div>
+        <div class="details-section">
+          <h1>Americano</h1>
+          <p class="description">Americano Espresso diluted with hot water. </p>
+          <div class="rating-price-container">
+            <div class="rating-box">
+              <div class="star-rating">
+                <div class="stars-outer">
+                  <div class="stars-inner" style="width: 80%;"></div>
+                </div>
+                <span class="rating-count">4</span>
+              </div>
+            </div>
+            <div class="price-box">INR : ₹70</div>
           </div>
-          <span class="rating-count">0</span>
-        </div>
-        <div class="product-price-qrt-cart-ctr">
-          <div class="product-price">INR : ₹60</div>
-        </div>
-        </div>
-        <div class="product-qrt-cart-ctr">
-          <div class="cart-qty-ctr">
-            <label for="qty1">Qty</label>
-            <select id="qty1">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
+          <div class="cart-controls">
+            <div class="qty-box">
+              <label for="qty">Qty</label>
+              <select id="qty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div class="order-btn"><button>Order Now</button></div>
+            <div class="add-to-cart-box">
+              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+            </div>
           </div>
-          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
+      </div>
+    </div>
+    <div class="card-ctr">
+      <div class="card">
+        <div class="img-section">
+          <img src="source/Latte.jpg" alt="Espresso" />
+          <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
         </div>
+        <div class="alert-cart">
+          <p class="cart-response-label"></p>
         </div>
-        </div>
-</div>
-<div class="box-ctr2">
-    <div class="img-ctr"><img src="source/americano.jpg" alt="">
-    <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-        <div class="img-details">
-      <h1>Americano</h1>
-      <div class="first-details"><p>Americano Espresso diluted with hot water. </p></div>
-      <div class="second-details">
-        <div class="rating">
-          <div class="star-rating">
-          <div class="stars-outer">
-          <div class="stars-inner"></div>
+        <div class="details-section">
+          <h1>Latte</h1>
+          <p class="description">Latte Espresso with steamed milk, mild and creamy. </p>
+          <div class="rating-price-container">
+            <div class="rating-box">
+              <div class="star-rating">
+                <div class="stars-outer">
+                  <div class="stars-inner" style="width: 80%;"></div>
+                </div>
+                <span class="rating-count">4</span>
+              </div>
+            </div>
+            <div class="price-box">INR : ₹90</div>
           </div>
-          <span class="rating-count">0</span>
-        </div>
-        <div class="product-price-qrt-cart-ctr">
-          <div class="product-price">INR : ₹70</div>
-        </div>
-        </div>
-        <div class="product-qrt-cart-ctr">
-          <div class="cart-qty-ctr">
-            <label for="qty1">Qty</label>
-            <select id="qty1">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
+          <div class="cart-controls">
+            <div class="qty-box">
+              <label for="qty">Qty</label>
+              <select id="qty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div class="order-btn"><button>Order Now</button></div>
+            <div class="add-to-cart-box">
+              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+            </div>
           </div>
-          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
+      </div>
+    </div>
+    <div class="card-ctr">
+      <div class="card">
+        <div class="img-section">
+          <img src="source/cappuccino.jpg" alt="Espresso" />
+          <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
         </div>
+        <div class="alert-cart">
+          <p class="cart-response-label"></p>
         </div>
-        </div>
-</div>
-<div class="box-ctr3">
-    <div class="img-ctr"><img src="source/cappuccino.png" alt="">
-    <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-        <div class="img-details">
-        <h1>Cappuccino</h1>
-        <div class="first-details"><p>Cappuccino Equal parts espresso, milk & foam. Rich flavor. </p></div>
-        <div class="second-details">
-        <div class="rating">
-          <div class="star-rating">
-          <div class="stars-outer">
-          <div class="stars-inner"></div>
+        <div class="details-section">
+          <h1>Cappuccino</h1>
+          <p class="description">Cappuccino Equal parts espresso, milk & foam. Rich flavor. </p>
+          <div class="rating-price-container">
+            <div class="rating-box">
+              <div class="star-rating">
+                <div class="stars-outer">
+                  <div class="stars-inner" style="width: 80%;"></div>
+                </div>
+                <span class="rating-count">4</span>
+              </div>
+            </div>
+            <div class="price-box">INR : ₹80</div>
           </div>
-          <span class="rating-count">0</span>
-        </div>
-        <div class="product-price-qrt-cart-ctr">
-          <div class="product-price">INR : ₹80</div>
-        </div>
-        </div>
-        <div class="product-qrt-cart-ctr">
-          <div class="cart-qty-ctr">
-            <label for="qty1">Qty</label>
-            <select id="qty1">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
+          <div class="cart-controls">
+            <div class="qty-box">
+              <label for="qty">Qty</label>
+              <select id="qty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div class="order-btn"><button>Order Now</button></div>
+            <div class="add-to-cart-box">
+              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+            </div>
           </div>
-          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
+      </div>
+    </div>
+    <div class="card-ctr">
+      <div class="card">
+        <div class="img-section">
+          <img src="source/Macchiato.jpg" alt="Espresso" />
+          <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
         </div>
+        <div class="alert-cart">
+          <p class="cart-response-label"></p>
         </div>
-        </div>
-</div>
-<div class="box-ctr4">
-    <div class="img-ctr"><img src="source/Latte.jpg" alt="">
-    <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-      <div class="img-details">
-      <h1>Latte</h1>
-      <div class="first-details"><p>Latte Espresso with steamed milk, mild and creamy. </p></div>
-      <div class="second-details">
-        <div class="rating">
-          <div class="star-rating">
-          <div class="stars-outer">
-          <div class="stars-inner"></div>
+        <div class="details-section">
+          <h1>Macchiato</h1>
+          <p class="description">Macchiato Espresso with a touch of milk foam. </p>
+          <div class="rating-price-container">
+            <div class="rating-box">
+              <div class="star-rating">
+                <div class="stars-outer">
+                  <div class="stars-inner" style="width: 80%;"></div>
+                </div>
+                <span class="rating-count">4</span>
+              </div>
+            </div>
+            <div class="price-box">INR : ₹70</div>
           </div>
-          <span class="rating-count">0</span>
-        </div>
-        <div class="product-price-qrt-cart-ctr">
-          <div class="product-price">INR : ₹90</div>
-        </div>
-        </div>
-        <div class="product-qrt-cart-ctr">
-          <div class="cart-qty-ctr">
-            <label for="qty1">Qty</label>
-            <select id="qty1">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
+          <div class="cart-controls">
+            <div class="qty-box">
+              <label for="qty">Qty</label>
+              <select id="qty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div class="order-btn"><button>Order Now</button></div>
+            <div class="add-to-cart-box">
+              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+            </div>
           </div>
-          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
         </div>
+      </div>
+    </div>
+    <div class="card-ctr">
+      <div class="card">
+        <div class="img-section">
+          <img src="source/Mocha.jpg" alt="Espresso" />
+          <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
         </div>
+        <div class="alert-cart">
+          <p class="cart-response-label"></p>
         </div>
+        <div class="details-section">
+          <h1>Mocha</h1>
+          <p class="description">Mocha Chocolate-flavored latte — sweet and bold. </p>
+          <div class="rating-price-container">
+            <div class="rating-box">
+              <div class="star-rating">
+                <div class="stars-outer">
+                  <div class="stars-inner" style="width: 80%;"></div>
+                </div>
+                <span class="rating-count">4</span>
+              </div>
+            </div>
+            <div class="price-box">INR : ₹100</div>
+          </div>
+          <div class="cart-controls">
+            <div class="qty-box">
+              <label for="qty">Qty</label>
+              <select id="qty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div class="order-btn"><button>Order Now</button></div>
+            <div class="add-to-cart-box">
+              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+            </div>
+          </div>
         </div>
-</div>
+      </div>
+    </div>
+    <div class="card-ctr">
+      <div class="card">
+        <div class="img-section">
+          <img src="source/Affogato_Scoop.jpg" alt="Espresso" />
+          <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
+        </div>
+        <div class="alert-cart">
+          <p class="cart-response-label"></p>
+        </div>
+        <div class="details-section">
+          <h1>Affogato</h1>
+          <p class="description">Affogato Scoop of ice cream topped with hot espresso. </p>
+          <div class="rating-price-container">
+            <div class="rating-box">
+              <div class="star-rating">
+                <div class="stars-outer">
+                  <div class="stars-inner" style="width: 80%;"></div>
+                </div>
+                <span class="rating-count">4</span>
+              </div>
+            </div>
+            <div class="price-box">INR : ₹110</div>
+          </div>
+          <div class="cart-controls">
+            <div class="qty-box">
+              <label for="qty">Qty</label>
+              <select id="qty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div class="order-btn"><button>Order Now</button></div>
+            <div class="add-to-cart-box">
+              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-ctr">
+      <div class="card">
+        <div class="img-section">
+          <img src="source/Irish.jpg" alt="Espresso" />
+          <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
+        </div>
+        <div class="alert-cart">
+          <p class="cart-response-label"></p>
+        </div>
+        <div class="details-section">
+          <h1>Irish</h1>
+          <p class="description">Irish Coffee, Coffee mixed with Irish whiskey and cream. </p>
+          <div class="rating-price-container">
+            <div class="rating-box">
+              <div class="star-rating">
+                <div class="stars-outer">
+                  <div class="stars-inner" style="width: 80%;"></div>
+                </div>
+                <span class="rating-count">4</span>
+              </div>
+            </div>
+            <div class="price-box">INR : ₹130</div>
+          </div>
+          <div class="cart-controls">
+            <div class="qty-box">
+              <label for="qty">Qty</label>
+              <select id="qty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div class="order-btn"><button>Order Now</button></div>
+            <div class="add-to-cart-box">
+              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-ctr">
+      <div class="card">
+        <div class="img-section">
+          <img src="source/Cortado.jpg" alt="Espresso" />
+          <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
+        </div>
+        <div class="alert-cart">
+          <p class="cart-response-label"></p>
+        </div>
+        <div class="details-section">
+          <h1>Cortado</h1>
+          <p class="description">Cortado Equal espresso and milk — balanced taste. </p>
+          <div class="rating-price-container">
+            <div class="rating-box">
+              <div class="star-rating">
+                <div class="stars-outer">
+                  <div class="stars-inner" style="width: 80%;"></div>
+                </div>
+                <span class="rating-count">4</span>
+              </div>
+            </div>
+            <div class="price-box">INR : ₹80</div>
+          </div>
+          <div class="cart-controls">
+            <div class="qty-box">
+              <label for="qty">Qty</label>
+              <select id="qty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div class="order-btn"><button>Order Now</button></div>
+            <div class="add-to-cart-box">
+              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-ctr">
+      <div class="card">
+        <div class="img-section">
+          <img src="source/Cold Brew.jpg" alt="Espresso" />
+          <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
+        </div>
+        <div class="alert-cart">
+          <p class="cart-response-label"></p>
+        </div>
+        <div class="details-section">
+          <h1>Cold Brew</h1>
+          <p class="description">Cold Brew Coffee brewed cold for 12+ hours — smooth. </p>
+          <div class="rating-price-container">
+            <div class="rating-box">
+              <div class="star-rating">
+                <div class="stars-outer">
+                  <div class="stars-inner" style="width: 80%;"></div>
+                </div>
+                <span class="rating-count">4</span>
+              </div>
+            </div>
+            <div class="price-box">INR : ₹90</div>
+          </div>
+          <div class="cart-controls">
+            <div class="qty-box">
+              <label for="qty">Qty</label>
+              <select id="qty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div class="order-btn"><button>Order Now</button></div>
+            <div class="add-to-cart-box">
+              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-ctr">
+      <div class="card">
+        <div class="img-section">
+          <img src="source/Nitro Cold Brew.jpg" alt="Espresso" />
+          <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
+        </div>
+        <div class="alert-cart">
+          <p class="cart-response-label"></p>
+        </div>
+        <div class="details-section">
+          <h1>Nitro Cold Brew</h1>
+          <p class="description">Nitro Cold Brew, Cold brew infused with nitrogen — creamy and fizzy. </p>
+          <div class="rating-price-container">
+            <div class="rating-box">
+              <div class="star-rating">
+                <div class="stars-outer">
+                  <div class="stars-inner" style="width: 80%;"></div>
+                </div>
+                <span class="rating-count">4</span>
+              </div>
+            </div>
+            <div class="price-box">INR : ₹110</div>
+          </div>
+          <div class="cart-controls">
+            <div class="qty-box">
+              <label for="qty">Qty</label>
+              <select id="qty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div class="order-btn"><button>Order Now</button></div>
+            <div class="add-to-cart-box">
+              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-ctr">
+      <div class="card">
+        <div class="img-section">
+          <img src="source/Iced.jpg" alt="Espresso" />
+          <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
+        </div>
+        <div class="alert-cart">
+          <p class="cart-response-label"></p>
+        </div>
+        <div class="details-section">
+          <h1>Iced Coffee</h1>
+          <p class="description">Iced Coffee Chilled coffee served over ice with optional milk. </p>
+          <div class="rating-price-container">
+            <div class="rating-box">
+              <div class="star-rating">
+                <div class="stars-outer">
+                  <div class="stars-inner" style="width: 80%;"></div>
+                </div>
+                <span class="rating-count">4</span>
+              </div>
+            </div>
+            <div class="price-box">INR : ₹80</div>
+          </div>
+          <div class="cart-controls">
+            <div class="qty-box">
+              <label for="qty">Qty</label>
+              <select id="qty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div class="order-btn"><button>Order Now</button></div>
+            <div class="add-to-cart-box">
+              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-ctr">
+      <div class="card">
+        <div class="img-section">
+          <img src="source/turkish.png" alt="Espresso" />
+          <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
+        </div>
+        <div class="alert-cart">
+          <p class="cart-response-label"></p>
+        </div>
+        <div class="details-section">
+          <h1>Turkish Coffee</h1>
+          <p class="description">Turkish Coffee Unfiltered, thick and bold — served traditionally. </p>
+          <div class="rating-price-container">
+            <div class="rating-box">
+              <div class="star-rating">
+                <div class="stars-outer">
+                  <div class="stars-inner" style="width: 80%;"></div>
+                </div>
+                <span class="rating-count">4</span>
+              </div>
+            </div>
+            <div class="price-box">INR : ₹90</div>
+          </div>
+          <div class="cart-controls">
+            <div class="qty-box">
+              <label for="qty">Qty</label>
+              <select id="qty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div class="order-btn"><button>Order Now</button></div>
+            <div class="add-to-cart-box">
+              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-ctr">
+      <div class="card">
+        <div class="img-section">
+          <img src="source/doppio.png" alt="Espresso" />
+          <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
+        </div>
+        <div class="alert-cart">
+          <p class="cart-response-label"></p>
+        </div>
+        <div class="details-section">
+          <h1>Doppio</h1>
+          <p class="description">Doppio Double espresso shot — strong and intense. </p>
+          <div class="rating-price-container">
+            <div class="rating-box">
+              <div class="star-rating">
+                <div class="stars-outer">
+                  <div class="stars-inner" style="width: 80%;"></div>
+                </div>
+                <span class="rating-count">4</span>
+              </div>
+            </div>
+            <div class="price-box">INR : ₹70</div>
+          </div>
+          <div class="cart-controls">
+            <div class="qty-box">
+              <label for="qty">Qty</label>
+              <select id="qty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div class="order-btn"><button>Order Now</button></div>
+            <div class="add-to-cart-box">
+              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-ctr">
+      <div class="card">
+        <div class="img-section">
+          <img src="source/ristretto.png" alt="Espresso" />
+          <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
+        </div>
+        <div class="alert-cart">
+          <p class="cart-response-label"></p>
+        </div>
+        <div class="details-section">
+          <h1>Ristretto</h1>
+          <p class="description">Ristretto A shorter, more concentrated espresso shot. </p>
+          <div class="rating-price-container">
+            <div class="rating-box">
+              <div class="star-rating">
+                <div class="stars-outer">
+                  <div class="stars-inner" style="width: 80%;"></div>
+                </div>
+                <span class="rating-count">4</span>
+              </div>
+            </div>
+            <div class="price-box">INR : ₹70</div>
+          </div>
+          <div class="cart-controls">
+            <div class="qty-box">
+              <label for="qty">Qty</label>
+              <select id="qty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div class="order-btn"><button>Order Now</button></div>
+            <div class="add-to-cart-box">
+              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-ctr">
+      <div class="card">
+        <div class="img-section">
+          <img src="source/cafe au lait.png" alt="Espresso" />
+          <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
+        </div>
+        <div class="alert-cart">
+          <p class="cart-response-label"></p>
+        </div>
+        <div class="details-section">
+          <h1>Café au Lait</h1>
+          <p class="description">Café au Lait Brewed coffee with steamed milk — mild and simple. </p>
+          <div class="rating-price-container">
+            <div class="rating-box">
+              <div class="star-rating">
+                <div class="stars-outer">
+                  <div class="stars-inner" style="width: 80%;"></div>
+                </div>
+                <span class="rating-count">4</span>
+              </div>
+            </div>
+            <div class="price-box">INR : ₹60</div>
+          </div>
+          <div class="cart-controls">
+            <div class="qty-box">
+              <label for="qty">Qty</label>
+              <select id="qty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div class="order-btn"><button>Order Now</button></div>
+            <div class="add-to-cart-box">
+              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="card-ctr">
+      <div class="card">
+        <div class="img-section">
+          <img src="source/vienna.png" alt="Espresso" />
+          <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
+        </div>
+        <div class="alert-cart">
+          <p class="cart-response-label"></p>
+        </div>
+        <div class="details-section">
+          <h1>Vienna</h1>
+          <p class="description">Vienna Coffee Coffee topped with whipped cream — rich and creamy. </p>
+          <div class="rating-price-container">
+            <div class="rating-box">
+              <div class="star-rating">
+                <div class="stars-outer">
+                  <div class="stars-inner" style="width: 80%;"></div>
+                </div>
+                <span class="rating-count">4</span>
+              </div>
+            </div>
+            <div class="price-box">INR : ₹90</div>
+          </div>
+          <div class="cart-controls">
+            <div class="qty-box">
+              <label for="qty">Qty</label>
+              <select id="qty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div class="order-btn"><button>Order Now</button></div>
+            <div class="add-to-cart-box">
+              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-ctr">
+      <div class="card">
+        <div class="img-section">
+          <img src="source/flatwhite.jpg" alt="Espresso" />
+          <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
+        </div>
+        <div class="alert-cart">
+          <p class="cart-response-label"></p>
+        </div>
+        <div class="details-section">
+          <h1>Flat White</h1>
+          <p class="description">Flat White Silky microfoam milk with strong espresso base. </p>
+          <div class="rating-price-container">
+            <div class="rating-box">
+              <div class="star-rating">
+                <div class="stars-outer">
+                  <div class="stars-inner" style="width: 80%;"></div>
+                </div>
+                <span class="rating-count">4</span>
+              </div>
+            </div>
+            <div class="price-box">INR : ₹90</div>
+          </div>
+          <div class="cart-controls">
+            <div class="qty-box">
+              <label for="qty">Qty</label>
+              <select id="qty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div class="order-btn"><button>Order Now</button></div>
+            <div class="add-to-cart-box">
+              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-ctr">
+      <div class="card">
+        <div class="img-section">
+          <img src="source/blackcoffee.png" alt="Espresso" />
+          <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
+        </div>
+        <div class="alert-cart">
+          <p class="cart-response-label"></p>
+        </div>
+        <div class="details-section">
+          <h1>black coffee</h1>
+          <p class="description">black coffee-Strong and pure, brewed without milk. Bold flavor with deep, roasted aroma</p>
+          <div class="rating-price-container">
+            <div class="rating-box">
+              <div class="star-rating">
+                <div class="stars-outer">
+                  <div class="stars-inner" style="width: 80%;"></div>
+                </div>
+                <span class="rating-count">4</span>
+              </div>
+            </div>
+            <div class="price-box">INR : ₹60</div>
+          </div>
+          <div class="cart-controls">
+            <div class="qty-box">
+              <label for="qty">Qty</label>
+              <select id="qty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+            <div class="order-btn"><button>Order Now</button></div>
+            <div class="add-to-cart-box">
+              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<div class="box-ctr5">
-    <div class="img-ctr"><img src="source/Macchiato.jpg" alt="">
-    <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-      <div class="img-details">
-      <h1>Macchiato</h1>
-      <div class="first-details"><p>Macchiato Espresso with a touch of milk foam. </p></div>
-      <div class="second-details">
-        <div class="rating">
-          <div class="star-rating">
-          <div class="stars-outer">
-          <div class="stars-inner"></div>
-          </div>
-          <span class="rating-count">0</span>
-        </div>
-        <div class="product-price-qrt-cart-ctr">
-          <div class="product-price">INR : ₹70</div>
-        </div>
-        </div>
-        <div class="product-qrt-cart-ctr">
-          <div class="cart-qty-ctr">
-            <label for="qty1">Qty</label>
-            <select id="qty1">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
-          </div>
-          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
-        </div>
-        </div>
-        </div>
-        </div>
-</div>
-
-<div class="box-ctr6">
-    <div class="img-ctr"><img src="source/Mocha.jpg" alt="">
-    <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-        <div class="img-details">
-      <h1>Mocha</h1>
-      <div class="first-details"><p>Mocha Chocolate-flavored latte — sweet and bold. </p></div>
-      <div class="second-details">
-        <div class="rating">
-          <div class="star-rating">
-          <div class="stars-outer">
-          <div class="stars-inner"></div>
-          </div>
-          <span class="rating-count">0</span>
-        </div>
-        <div class="product-price-qrt-cart-ctr">
-          <div class="product-price">INR : ₹100</div>
-        </div>
-        </div>
-        <div class="product-qrt-cart-ctr">
-          <div class="cart-qty-ctr">
-            <label for="qty1">Qty</label>
-            <select id="qty1">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
-          </div>
-          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
-        </div>
-        </div>
-        </div>
-        </div>
-</div>
 
 
-<div class="box-ctr7">
-    <div class="img-ctr"><img src="source/Iced.jpg" alt="">
-    <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-      <div class="img-details">
-      <h1>Iced Cofffee</h1>
-      <div class="first-details"><p>Iced Coffee Chilled coffee served over ice with optional milk. </p></div>
-      <div class="second-details">
-        <div class="rating">
-          <div class="star-rating">
-          <div class="stars-outer">
-          <div class="stars-inner"></div>
-          </div>
-          <span class="rating-count">0</span>
-        </div>
-        <div class="product-price-qrt-cart-ctr">
-          <div class="product-price">INR : ₹80</div>
-        </div>
-        </div>
-        <div class="product-qrt-cart-ctr">
-          <div class="cart-qty-ctr">
-            <label for="qty1">Qty</label>
-            <select id="qty1">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
-          </div>
-          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
-        </div>
-        </div>
-        </div>
-        </div>
-</div>
+  </div>
 
-<div class="box-ctr8">
-    <div class="img-ctr"><img src="source/Cold Brew.jpg" alt="">
-    <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-      <div class="img-details">
-      <h1>Cold Brew</h1>
-      <div class="first-details"><p>Cold Brew Coffee brewed cold for 12+ hours — smooth. </p></div>
-      <div class="second-details">
-        <div class="rating">
-          <div class="star-rating">
-          <div class="stars-outer">
-          <div class="stars-inner"></div>
-          </div>
-          <span class="rating-count">0</span>
-        </div>
-        <div class="product-price-qrt-cart-ctr">
-          <div class="product-price">INR : ₹90</div>
-        </div>
-        </div>
-        <div class="product-qrt-cart-ctr">
-          <div class="cart-qty-ctr">
-            <label for="qty1">Qty</label>
-            <select id="qty1">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
-          </div>
-          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
-        </div>
-        </div>
-        </div>
-        </div>
-</div>
-<div class="box-ctr9">
-    <div class="img-ctr"><img src="source/Nitro Cold Brew.jpg" alt="">
-    <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-      <div class="img-details">
-      <h1>Nitro Cold Brew</h1>
-      <div class="first-details"><p>Nitro Cold Brew Cold brew infused with nitrogen — creamy and fizzy. </p></div>
-      <div class="second-details">
-        <div class="rating">
-          <div class="star-rating">
-          <div class="stars-outer">
-          <div class="stars-inner"></div>
-          </div>
-          <span class="rating-count">0</span>
-        </div>
-        <div class="product-price-qrt-cart-ctr">
-          <div class="product-price">INR : ₹110</div>
-        </div>
-        </div>
-        <div class="product-qrt-cart-ctr">
-          <div class="cart-qty-ctr">
-            <label for="qty1">Qty</label>
-            <select id="qty1">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
-          </div>
-          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
-        </div>
-        </div>
-        </div>
-        </div>
-</div>
-<div class="box-ctr10">
-    <div class="img-ctr"><img src="source/Affogato_Scoop.jpg" alt="">
-    <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-      <div class="img-details">
-      <h1>Affogato</h1>
-      <div class="first-details"><p>Affogato Scoop of ice cream topped with hot espresso. </p></div>
-      <div class="second-details">
-        <div class="rating">
-          <div class="star-rating">
-          <div class="stars-outer">
-          <div class="stars-inner"></div>
-          </div>
-          <span class="rating-count">0</span>
-        </div>
-        <div class="product-price-qrt-cart-ctr">
-          <div class="product-price">INR : ₹110</div>
-        </div>
-        </div>
-        <div class="product-qrt-cart-ctr">
-          <div class="cart-qty-ctr">
-            <label for="qty1">Qty</label>
-            <select id="qty1">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
-          </div>
-          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
-        </div>
-        </div>
-        </div>
-        </div>
-</div>
-<div class="box-ctr11">
-    <div class="img-ctr"><img src="source/Irish.jpg" alt="">
-    <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-      <div class="img-details">
-      <h1>Irish Coffee</h1>
-      <div class="first-details"><p>Irish Coffee Coffee mixed with Irish whiskey and cream. </p></div>
-      <div class="second-details">
-        <div class="rating">
-          <div class="star-rating">
-          <div class="stars-outer">
-          <div class="stars-inner"></div>
-          </div>
-          <span class="rating-count">0</span>
-        </div>
-        <div class="product-price-qrt-cart-ctr">
-          <div class="product-price">INR : ₹130</div>
-        </div>
-        </div>
-        <div class="product-qrt-cart-ctr">
-          <div class="cart-qty-ctr">
-            <label for="qty1">Qty</label>
-            <select id="qty1">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
-          </div>
-          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
-        </div>
-        </div>
-        </div>
-        </div>
-</div>
-<div class="box-ctr12">
-    <div class="img-ctr"><img src="source/doppio.png" alt="">
-    <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-      <div class="img-details">
-      <h1>Doppio</h1>
-      <div class="first-details"><p>Doppio Double espresso shot — strong and intense. </p></div>
-      <div class="second-details">
-        <div class="rating">
-          <div class="star-rating">
-          <div class="stars-outer">
-          <div class="stars-inner"></div>
-          </div>
-          <span class="rating-count">0</span>
-        </div>
-        <div class="product-price-qrt-cart-ctr">
-          <div class="product-price">INR : ₹70</div>
-        </div>
-        </div>
-        <div class="product-qrt-cart-ctr">
-          <div class="cart-qty-ctr">
-            <label for="qty1">Qty</label>
-            <select id="qty1">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
-          </div>
-          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
-        </div>
-        </div>
-        </div>
-        </div>
-</div>
-<div class="box-ctr13">
-    <div class="img-ctr"><img src="source/ristretto.png" alt="">
-    <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-      <div class="img-details">
-      <h1>Ristretto</h1>
-      <div class="first-details"><p>Ristretto A shorter, more concentrated espresso shot. </p></div>
-      <div class="second-details">
-        <div class="rating">
-          <div class="star-rating">
-          <div class="stars-outer">
-          <div class="stars-inner"></div>
-          </div>
-          <span class="rating-count">0</span>
-        </div>
-        <div class="product-price-qrt-cart-ctr">
-          <div class="product-price">INR : ₹70</div>
-        </div>
-        </div>
-        <div class="product-qrt-cart-ctr">
-          <div class="cart-qty-ctr">
-            <label for="qty1">Qty</label>
-            <select id="qty1">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
-          </div>
-          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
-        </div>
-        </div>
-        </div>
-        </div>
-</div>
-<div class="box-ctr14">
-    <div class="img-ctr"><img src="source/cafe au lait.png" alt="">
-    <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-      <div class="img-details">
-      <h1>Cafe au Lait</h1>
-      <div class="first-details"><p>Café au Lait Brewed coffee with steamed milk — mild and simple. </p></div>
-      <div class="second-details">
-        <div class="rating">
-          <div class="star-rating">
-          <div class="stars-outer">
-          <div class="stars-inner"></div>
-          </div>
-          <span class="rating-count">0</span>
-        </div>
-        <div class="product-price-qrt-cart-ctr">
-          <div class="product-price">INR : ₹60</div>
-        </div>
-        </div>
-        <div class="product-qrt-cart-ctr">
-          <div class="cart-qty-ctr">
-            <label for="qty1">Qty</label>
-            <select id="qty1">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
-          </div>
-          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
-        </div>
-        </div>
-        </div>
-        </div>
-</div>
-<div class="box-ctr15">
-    <div class="img-ctr"><img src="source/vienna.png" alt="">
-    <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-      <div class="img-details">
-      <h1>Vienna Coffee</h1>
-      <div class="first-details"><p>Vienna Coffee Coffee topped with whipped cream — rich and creamy. </p></div>
-      <div class="second-details">
-        <div class="rating">
-          <div class="star-rating">
-          <div class="stars-outer">
-          <div class="stars-inner"></div>
-          </div>
-          <span class="rating-count">0</span>
-        </div>
-        <div class="product-price-qrt-cart-ctr">
-          <div class="product-price">INR : ₹90</div>
-        </div>
-        </div>
-        <div class="product-qrt-cart-ctr">
-          <div class="cart-qty-ctr">
-            <label for="qty1">Qty</label>
-            <select id="qty1">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
-          </div>
-          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
-        </div>
-        </div>
-        </div>
-        </div>
-</div>
-<div class="box-ctr16">
-    <div class="img-ctr"><img src="source/flat white.png" alt="">
-    <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-      <div class="img-details">
-      <h1>Flat White</h1>
-      <div class="first-details"><p>Flat White Silky microfoam milk with strong espresso base. </p></div>
-      <div class="second-details">
-        <div class="rating">
-          <div class="star-rating">
-          <div class="stars-outer">
-          <div class="stars-inner"></div>
-          </div>
-          <span class="rating-count">7</span>
-        </div>
-        <div class="product-price-qrt-cart-ctr">
-          <div class="product-price">INR : ₹90</div>
-        </div>
-        </div>
-        <div class="product-qrt-cart-ctr">
-          <div class="cart-qty-ctr">
-            <label for="qty1">Qty</label>
-            <select id="qty1">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
-          </div>
-          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
-        </div>
-        </div>
-        </div>
-        </div>
-</div>
-    
-<div class="box-ctr17">
-    <div class="img-ctr"><img src="source/blackcoffee.png" alt="">
-    <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
-        <div class="img-details">
-      <h1>Black Coffee</h1>
-      <div class="first-details"><p>black coffee-Strong and pure, brewed without milk.Bold flavor with deep, roasted aroma</p></div>
-      <div class="second-details">
-        <div class="rating">
-          <div class="star-rating">
-          <div class="stars-outer">
-          <div class="stars-inner"></div>
-          </div>
-          <span class="rating-count">0</span>
-        </div>
-        <div class="product-price-qrt-cart-ctr">
-          <div class="product-price">INR : ₹70</div>
-        </div>
-        </div>
-        <div class="product-qrt-cart-ctr">
-          <div class="cart-qty-ctr">
-            <label for="qty1">Qty</label>
-            <select id="qty1">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-            </select>
-          </div>
-          <div class="cart-btn-ctr"><button>&#128722; Add to Cart</button></div>
-        </div>
-        </div>
-        </div>
-        </div>
-</div>
-</div>  
-<script>
-    const navbar = document.querySelector('.nav');
-    window.addEventListener('scroll',()=>{
+  
+  <script>
+        const navbar = document.querySelector('.nav');
+        window.addEventListener('scroll',()=>{
         if(window.scrollY>0){
             navbar.classList.remove('color');
             navbar.classList.add('transparent');
@@ -1194,16 +1127,32 @@
             navbar.classList.remove('transparent');
         }
     });
-    function toggleHeart(element){
-      if(element.textContent === '🤍'){
-           element.textContent='💓';
-      }
-      else{
-        element.textContent='🤍';
-      }
+    function toggleHeart(el) {
+      el.textContent = el.textContent === '🤍' ? '❤️' : '🤍';
     }
-        // for ratings
-        function setAllRatings(ratingDataList) {
+
+    function cartAlertMsg(buttonElement) {
+      const card = buttonElement.closest('.card'); // Find the card containing the button
+      const alertMsg = card.querySelector('.cart-response-label'); // Target that card's message box
+      setTimeout(() => {
+        alertMsg.innerHTML = 'Adding...';
+        alertMsg.style.display = 'block';
+
+      setTimeout(() => {
+      alertMsg.innerHTML = '<span style="color:green; font-weight:bold;">☑</span> Added';
+      alertMsg.style.display = 'block';
+  
+        setTimeout(() => {
+              
+              alertMsg.style.display = 'none'; //remove total alert message
+
+      }, 1000);
+    },2000);
+  });
+}
+
+      // for ratings
+      function setAllRatings(ratingDataList) {
       const starsInnerList = document.querySelectorAll('.stars-inner');
       const ratingCountList = document.querySelectorAll('.rating-count');
       ratingDataList.forEach((data,index)=> {
@@ -1239,8 +1188,7 @@
             
       ]);
     });
+  </script>
 
-
-</script>  
 </body>
 </html>
