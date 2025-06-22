@@ -24,86 +24,95 @@
           opacity: 0;
           transition: opacity 1.5s ease-in;
         }
-    .nav-bar{
-      position:fixed;
-      height:auto;
-      width:100%;
-      border:1px solid black;
-      background-color: black;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 4px;
-      z-index: 999;
-      flex-direction: column;
-      
-    }
-    .nav-bar h1{
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        font-size: 25px;
-        padding:4px;   
-    }
-    .wall-img-ctr{
-      position: relative;
-      height:80vh;
-      width:100%;
-      overflow: hidden;
-    }
-    .wall-img-ctr img{
-      position: absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      object-fit: cover;
-    }
-    .wall-img-ctr1{
-      position: relative;
-      height:80vh;
-      width:100%;
-      overflow: hidden;
-    }
-    .wall-img-ctr1 img{
-      position: absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      object-fit: cover;
-    }
-    .wall-img-ctr1 button{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-      color:white;
-      position: absolute;
-      background-color: transparent;
-      top:94%;
-      left:50%;
-      transform: translateX(-50%);
-      font-size: 18px;
-      padding: 6px;
-      border-top:2px solid white;
-      border-bottom:2px solid white;
-      border:1px solid white;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .wall-img-ctr1 button:hover{
-      background-color: goldenrod;
-    }
-   
-    .grid-card {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  max-width: auto;
-  margin: 20px auto;
-  gap: 16px;
-  padding: 20px;
+        .nav-bar{
+          position:fixed;
+          width:100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;  
+        }
+        .nav-bar h1{
+          position: absolute;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding:3px;
+          font-size: 30px;
+          letter-spacing:1px;
 
-}
+        } 
+        .nav-bar img{
+            height:40px;
+            width:100%;
+            
+        }
+        .nav-under-img img{
+          height:auto;
+          width:100%;
+          margin-top:40px;      
+        }
+        .wall-img-ctr{
+            position: relative;
+            height:80vh;
+            width:100%;
+            overflow: hidden;
+          }
+        .wall-img-ctr img{
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            object-fit: cover;
+          }
+        .wall-img-ctr1{
+            position: relative;
+            height:80vh;
+            width:100%;
+            overflow: hidden;
+          }
+        .wall-img-ctr1 img{
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            object-fit: cover;
+          }
+        .wall-img-ctr1 button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            color:white;
+            position: absolute;
+            background-color: transparent;
+            top:94%;
+            left:50%;
+            transform: translateX(-50%);
+            font-size: 18px;
+            padding: 6px;
+            border-top:2px solid white;
+            border-bottom:2px solid white;
+            border:1px solid white;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+          .wall-img-ctr1 button:hover{
+            background-color: goldenrod;
+          }
+        
+          .grid-card {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        max-width: auto;
+        margin: 20px auto;
+        gap: 16px;
+        padding: 20px;
+
+      }
 
 .card {
   background-color: #1e1e1e;
@@ -209,9 +218,13 @@
     <source src="source/cafe.mp4" type="video/mp4">
   </video>
   <div class="js-mainpage">
-    <nav class="nav-bar">
-      <h1>caffaine</h1>
-    </nav>
+      <nav class="nav-bar">
+      <h1>CAFFEINE</h1> 
+      <img src="source/navposter1.png" alt="">
+      </nav>
+    <div class="nav-under-img">
+      <img src="source/navposter.png" alt="">
+    </div>
     <div class="wall-img-ctr"><img src="source/wallpapers/wall8.jpg" alt=""></div>
    <div class="wall-img-ctr1"><img class="table-btn" src="source/wallpapers/wall3.jpg" alt=""><button aria-label="book a Table now">Book a Table</button></div>
 
@@ -238,19 +251,19 @@
    <div class="grid-card">
   <div class="card">
     <img src="source/wallpapers/wall2.jpg" alt="" />
-    <p>Rich and bold espresso, brewed fresh to energize your day.</p>
+    <p>At our café, we offer more than great food and drinks—we create a welcoming space where you feel at home. Our friendly servers ensure every visit is comfortable and enjoyable, whether you're grabbing a snack, a meal, or simply unwinding.</p>
   </div>
   <div class="card">
     <img src="source/wallpapers/wall6.jpg" alt="" />
-    <p>Creamy latte with smooth steamed milk and a shot of espresso.</p>
+    <p>Our skilled baristas are the heart of our café—passionate, experienced, and dedicated to crafting the perfect cup. With expert technique and attention to hygiene, they ensure every drink is fresh, safe, and made with care.</p>
   </div>
   <div class="card">
-    <img src="source/wallpapers/wall1.jpg" alt="" />
-    <p>Frothy cappuccino topped with cinnamon for a classic taste.</p>
+    <img src="source/interior.png" alt="" />
+    <p>Step into our café and enjoy a cozy, stylish space with warm lighting, rustic touches, and artistic decor. Designed for comfort and charm, it’s perfect for anything from quick bites to long chats—offering a premium experience at a price that feels just right.</p>
   </div>
    <div class="card">
-    <img src="source/wallpapers/wall5.jpg" alt="" />
-    <p>Frothy cappuccino topped with cinnamon for a classic taste.</p>
+    <img src="source/wallpapers/wall1.jpg" alt="" />
+    <p>Our café offers free high-speed Wi-Fi and a peaceful ambiance—perfect for working, attending meetings, or relaxing with your favorite drink. Settle in with your laptop and stay productive in our cozy, comfortable space.</p>
   </div>
 </div>
 </div>
