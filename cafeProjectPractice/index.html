@@ -3,22 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>CAFE</title>
   <style>
     *{
       margin:0;
       padding: 0;
       box-sizing: border-box;
-     }
-      header{
-            font-family: 'Times New Roman', Times, serif;
-            font-weight: bolder;
-            font-size: clamp(25px,8vw,80px);
-            text-align: center;
-            background-color: whitesmoke;
-            border:2px solid black;
-            user-select:none;
-      }
+    }
         .css-video {
           position: fixed;
           z-index: 999;
@@ -33,210 +24,279 @@
           opacity: 0;
           transition: opacity 1.5s ease-in;
         }
-      span{
-            cursor: pointer;
-            align-items: center;
-            padding: 1px;
-      }
-      .ca:hover{
-            border:1px solid black; 
-            background-color: teal;
-            transition:1s ease-in;
-         
-      }
-      .cb:hover{
-            border:1px solid black;
-            background-color: #D4A017;
-            transition:1s ease-out;
-      }
-        /* has() is used to acess another non relationship element when particular element happen*/
-        /* the following one is i want when hover my span the i need to change header background*/
-        header:has(.ca:hover){
-            background-color: #D4A017;
-           transition:1s ease-out;
-        }
-        header:has(.cb:hover){
-            background-color: teal;
-           transition:1s ease-in;
-        }
-    .img-ctr{
-      max-width:100%;
-      max-height:100%;
-      width: auto;
-      height: auto;
-      display: block;
-    }
-    .img-ctr img{
+    .nav-bar{
+      position:fixed;
       height:auto;
       width:100%;
-      margin-bottom:20px;
-    }
-    @media (max-width:789px) {
-      .img-ctr img{
-        margin-bottom:2px;
-        min-height: 200px;
-        object-fit: cover;
-      }
-      
-    }
-     .img-ctr1 img{
-      height:auto;
-      width:100%;
-      
-     }
-    
-    .ctr-btn1-wrapper{
-      position: relative;
-      margin-top:0%;
-      height:90px;
-      width:100%;
-      background-color:black;
-    }
-    @media (max-width:789px) {
-      .ctr-btn1-wrapper{
-        height:40px;
-      }
-    }
-    .ctr-btn2-wrapper{
-      position: relative;
-      margin-top:0%;
-      height:90px;
-      width:100%;
-      background-color:#d7a85b;
-    }
-    @media (max-width:789px) {
-      .ctr-btn2-wrapper{
-        height:40px;
-      }
-    }
-
-   
-    .img-btn-ctr{
-      height:100px;
-      width:100px;
+      border:1px solid black;
+      background-color: black;
+      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
-      position:absolute;
-      background-color: #f5eddc;
-      border:2px solid #dc143c;
-      left:50%;
-      bottom: 50px;
-      transform: translateX(-50%);
-      border-radius:50%;
-
+      margin-bottom: 4px;
+      z-index: 999;
+      flex-direction: column;
       
     }
-    .img-btn-ctr button{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height:70%;
-      width:70%;
+    .nav-bar h1{
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 25px;
+        padding:4px;   
+    }
+    .wall-img-ctr{
+      position: relative;
+      height:80vh;
+      width:100%;
+      overflow: hidden;
+    }
+    .wall-img-ctr img{
       position: absolute;
-      border-radius:50%;
-      background-color:black;
-      border: none;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      object-fit: cover;
+    }
+    .wall-img-ctr1{
+      position: relative;
+      height:80vh;
+      width:100%;
+      overflow: hidden;
+    }
+    .wall-img-ctr1 img{
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      object-fit: cover;
+    }
+    .wall-img-ctr1 button{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      color:white;
+      position: absolute;
+      background-color: transparent;
+      top:94%;
+      left:50%;
+      transform: translateX(-50%);
+      font-size: 18px;
+      padding: 6px;
+      border-top:2px solid white;
+      border-bottom:2px solid white;
+      border:1px solid white;
+      border-radius: 4px;
       cursor: pointer;
-      font-size: 40px;
     }
-
-    @media (max-width: 789px) {
-     .img-btn-ctr {
-      bottom:15px;
-     height: 40px; 
-     width: 40px ;
-     
+    .wall-img-ctr1 button:hover{
+      background-color: goldenrod;
     }
+   
+    .grid-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  max-width: auto;
+  margin: 20px auto;
+  gap: 16px;
+  padding: 20px;
 
-    .img-btn-ctr button {
-     height: 100%;
-     width: 100%;
-     font-size: 16px;
-   }
- }
+}
+
+.card {
+  background-color: #1e1e1e;
+  color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  padding: 10px;
+  font-family: sans-serif;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card p {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.total{
+  background-color:white;
+}
+    .grid-card1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  max-width: auto;
+  margin: 20px auto;
+  gap: 16px;
+  padding: 20px;
+
+}
+
+.card1 {
+  background-color:white;
+  color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  padding: 10px;
+  font-family: sans-serif;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+
+
+.card1 img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+@media (min-width:1200px) {
+  .card1 img{
+    height:auto;
+  }
   
+}
+.total1{
+  background-color: black;
+}
+.coffee-btn-ctr{
+  height:auto;
+  width:auto ;
+  margin-left:3px;
+  margin-right:3px;
+  margin-top:4px;
+
+  
+}
+.coffee-btn-ctr button{
+  padding:6px;
+  font-weight: bold;
+  border: none;
+  background-color:black;
+  color:white;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size:18px;
+}
+.coffee-btn-ctr button:hover{
+  transition:1.5s ease-in;
+  color:black;
+  background-color:white;
+}
+
+
+
   </style>
 </head>
 <body>
    <video class="css-video" autoplay muted playsinline disablePictureInPicture>
     <source src="source/cafe.mp4" type="video/mp4">
   </video>
-    <div class="js-mainpage">
-    <header>
-        <span class="ca">C</span>
-        <span class="cb">A</span>
-        <span class="ca">F</span>
-        <span class="cb">E</span>
-        <span class="ca">N</span>
-        <span class="cb">A</span>
-        <span class="ca">M</span>
-        <span class="cb">E</span>
-    </header>
-  <div class="img-ctr">
-  <img src="source/caferoom (1).png" alt="">
-</div>
-   <div class="img-ctr">
-  <img src="source/first.jpg" alt="">
-</div>
-<div class="img-ctr">
-  <img src="source/second.jpg" alt="">
-</div>
-  <div class="img-ctr1">
-    <img src="source/third.jpg" alt="">
-  </div>
-    <div class="ctr-btn1-wrapper">
-    <div class="btn-coffee-ctr">
-    <div class="img-btn-ctr">
-    <button class="img-btn" title="coffee" onclick="window.location.href='coffee.html' ">☕</button>
-    </div>
-    </div>
- </div>
-     <div class="img-ctr">
-  <img src="source/four.png" alt="">
-</div>
-<div class="img-ctr">
-  <img src="source/five.png" alt="">
-</div>
-<div class="img-ctr1">
-    <img src="source/six.png" alt="">
-  </div>
-    <div class="ctr-btn2-wrapper">
-    <div class="btn-coffee-ctr">
-    <div class="img-btn-ctr">
-    <button class="img-btn" title="tea" onclick="window.location.href='tea.html' ">☕</button>
-    </div>
-    </div>
- </div>
- </div>
-</div>
-<script>
-    const video = document.querySelector('.css-video');
-  const mainPage = document.querySelector('.js-mainpage');
+  <div class="js-mainpage">
+    <nav class="nav-bar">
+      <h1>caffaine</h1>
+    </nav>
+    <div class="wall-img-ctr"><img src="source/wallpapers/wall8.jpg" alt=""></div>
+   <div class="wall-img-ctr1"><img class="table-btn" src="source/wallpapers/wall3.jpg" alt=""><button aria-label="book a Table now">Book a Table</button></div>
 
-  function showMainPage() {
-    // 1. Fade out the video
-    video.style.opacity = '0';
-    video.style.pointerEvents = 'none';
 
-    // 2. Display and fade in the main content immediately
-    mainPage.style.display = 'block';
-    requestAnimationFrame(() => {
-      mainPage.style.opacity = '1';
+
+
+
+<!--for coffee tea img poster-->
+   <div class="total1">
+   <div class="grid-card1">
+  <div class="card1">
+    <img src="source/coffeetime.png" alt="" />
+    <div class="coffee-btn-ctr"><button onclick="window.location.href='coffee.html' ">Buy Now</button></div>
+  </div>
+  <div class="card1">
+    <img src="source/teatime.png" alt="" />
+    <div class="coffee-btn-ctr"><button onclick="window.location.href='tea.html' ">Buy Now</button></div>
+  </div>
+  </div>
+
+
+<!--at last about the cafe and its services-->
+   <div class="total">
+   <div class="grid-card">
+  <div class="card">
+    <img src="source/wallpapers/wall2.jpg" alt="" />
+    <p>Rich and bold espresso, brewed fresh to energize your day.</p>
+  </div>
+  <div class="card">
+    <img src="source/wallpapers/wall6.jpg" alt="" />
+    <p>Creamy latte with smooth steamed milk and a shot of espresso.</p>
+  </div>
+  <div class="card">
+    <img src="source/wallpapers/wall1.jpg" alt="" />
+    <p>Frothy cappuccino topped with cinnamon for a classic taste.</p>
+  </div>
+   <div class="card">
+    <img src="source/wallpapers/wall5.jpg" alt="" />
+    <p>Frothy cappuccino topped with cinnamon for a classic taste.</p>
+  </div>
+</div>
+</div>
+</div>
+    <script>
+
+      //for video intro
+        const video = document.querySelector('.css-video');
+        const mainPage = document.querySelector('.js-mainpage');
+
+        function showMainPage() {
+          // 1. Fade out the video
+          video.style.opacity = '0';
+          video.style.pointerEvents = 'none';
+
+          // 2. Display and fade in the main content immediately
+          mainPage.style.display = 'block';
+          requestAnimationFrame(() => {
+            mainPage.style.opacity = '1';
+          });
+
+          // 3. After fade-out completes, remove the video from layout
+          setTimeout(() => {
+            video.style.display = 'none';
+          }, 500); // Slightly less than CSS's 1.5s for smooth transition (no delay bump)
+        }
+
+        // Trigger showMainPage when video ends or if playback fails
+        video.onended = showMainPage;
+        video.play().catch(showMainPage);
+
+        // Fallback: safety timeout in case video stalls
+        setTimeout(showMainPage, 5500);
+
+// for blurr the img while hover on button
+    const button = document.querySelector('.wall-img-ctr1 button');
+    const image = document.querySelector('.wall-img-ctr1 img');
+
+    button.addEventListener('mouseenter', () => {
+      image.style.filter = 'blur(2px)';
     });
 
-    // 3. After fade-out completes, remove the video from layout
-    setTimeout(() => {
-      video.style.display = 'none';
-    }, 500); // Slightly less than CSS's 1.5s for smooth transition (no delay bump)
-  }
+    button.addEventListener('mouseleave', () => {
+      image.style.filter = 'none';
+    });
 
-  // Trigger showMainPage when video ends or if playback fails
-  video.onended = showMainPage;
-  video.play().catch(showMainPage);
-
-  // Fallback: safety timeout in case video stalls
-  setTimeout(showMainPage, 5500);
-</script>
+    </script>
 </body>
 </html>
