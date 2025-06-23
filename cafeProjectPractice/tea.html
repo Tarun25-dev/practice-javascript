@@ -18,30 +18,43 @@
     }
 
     /* NAVBAR */
+     .nav-img-ctr{
+      position:fixed;
+      width:100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index:999;
+      flex-direction: column;
+      border-bottom: 1px solid #efd9c8;
+    }
+    .nav-img-ctr img{
+      height:60px;
+      width:100%;
+    }
+    .nav-coffee-ctr img{
+      height:auto;
+      width:100%;
+      margin-top:60px;
+
+    }
+
     .nav {
       top: 0;
       position: fixed;
       height: 70px;
       width: 100%;
-      border: 2px solid black;
       z-index: 999;
-      background-color: white;
+      background-color:transparent;
       color: black;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 8px 12px;
-      border-left:2px solid #4b2e2b;
-      border-right:2px solid #4b2e2b;
     }
-     .nav.color{
-            background-color:white;
-            color:black;
-        }
-        .nav.transparent{
-            background-color: transparent;
-            color: white;
-        }
+ 
+
     .nav-left, .nav-right {
       display: flex;
       align-items: center;
@@ -72,12 +85,11 @@
     }
     .menu-items a{
       text-decoration: none;
-     color:inherit;
+      color:inherit;
     }
-
-     .menu-items a:hover {
-       color: goldenrod;
-      } 
+    .menu-items a:hover {
+      color: goldenrod;
+    } 
     .nav-left-menu:hover .menu-items {
       display: block;
     }
@@ -124,18 +136,6 @@
       padding: 2px 5px;
       border-radius: 50%;
     }
-    .heading{
-      height:50px;
-      width:100%;
-      background-color: white;
-      margin-top:70px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-left:2px solid #4b2e2b;
-      border-right:2px solid #4b2e2b;
-    }
-
     /* CARD CONTAINER GRID */
     .ctr {
       padding: 100px 15px 30px;
@@ -316,33 +316,39 @@
   </style>
 </head>
 <body>
-
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="nav-left">
-      <div class="nav-left-menu">Menu
-        <ul class="menu-items">
-          <li><a href="coffee.html">Coffee</a></li>
-          <li><a href="tea.html">Tea</a></li>
-          <li>Snacks</li>
-          <li>Cool Drinks</li>
-          <li>Chat</li>
-          <li>Desserts</li>
-          <li>Ice Creams</li>
-        </ul>
+ <!-- NAV -->
+  <nav class="nav-img-ctr">
+    <img src="source/navbar.png" alt="">
+    <div class="nav">
+      <div class="nav-left">
+        <div class="nav-left-menu">Menu
+          <ul class="menu-items">
+            <li><a href="coffee.html">Coffee</a></li>
+            <li><a href="tea.html">Tea</a></li>
+            <li>Snacks</li>
+            <li>Cool Drinks</li>
+            <li>Chat</li>
+            <li>Desserts</li>
+            <li>Ice Creams</li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="nav-center">
-      <div class="search-bar">
-        <input type="text" placeholder="Search..." />
+      <div class="nav-center">
+        <div class="search-bar">
+          <input type="text" placeholder="Search..." />
+        </div>
       </div>
-    </div>
-    <div class="nav-right">
-      <div class="icon">&#128722;<span>1</span></div>
-      <div class="icon">&#10084;<span>2</span></div>
+      <div class="nav-right">
+        <div class="icon">&#128722;<span>1</span></div>
+        <div class="icon">&#10084;<span>2</span></div>
+      </div>
     </div>
   </nav>
-  <div class="heading"><h1>TEA TIME</h1></div>
+
+  <!-- Coffee image section -->
+  <div class="nav-coffee-ctr">
+    <img src="source/navtea.png" alt="">
+  </div>
 
   <!-- GRID CARD CONTAINER -->
   <div class="ctr">
@@ -956,17 +962,6 @@
 
   
   <script>
-        const navbar = document.querySelector('.nav');
-        window.addEventListener('scroll',()=>{
-        if(window.scrollY>0){
-            navbar.classList.remove('color');
-            navbar.classList.add('transparent');
-        }
-        else{
-            navbar.classList.add('color');
-            navbar.classList.remove('transparent');
-        }
-    });
     function toggleHeart(el) {
       el.textContent = el.textContent === '🤍' ? '❤️' : '🤍';
     }
