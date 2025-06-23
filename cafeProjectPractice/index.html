@@ -103,6 +103,64 @@
           .wall-img-ctr1 button:hover{
             background-color: goldenrod;
           }
+          .menu-ctr{
+            position: relative;
+            width:100%;
+            max-width:500px;
+            border:1px solid black;
+            margin:10px auto;
+            border-radius:12px;
+            overflow: hidden;
+            background-color: antiquewhite;
+        }
+        .img-slider-ctr{
+            display:flex;
+            transition: transform 0.5s ease-in-out;
+            
+            
+        }
+        .img-slider-ctr img{
+            width:100%;
+            flex-shrink:0;
+            object-fit: contain;
+        }
+        .navigator{
+            margin:10px;
+            display: flex;
+            font-size:20px;
+            padding:7px;
+            background-color: white;
+            border:1px solid black;
+            cursor: pointer;     
+            z-index:10;
+        }
+        .navigator:hover{
+            color:teal;
+
+        }
+        .navigator.left:hover,.navigator.navigator.right:hover{
+            transition:0.1s ease-in;
+            font-size: 21px;
+        }
+        .navigator.left{
+            position: absolute;
+            top:50%;
+            transform: translateY(-50%);
+        }
+        .navigator.right{
+            position:absolute;
+            top:50%;
+            transform: translateY(-50%);
+            right:0px;
+        }
+        .menu-ctr-bg{
+          height:100%;
+          width:100%;
+          padding-top:10px;
+          padding-bottom:10px;
+          background-color:#4c2e1c;
+          z-index:1000;
+        }
         
           .grid-card {
         display: grid;
@@ -228,7 +286,19 @@
     <div class="wall-img-ctr"><img src="source/wallpapers/wall8.jpg" alt=""></div>
    <div class="wall-img-ctr1"><img class="table-btn" src="source/wallpapers/wall3.jpg" alt=""><button aria-label="book a Table now">Book a Table</button></div>
 
-
+   <!--for slider menu-->
+<div class="menu-ctr-bg">
+ <div class="menu-ctr">
+        <button class="navigator left" onclick="slide(-1);">&#10094;</button>
+        <div class="img-slider-ctr">
+            <img src="source/menucafe.png" alt="">
+            <img src="source/coffeemenu.png" alt="">
+            <img src="source/teamenu.png" alt="">
+            <img src="source/squirrel.png" alt="">
+        </div>
+        <button class="navigator right" onclick="slide(1);">&#10095;</button>
+    </div>
+    </div>
 
 
 
@@ -309,7 +379,23 @@
     button.addEventListener('mouseleave', () => {
       image.style.filter = 'none';
     });
-
+// for showing images in sliding using buttons
+const slider=document.querySelector('.img-slider-ctr');
+        const totalImages = slider.children.length;
+        let currentIndex = 0;
+        function slide(direction){
+            currentIndex += direction;
+            if(currentIndex < 0){
+                currentIndex = totalImages-1;
+            }
+            if(currentIndex >= totalImages){
+                currentIndex = 0;
+            }
+            const offSet = -currentIndex *100;
+            
+            slider.style.transform = `translateX(${offSet}%)`;
+        }
+        setInterval(() => slide(1),30000)
     </script>
 </body>
 </html>
