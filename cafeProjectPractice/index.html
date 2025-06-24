@@ -269,6 +269,27 @@
   color:black;
   background-color:white;
 }
+    .background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+
+  /* Desktop image default */
+  background-image: url('thankyou1.png');
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .background-image {
+    background-image: url('thankyou.png');
+  }
+}
 footer {
       background-color: #222;
       color: #eee;
@@ -378,7 +399,7 @@ footer {
       <!--thankyou message -->
 
 
-
+ <div class="background-image"></div>
   <footer>
     <div class="footer-contact">
       <h2>Contact Us</h2>
