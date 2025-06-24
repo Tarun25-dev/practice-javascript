@@ -9,6 +9,7 @@
       margin:0;
       padding: 0;
       box-sizing: border-box;
+     
     }
         .css-video {
           position: fixed;
@@ -66,6 +67,41 @@
             width:100%;
             height:100%;
             object-fit: cover;
+          }
+              .slider {
+                width: 100vw;
+                height: 100vh;
+                position: relative;
+                overflow: hidden;
+                background-color: #4b2e2b;
+                border: 2px solid black;
+              }
+
+              .slider img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                opacity: 0;
+                transition: opacity 1s ease-in-out;
+              }
+
+              .slider img.active {
+                opacity: 1;
+                z-index: 1;
+              }
+
+              @media (max-width: 789px) {
+            .slider {
+              height: auto;
+              aspect-ratio: 4 / 5;
+            }
+
+            .slider img {
+              height: 100%;
+            }
           }
         .wall-img-ctr1{
             position: relative;
@@ -158,11 +194,25 @@
           width:100%;
           padding-top:10px;
           padding-bottom:10px;
-          background-color:#4c2e1c;
+          background-color:#4b2e2b;
           z-index:1000;
         }
-          
-       
+        .reviews-desktop-img,.reviews-mobile-img{
+            display: none;
+            width:100%;
+            height:auto;
+            object-fit: contain;
+        }
+          @media (max-width:768px) {
+            .reviews-mobile-img{
+              display: block;
+            }
+          }
+          @media (min-width:767px) {
+            .reviews-desktop-img{
+              display: block;
+            }
+          }
         
           .grid-card {
         display: grid;
@@ -173,8 +223,6 @@
         padding: 20px;
 
       }
-    
-
 .card {
   background-color: #1e1e1e;
   color: white;
@@ -204,7 +252,7 @@
   line-height: 1.4;
 }
 .total{
-  background-color:white;
+  background-color:black;
 }
     .grid-card1 {
   display: grid;
@@ -269,7 +317,22 @@
   color:black;
   background-color:white;
 }
-
+.desktop-img,.mobile-img{
+      display: none;
+      width:100%;
+      height:auto;
+      object-fit: contain;
+    }
+    @media (max-width:768px) {
+      .mobile-img{
+        display: block;
+      }
+    }
+    @media (min-width:767px) {
+      .desktop-img{
+        display: block;
+      }
+    }
 footer {
       background-color: #222;
       color: #eee;
@@ -304,7 +367,7 @@ footer {
         font-size: 14px;
       }
     }
-
+   
 
   </style>
 </head>
@@ -321,6 +384,12 @@ footer {
       <img src="source/navposter.png" alt="">
     </div>
     <div class="wall-img-ctr"><img src="source/wallpapers/wall8.jpg" alt=""></div>
+    <div class="slider">
+    <img src="source/aboutus.png" alt="" class="active">
+    <img src="source/qualityresource.png" alt="">
+    <img src="source/ourmission.png" alt="">
+    <img src="source/weoffers.png" alt="">
+  </div>
    <div class="wall-img-ctr1"><img class="table-btn" src="source/wallpapers/wall3.jpg" alt=""><button aria-label="book a Table now">Book a Table</button></div>
 
    <!--for slider menu-->
@@ -353,6 +422,8 @@ footer {
   </div>
 
   <!--for review images-->
+  <img src="source/desktopimg.png" alt="" class="reviews-desktop-img">
+  <img src="source/mobilereview.png" alt="" class="reviews-mobile-img">
 
 
 <!--at last about the cafe and its services-->
@@ -373,14 +444,13 @@ footer {
    <div class="card">
     <img src="source/wallpapers/wall1.jpg" alt="" />
     <p>Free Wi-Fi and peaceful vibes—ideal for work, meetings, or relaxing with your favorite drink.</p>
-   </div>
+  </div>
 </div>
 </div>
-      <!--thankyou message -->
+  <img src="source/thankyou1.png" alt="" class="desktop-img">
+  <img src="source/thankyou.png" alt="" class="mobile-img">
 
-
-
-  <footer>
+ <footer>
     <div class="footer-contact">
       <h2>Contact Us</h2>
       <p>Email: cafe@example.com</p>
@@ -388,6 +458,7 @@ footer {
       <p>Address: Nandyal, Andhra Pradesh, India.</p>
     </div>
   </footer>
+
 </div>
     <script>
 
@@ -442,11 +513,49 @@ const slider=document.querySelector('.img-slider-ctr');
             if(currentIndex >= totalImages){
                 currentIndex = 0;
             }
-            const offSet = -currentIndex *100;
-            
+            const offSet = -currentIndex *100;  
             slider.style.transform = `translateX(${offSet}%)`;
         }
-        setInterval(() => slide(1),30000)
+        setInterval(() => slide(1),30000);
+            // for about us slider
+            const sliders = document.querySelector('.slider');
+            const images = sliders.querySelectorAll('img');
+            let current = 0;
+            let isHeld = false;
+            let timer;
+
+            function showImage(index) {
+              images.forEach((img, i) => {
+                img.classList.toggle('active', i === index);
+              });
+            }
+
+            function startSlider() {
+              timer = setInterval(() => {
+                if (!isHeld) {
+                  current = (current + 1) % images.length;
+                  showImage(current);
+                }
+              }, 10000); // 10 seconds
+            }
+
+            sliders.addEventListener('mousedown', () => {
+              isHeld = true;
+            });
+
+            sliders.addEventListener('mouseup', () => {
+              isHeld = false;
+            });
+
+            sliders.addEventListener('touchstart', () => {
+              isHeld = true;
+            });
+
+            sliders.addEventListener('touchend', () => {
+              isHeld = false;
+            });
+
+            startSlider();
     </script>
 </body>
 </html>
