@@ -9,6 +9,7 @@
       margin:0;
       padding: 0;
       box-sizing: border-box;
+      overflow-x:hidden;
     }
         .css-video {
           position: fixed;
@@ -161,6 +162,21 @@
           background-color:#4c2e1c;
           z-index:1000;
         }
+          .review-img-ctr {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      .review-img-ctr img {
+          max-width: 90vw;
+          max-height: 90vh;
+          object-fit: contain;
+          border-radius: 12px;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      }
+       
         
           .grid-card {
         display: grid;
@@ -171,6 +187,7 @@
         padding: 20px;
 
       }
+    
 
 .card {
   background-color: #1e1e1e;
@@ -266,6 +283,51 @@
   color:black;
   background-color:white;
 }
+    .thankyou-img-ctr {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.thankyou-img-ctr img {
+  
+  max-width: 100vw;
+  max-height: 100vh;
+  object-fit: contain;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+@media (max-width:768px) {
+  .thankyou-img-ctr{
+          height:69vh;
+  }
+}
+    footer{
+        background-color:white;
+    }
+    footer h1{
+        font-family: sans-serif;
+        letter-spacing:1px;
+        margin-bottom:5px;
+        
+    }
+    footer ul{
+        display: flex;
+        font-size:17px;
+        gap:15px;
+        
+        
+    }
+    footer ul li{
+        text-decoration: none;
+        list-style: none;
+        margin-bottom:15px;
+    }
+    footer ul li span{
+        font-size:13px;
+    }
+
 
 
 
@@ -315,6 +377,14 @@
   </div>
   </div>
 
+  <!--for review images-->
+<div class="review-img-ctr">
+  <picture>
+    <source srcset="source/mobilereview.png" media="(max-width: 768px)">
+    <source srcset="source/desktopimg.png" media="(min-width: 769px)">
+    <img src="source/desktopimg.png" alt="Customer Review Poster" />
+  </picture>
+</div>
 
 <!--at last about the cafe and its services-->
    <div class="total">
@@ -337,6 +407,22 @@
    </div>
 </div>
 </div>
+      <!--thankyou message -->
+  <div class="thankyou-img-ctr">
+  <picture>
+    <source srcset="source/thankyou.png" media="(max-width: 768px)" class="smallimg">
+    <source srcset="source/thankyou1.png" media="(min-width: 769px)">
+    <img src="source/thankyou1.png" alt="Customer Review Poster" />
+  </picture>
+</div>
+<footer>
+  <h1>Contact Us</h1>
+  <ul>
+    <li><span>📞</span> Phone Number : +91 0000002813</li>
+    <li><span>✉</span> E-mail : tarunani123@gmail.com</li>
+    <li><span>📌</span> Location : Nandyal, Andhra Pradesh, India.</li>
+  </ul>
+</footer>
 </div>
     <script>
 
