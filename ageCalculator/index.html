@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        nav{
+            height:auto;
+            width:100%;
+            padding:5px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: black;
+        }
+        nav h1{
+            font-family: sans-serif;
+            font-size: 40px;
+            letter-spacing:1px;
+            color:white;
+        }
+        .ctr{
+            height:100vh;
+           text-align: center;
+           padding:10px 15px;
+          display:flex ;
+          align-items: center;
+          justify-content: center;
+           border:1px solid black;
+        }
+        .ctr1{
+            height:auto;
+            border-radius:16px;
+            width:800px;
+            max-width:100%;
+            border:1px solid black;
+            overflow: hidden;
+        }
+        .ctr2{
+            
+            margin:20px;
+            padding:5px;
+        }
+        .ctr2 p{
+           margin:5px; 
+           font-size: 3.5rem; 
+           
+        }
+        .ctr2 input{
+            font-size: 1.5rem;
+            border-radius:17px;
+            padding:4px 8px;
+        }
+        .ctr button{
+            font-size:1.4rem;
+            
+            padding:9px 12px;
+            border-radius: 16px;
+            cursor: pointer;
+            color:white;
+            background-color: black;
+            border: none;
+            margin-bottom:10px;
+        }
+        .ctr button:hover{
+            background-color: white;
+            color:black;
+            transition: 0.2s ease-in-out;
+            border:1px solid black;
+            transform: translateY(-5px);
+        }
+        .result{
+            
+            height:auto;
+            width:auto;
+            padding:10px 12px;
+            border-top:3px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: none;
+            top:90%;
+        }
+        .result p{
+            font-size:1.6rem;
+            letter-spacing:1px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <nav><h1>AGE CALCULATOR</h1></nav>
+    <div class="ctr">
+        <div class="ctr1">
+    <div class="ctr2">
+       <p>Enter Your Date of Birth<p>
+       <input type="date" class="dob">
+    </div>
+    <button onclick="calculateAge();">Calculate Age</button>
+    <div class="result"><p></p></div>
+</div>
+    </div>
+    <script>
+          function calculateAge(){
+            const dob = document.querySelector('.dob').value;
+            const result = document.querySelector('.result');
+            if(!dob){
+                result.textContent = "please select DoB";
+                return;
+            }
+            const birthDate = new Date(dob);
+            const today = new Date();
+            let age = today.getFullYear()-birthDate.getFullYear();
+            const monthDiff = today.getMonth()-birthDate.getMonth();
+            if(monthDiff <0|| (monthDiff ===0 && today.getDate()<birthDate.getDate())){
+                age--;
+            }
+            result.style.display='block';
+            result.textContent = `Your ${age} years old.`;
+          }
+    </script>
+</body>
+</html>
