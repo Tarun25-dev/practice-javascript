@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tea Cafe</title>
+  <link rel="stylesheet" href="fontawesome/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -12,131 +13,163 @@
     }
 
     body {
-      background: #4b2e2b;
+      background:#efd9c8;
       min-height: 100vh;
       font-family: sans-serif;
     }
 
-    /* NAVBAR */
-     .nav-img-ctr{
-      position:fixed;
-      width:100%;
+    :root {
+      --coffee-brown: #5C4033;
+      --latte: #D2B48C;
+      --cream: #FFF8E7;
+    }
+    nav {
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      z-index:999;
-      flex-direction: column;
-      border-bottom: 1px solid #efd9c8;
+      justify-content: space-between;
+      background-color: var(--coffee-brown);
+      color: white;
+      padding: 15px 20px;
+      position: relative;
+      z-index: 1000;
     }
-    .nav-img-ctr img{
-      height:60px;
-      width:100%;
-    }
-    .nav-coffee-ctr img{
-      height:auto;
-      width:100%;
-      margin-top:60px;
-
-    }
-
-    .nav {
-      top: 0;
-      position: fixed;
-      height: 70px;
-      width: 100%;
-      z-index: 999;
-      background-color:transparent;
-      color: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 12px;
-    }
- 
 
     .nav-left, .nav-right {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 15px;
     }
 
-    .nav-left-menu {
-      position: relative;
-      font-size: 15px;
+    .menu-icon, .search-icon, .cart i, .fav i {
+      font-size: 22px;
       cursor: pointer;
-      white-space: nowrap;
-      margin-left: 20px;
-      letter-spacing: 2px;
-      font-weight: bold;
-    }
-
-    .menu-items {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: #444;
-      list-style: none;
-      padding: 8px;
-      border-radius: 5px;
-      min-width: 140px;
-      z-index: 10;
-    }
-    .menu-items a{
-      text-decoration: none;
-      color:inherit;
-    }
-    .menu-items a:hover {
-      color: goldenrod;
-    } 
-    .nav-left-menu:hover .menu-items {
-      display: block;
-    }
-
-    .menu-items li {
-      padding: 6px 10px;
       color: white;
-      cursor: pointer;
     }
 
-    .menu-items li:hover {
-      background-color: grey;
+    .search-box {
+      overflow: hidden;
+      transition: width 0.4s ease;
+      width: 0;
     }
 
-    .nav-center {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      margin-left: 20px;
+    .search-box input {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 20px;
+      outline: none;
+      width: 150px;
     }
 
-    .search-bar input {
-      width: 100%;
-      max-width: 300px;
-      padding: 6px 10px;
-      font-size: 14px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    .icon {
+    .cart, .fav {
       position: relative;
-      font-size: 20px;
-      cursor: pointer;
     }
 
-    .icon span {
+    .count {
+      background-color: red;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 50%;
+      color: white;
       position: absolute;
       top: -8px;
       right: -10px;
-      background-color: red;
-      color: white;
-      font-size: 11px;
-      padding: 2px 5px;
-      border-radius: 50%;
     }
-    /* CARD CONTAINER GRID */
+
+    /* Sidebar Styles */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100vh;
+      background-color: var(--coffee-brown);
+      padding: 20px;
+      transition: left 0.3s ease;
+      z-index: 1100;
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+
+    .sidebar .close-btn {
+      font-size: 22px;
+      color: white;
+      text-align: right;
+      cursor: pointer;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      margin-top: 40px;
+    }
+
+    .sidebar li {
+      padding: 10px 0;
+      padding-left:15px;
+      color: var(--latte);
+      font-size: 18px;
+      border-bottom: 1px solid var(--latte);
+    }
+     .sidebar li:hover{
+      color:white;
+      font-size:20px;
+       
+      background-color:rgb(71, 5, 5);
+     }
+     .sidebar li a{
+       text-decoration: none;
+       color:inherit;
+     }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.3);
+      display: none;
+      z-index: 1050;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    .center-title {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 25px;
+      font-weight: bold;
+      color: var(--latte);
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      white-space: nowrap;
+    }
+
+    .center-title.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+     .nav-coffee-ctr img{
+      height:auto;
+      width:100%;
+    }
+
+    @media (max-width: 600px) {
+      .search-box input {
+        width: 100px;
+      }
+
+      .center-title {
+        font-size: 16px;
+      }
+      .cart i, .fav i{
+        font-size:20px;
+      }
+    }
+        /* CARD CONTAINER GRID */
     .ctr {
       padding: 100px 15px 30px;
       max-width: 1200px;
@@ -144,6 +177,7 @@
       display: grid;
       grid-template-columns: repeat(1, 1fr);
       gap: 15px;
+      
     }
 
     @media (min-width: 768px) {
@@ -317,30 +351,61 @@
 </head>
 <body>
  <!-- NAV -->
-  <nav class="nav-img-ctr">
-    <img src="source/navbar.png" alt="">
-    <div class="nav">
-      <div class="nav-left">
-        <div class="nav-left-menu">Menu
-          <ul class="menu-items">
-            <li><a href="coffee.html">Coffee</a></li>
-            <li><a href="tea.html">Tea</a></li>
-            <li>Snacks</li>
-            <li>Cool Drinks</li>
-            <li>Chat</li>
-            <li>Desserts</li>
-            <li>Ice Creams</li>
-          </ul>
-        </div>
+  <!-- Overlay -->
+  <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="close-btn" onclick="closeSidebar()">
+      <i class="fas fa-xmark"></i>
+    </div>
+    <ul>
+      <a href="index.html"><li>Home</li></a>
+      <a href="coffee.html"><li>Coffee</li></a>
+      <a href="tea.html"><li>Tea</li></a>
+      <a href=""><li>About</li></a>
+      <a href=""><li>Contact</li></a>
+    </ul>
+  </div>
+
+  <!-- Navbar -->
+<!-- Overlay -->
+  <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="close-btn" onclick="closeSidebar()">
+      <i class="fas fa-xmark"></i>
+    </div>
+    <ul>
+      <a href="index.html"><li>Home</li></a>
+      <a href="coffee.html"><li>Coffee</li></a>
+      <a href="tea.html"><li>Tea</li></a>
+      <a href=""><li>About</li></a>
+      <a href=""><li>Contact</li></a>
+    </ul>
+  </div>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-left">
+      <i class="fas fa-bars menu-icon" onclick="openSidebar()"></i>
+      <i class="fas fa-search search-icon" onclick="toggleSearch()"></i>
+      <div class="search-box" id="searchBox">
+        <input type="text" placeholder="Search..." />
       </div>
-      <div class="nav-center">
-        <div class="search-bar">
-          <input type="text" placeholder="Search..." />
-        </div>
+    </div>
+
+    <div class="center-title" id="centerTitle">Coffee Time</div>
+
+    <div class="nav-right">
+      <div class="cart">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="count">2</span>
       </div>
-      <div class="nav-right">
-        <div class="icon">&#128722;<span>1</span></div>
-        <div class="icon">&#10084;<span>2</span></div>
+      <div class="fav">
+        <i class="fas fa-heart"></i>
+        <span class="count">8</span>
       </div>
     </div>
   </nav>
@@ -962,6 +1027,34 @@
 
   
   <script>
+        const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    const searchBox = document.getElementById('searchBox');
+    const centerTitle = document.getElementById('centerTitle');
+
+    function openSidebar() {
+      sidebar.classList.add('open');
+      overlay.classList.add('active');
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('active');
+    }
+
+    function toggleSearch() {
+      const isOpen = searchBox.style.width === '150px';
+      const isMobile = window.innerWidth <= 600;
+
+      if (!isOpen) {
+        searchBox.style.width = '150px';
+        if (isMobile) centerTitle.classList.add('hidden');
+      } else {
+        searchBox.style.width = '0px';
+        if (isMobile) centerTitle.classList.remove('hidden');
+      }
+    }
+
     function toggleHeart(el) {
       el.textContent = el.textContent === '🤍' ? '❤️' : '🤍';
     }
