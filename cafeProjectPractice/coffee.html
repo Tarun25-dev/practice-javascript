@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Coffee Cafe</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="fontawesome/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -117,10 +117,11 @@
        
       background-color:rgb(71, 5, 5);
      }
-     .sidebar ul a{
+     .sidebar li a{
        text-decoration: none;
        color:inherit;
      }
+
     .overlay {
       position: fixed;
       top: 0;
@@ -398,11 +399,11 @@
     <div class="nav-right">
       <div class="cart">
         <i class="fas fa-shopping-cart"></i>
-        <span class="count">2</span>
+        <span class="count cart-count">0</span>
       </div>
       <div class="fav">
         <i class="fas fa-heart"></i>
-        <span class="count">8</span>
+        <span class="count fav-count">0</span>
       </div>
     </div>
   </nav>
@@ -449,7 +450,7 @@
             </div>
             <div class="order-btn"><button>Order Now</button></div>
             <div class="add-to-cart-box">
-              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+              <button onclick="cartAlertMsg(this);" class="cart-btn">&#128722; Add to Cart</button>
             </div>
           </div>
         </div>
@@ -460,7 +461,7 @@
       <div class="card">
         <div class="img-section">
           <img src="source/americano.jpg" alt="Espresso" />
-          <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
+          <div class="heart-ctr" onclick="toggleHeart(this); favUpdateCount();">🤍</div>
         </div>
         <div class="alert-cart">
           <p class="cart-response-label"></p>
@@ -490,7 +491,7 @@
             </div>
             <div class="order-btn"><button>Order Now</button></div>
             <div class="add-to-cart-box">
-              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+              <button onclick="cartAlertMsg(this);" class="cart-btn">&#128722; Add to Cart</button>
             </div>
           </div>
         </div>
@@ -530,7 +531,7 @@
             </div>
             <div class="order-btn"><button>Order Now</button></div>
             <div class="add-to-cart-box">
-              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+              <button onclick="cartAlertMsg(this);" class="cart-btn">&#128722; Add to Cart</button>
             </div>
           </div>
         </div>
@@ -570,7 +571,7 @@
             </div>
             <div class="order-btn"><button>Order Now</button></div>
             <div class="add-to-cart-box">
-              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+              <button onclick="cartAlertMsg(this);" class="cart-btn">&#128722; Add to Cart</button>
             </div>
           </div>
         </div>
@@ -610,7 +611,7 @@
             </div>
             <div class="order-btn"><button>Order Now</button></div>
             <div class="add-to-cart-box">
-              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+              <button onclick="cartAlertMsg(this);" class="cart-btn">&#128722; Add to Cart</button>
             </div>
           </div>
         </div>
@@ -650,7 +651,7 @@
             </div>
             <div class="order-btn"><button>Order Now</button></div>
             <div class="add-to-cart-box">
-              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+              <button onclick="cartAlertMsg(this);" class="cart-btn">&#128722; Add to Cart</button>
             </div>
           </div>
         </div>
@@ -690,7 +691,7 @@
             </div>
             <div class="order-btn"><button>Order Now</button></div>
             <div class="add-to-cart-box">
-              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+              <button onclick="cartAlertMsg(this);" class="cart-btn">&#128722; Add to Cart</button>
             </div>
           </div>
         </div>
@@ -730,7 +731,7 @@
             </div>
             <div class="order-btn"><button>Order Now</button></div>
             <div class="add-to-cart-box">
-              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+              <button onclick="cartAlertMsg(this);" class="cart-btn">&#128722; Add to Cart</button>
             </div>
           </div>
         </div>
@@ -770,7 +771,7 @@
             </div>
             <div class="order-btn"><button>Order Now</button></div>
             <div class="add-to-cart-box">
-              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+              <button onclick="cartAlertMsg(this);" class="cart-btn">&#128722; Add to Cart</button>
             </div>
           </div>
         </div>
@@ -810,7 +811,7 @@
             </div>
             <div class="order-btn"><button>Order Now</button></div>
             <div class="add-to-cart-box">
-              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+              <button onclick="cartAlertMsg(this);" class="cart-btn">&#128722; Add to Cart</button>
             </div>
           </div>
         </div>
@@ -850,7 +851,7 @@
             </div>
             <div class="order-btn"><button>Order Now</button></div>
             <div class="add-to-cart-box">
-              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+              <button onclick="cartAlertMsg(this);" class="cart-btn">&#128722; Add to Cart</button>
             </div>
           </div>
         </div>
@@ -890,7 +891,7 @@
             </div>
             <div class="order-btn"><button>Order Now</button></div>
             <div class="add-to-cart-box">
-              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+              <button onclick="cartAlertMsg(this);" class="cart-btn">&#128722; Add to Cart</button>
             </div>
           </div>
         </div>
@@ -930,7 +931,7 @@
             </div>
             <div class="order-btn"><button>Order Now</button></div>
             <div class="add-to-cart-box">
-              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+              <button onclick="cartAlertMsg(this);" class="cart-btn">&#128722; Add to Cart</button>
             </div>
           </div>
         </div>
@@ -970,7 +971,7 @@
             </div>
             <div class="order-btn"><button>Order Now</button></div>
             <div class="add-to-cart-box">
-              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+              <button onclick="cartAlertMsg(this);" class="cart-btn">&#128722; Add to Cart</button>
             </div>
           </div>
         </div>
@@ -1010,7 +1011,7 @@
             </div>
             <div class="order-btn"><button>Order Now</button></div>
             <div class="add-to-cart-box">
-              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+              <button onclick="cartAlertMsg(this);" class="cart-btn">&#128722; Add to Cart</button>
             </div>
           </div>
         </div>
@@ -1050,7 +1051,7 @@
             </div>
             <div class="order-btn"><button>Order Now</button></div>
             <div class="add-to-cart-box">
-              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+              <button onclick="cartAlertMsg(this);" class="cart-btn">&#128722; Add to Cart</button>
             </div>
           </div>
         </div>
@@ -1090,7 +1091,7 @@
             </div>
             <div class="order-btn"><button>Order Now</button></div>
             <div class="add-to-cart-box">
-              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+              <button onclick="cartAlertMsg(this);" class="cart-btn">&#128722; Add to Cart</button>
             </div>
           </div>
         </div>
@@ -1130,7 +1131,7 @@
             </div>
             <div class="order-btn"><button>Order Now</button></div>
             <div class="add-to-cart-box">
-              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+              <button onclick="cartAlertMsg(this);" class="cart-btn">&#128722; Add to Cart</button>
             </div>
           </div>
         </div>
@@ -1170,7 +1171,7 @@
             </div>
             <div class="order-btn"><button>Order Now</button></div>
             <div class="add-to-cart-box">
-              <button onclick="cartAlertMsg(this);">&#128722; Add to Cart</button>
+              <button onclick="cartAlertMsg(this);" class="cart-btn">&#128722; Add to Cart</button>
             </div>
           </div>
         </div>
@@ -1212,6 +1213,7 @@
     }
     function toggleHeart(el) {
       el.textContent = el.textContent === '🤍' ? '❤️' : '🤍';
+      favUpdateCount();
     }
 
     function cartAlertMsg(buttonElement) {
@@ -1271,6 +1273,38 @@
             
       ]);
     });
+
+    //for cart count
+        const cartButton = document.querySelectorAll('.cart-btn');
+        const cartCount = document.querySelector('.cart-count');
+        let tempCartCount = 0;
+        cartButton.forEach((btn)=>{
+          btn.addEventListener('click',()=>{
+            tempCartCount++;
+              setTimeout(()=>{
+                if(tempCartCount>=10){
+                  cartCount.textContent='9+';
+                }
+                else{
+                  cartCount.textContent=tempCartCount;
+                }
+                //original count value stored in tempCartCount even after 9
+              },3000);
+          });    
+        });
+    //for favorites count
+        function favUpdateCount(){
+          let favCount = 0;
+          const likeDisplay =document.querySelectorAll('.heart-ctr');
+          const fCount =document.querySelector('.fav-count');
+          likeDisplay.forEach((heart) =>{
+            if(heart.textContent ==='❤️'){
+              favCount++;
+            }
+          });
+          fCount.textContent=favCount;
+        }
+        
   </script>
 
 </body>
