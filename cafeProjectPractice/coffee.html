@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Coffee Cafe</title>
-<!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="fontawesome/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -167,6 +166,19 @@
         font-size: 16px;
       }
     }
+        .content {
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .content img {
+      width: 100%;
+      max-width: 500px;
+      display: block;
+      margin: 20px auto;
+    }
+
+
     /* CARD CONTAINER GRID */
     .ctr {
       padding: 100px 15px 30px;
@@ -345,6 +357,48 @@
       font-family: 'Times New Roman', Times, serif;
       font-size: 15px;
     }
+        .arrow-ctr{
+      position: fixed;
+      z-index:999;
+      height:50px;
+      width:50px;
+      border-radius:50%;
+      border:2px solid lightgrey;
+      box-shadow: 0.5px 0.5px 3px;
+      display: flex;
+      justify-content: center;
+      align-items: center;display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      right:10px;
+      bottom:-100px;
+      cursor: pointer;
+      transition:0.5s all ease;
+    }
+    .arrow-ctr:hover{
+       color:blueviolet;
+       transform: translateY(-2px);
+    }
+    .fa-arrow-up{
+      font-size: 25px;
+      color:grey;
+    }
+    .fa-arrow-up:hover{
+      color: blueviolet;
+    }
+    @media (max-width:769px) {
+           .arrow-ctr{
+            height:35px;
+            width:35px;
+           }     
+           .fa-arrow-up{
+            font-size:20px;
+           }
+    }
+    .arrow-ctr.show{
+      bottom:10px;
+    }
   </style>
 </head>
 <body>
@@ -368,25 +422,7 @@
   </div>
 
   <!-- Navbar -->
-<!-- Overlay -->
-  <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
-
-  <!-- Sidebar -->
-  <div class="sidebar" id="sidebar">
-    <div class="close-btn" onclick="closeSidebar()">
-      <i class="fas fa-xmark"></i>
-    </div>
-    <ul>
-      <a href="index.html"><li>Home</li></a>
-      <a href="coffee.html"><li>Coffee</li></a>
-      <a href="tea.html"><li>Tea</li></a>
-      <a href=""><li>About</li></a>
-      <a href=""><li>Contact</li></a>
-    </ul>
-  </div>
-
-  <!-- Navbar -->
-  <nav>
+  <nav id="top">
     <div class="nav-left">
       <i class="fas fa-bars menu-icon" onclick="openSidebar()"></i>
       <i class="fas fa-search search-icon" onclick="toggleSearch()"></i>
@@ -408,10 +444,10 @@
       </div>
     </div>
   </nav>
-  <!-- Coffee image section -->
-  <div class="nav-coffee-ctr">
-    <img src="source/navcoffee.png" alt="">
-  </div>
+ <!--top navigator -->
+
+  <a href="#top"><div class="arrow-ctr"><i class="fas fa-arrow-up"></i></div></a>
+  
 
   <!-- GRID CARD CONTAINER -->
   <div class="ctr">
@@ -1180,7 +1216,7 @@
     </div>
 
 
-
+<script src="scripts.html"></script>
   </div>
 
   
@@ -1301,11 +1337,29 @@
           likeDisplay.forEach((heart) =>{
             if(heart.textContent ==='❤️'){
               favCount++;
+              if(favCount>=10){
+                fCount.textContent = '9+';
+              }
+              else{
+                 fCount.textContent=favCount;
+              }
             }
           });
-          fCount.textContent=favCount;
+          //original count value stored in favCount even after 9
         }
-        
+        //top navigator
+       let lastScrollTop = 0;
+        const topNav = document.querySelector('.arrow-ctr');
+        window.addEventListener('scroll',()=>{
+          const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+          if(currentScroll < lastScrollTop){
+            topNav.classList.add('show');
+          }
+          else{
+          topNav.classList.remove('show');
+          }
+          lastScrollTop = currentScroll <=0 ?0:currentScroll;
+        });
   </script>
 
 </body>
