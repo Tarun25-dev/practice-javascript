@@ -236,7 +236,7 @@ products.forEach((product) => {
           <div class="cart-controls">
             <div class="qty-box">
               <label for="qty">Qty</label>
-              <select id="qty">
+              <select id="qty" class="selectQty">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -311,6 +311,9 @@ function addToCart(productId) {
   let matchingItem;
 
 setTimeout(()=>{ 
+    const productCard = document.getElementById(productId);
+    const qtySelect = productCard.querySelector('.selectQty');
+    const selectedQty = parseInt(qtySelect.value); 
   cart.forEach((item) => {
     if (productId === item.productId) {
       matchingItem = item;
@@ -318,13 +321,14 @@ setTimeout(()=>{
   });
 
   if (matchingItem) {
-    matchingItem.quantity += 1;
+    matchingItem.quantity += selectedQty;
   } else {
-    cart.push({ productId, quantity: 1 });
+    cart.push({ productId, quantity: selectedQty });
   }
   localStorage.setItem('cartData',JSON.stringify(cart));
   updateCartCount();
   console.log(cart);
   },3000);
-}
+};
+
 
