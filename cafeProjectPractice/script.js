@@ -105,7 +105,7 @@ const products = [
   },
   {
     id: 'c3',
-    image: 'source/latte.jpg',
+    image: 'source/Latte.jpg',
     desc: { name: 'Latte', about: 'Espresso with steamed milk, mild and creamy.' },
     price: 90
   },
