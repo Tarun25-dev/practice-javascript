@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color:#f5f6fa;
+            background: radial-gradient(circle at center, #3b2e2a,#1c1b18);
+            color: #f0e6d2;
+        }
+        .ctr-card-wrapper{
+            max-width:100%;
+            height:auto;    
+            display: flex;
+            padding:50px;
+            gap:2.2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .seats{
+            height:150px;
+            width:200px;
+            border:1px solid #e0e0e0;
+            margin:40px 40px;
+            border-radius:16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-items: center;
+            background-color:white;
+            padding:10px;
+            box-shadow:0 4px 12px rgba(0, 0, 0, 0.3);
+            transition:all 0.3s ease;
+            font-size:22px;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            cursor: pointer;
+            background-image: url(source/table.png);
+            
+        }
+        .seats:hover{
+            box-shadow:0 6px 18px rgba(0, 0, 0, 0.15);
+            transform: translateY(-4px);
+        }
+        @media (max-width:789px) {
+            .seats{
+                margin:20px;
+            }
+        }
+        
+        .product-ctr{
+            display: flex;
+            flex-direction: column;
+            gap:20px;
+            padding:20px;
+            margin: 30px auto;
+            margin-top:10px;
+            background-color:#fff;
+            border-radius:10px;
+            box-shadow:0 4px 8px rgba(0,0,0,0.1);    
+        
+        }
+        @media (max-width: 768px) {
+            .popup .product-ctr {
+                width: 90vw; /* Takes 90% of viewport width */
+            }
+        }
+
+        @media (max-width: 400px) {
+            .popup .product-ctr {
+                width: 95vw;
+            }
+        }
+        .product-img img{
+            width:100%;
+            max-height:300px;
+            object-fit: contain;
+            border-radius:10px;
+        }
+        .product-dtls{
+            text-align: center;
+
+        }
+        .product-dtls h1{
+            font-size:24px;
+            margin:10px 0;
+            color:black;
+        }
+        .price{
+            font-size:20px;
+            color:#04721c;
+            margin-bottom:10px;
+        }
+        .quantity{
+            font-size:18px;
+            color:#555;
+            margin-bottom:10px;
+        }
+        .pay-btn{
+            background-color:#ff6600;
+            color: white;
+            border: none;
+            padding:12px 20px;
+            font-size:16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition:0.3s ease;
+            margin-bottom:10px;
+        }
+        .pay-btn:hover{
+            background-color:#e65c00;
+        }
+        .note{
+            font-size:16px;
+            color:#555;
+            margin-bottom:5px;
+        }
+        .close{
+            display: flex;
+            position: relative;
+            left:50%;
+            transform: translateX(-50%);
+            align-items: center;
+            flex-direction: row;
+            gap:0.5rem;
+            width:fit-content;
+            padding:5px 10px;
+            border:0.5px solid #d04;
+            margin-top:10px;
+            cursor: pointer;
+            
+            
+            
+        }
+        .fa-close{
+            color: red;
+            transition:0.3s ease;
+        }
+        .fa-close:hover{
+            transform:rotate(45deg);
+        }
+        .close label{
+            color: white;
+            cursor: pointer;
+        }
+        .popup {
+  position: fixed;
+  top: 50px; /* Fixed position near top */
+  left: 50%;
+  transform: translateX(-50%) scale(0.95); /* Centered horizontally + slight zoom out */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+}
+.popup.show {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+  pointer-events: auto;
+}
+nav i{
+    font-size:20px;
+    margin:10px;
+    cursor: pointer;
+}
+nav label{
+    font-size: 21px;
+    cursor: pointer;
+}
+.fa-arrow-left{
+    transition:all 0.3s ease-out;
+}
+.fa-arrow-left.hoverArrow{
+    transform: translateX(-2px);
+    color: red;
+}
+.labelback{
+    transition:all 0.3s ease-out;
+}
+.labelback.hoverlabel{
+    color: red;
+}
+
+    </style>
+</head>
+<body>
+    <nav><i class="fas fa-arrow-left" onclick="window.location.href='coffee.html'";></i><label onclick="window.location.href='coffee.html'"; for="back" class="labelback">Go back</label></nav>
+    <div class="popup">
+   
+    </div>
+    <div class="ctr-card-wrapper">
+        <div class="seats">Table 1</div>
+        <div class="seats">Table 2</div>
+        <div class="seats">Table 3</div>
+        <div class="seats">Table 4</div>
+        <div class="seats">Table 5</div>
+        <div class="seats">Table 6</div>
+        <div class="seats">Table 7</div>
+        <div class="seats">Table 8</div>
+        <div class="seats">Table 9</div>
+        <div class="seats">Table 10</div>
+        <div class="seats">Table 11</div>
+        <div class="seats">Table 12</div>
+        <div class="seats">Table 13</div>
+        <div class="seats">Table 14</div>
+        <div class="seats">Table 15</div>
+        <div class="seats">Table 16</div>
+        <div class="seats">Table 17</div>
+        <div class="seats">Table 18</div>
+        <div class="seats">Table 19</div>
+        <div class="seats">Table 20</div>
+        <div class="seats">Table 21</div>
+        <div class="seats">Table 22</div>
+        <div class="seats">Table 23</div>
+        <div class="seats">Table 24</div>
+        <div class="seats">Table 25</div>
+        <div class="seats">Table 26</div>
+        <div class="seats">Table 27</div>
+        <div class="seats">Table 28</div>
+        <div class="seats">Table 29</div>
+        <div class="seats">Table 30</div>
+        <div class="seats">Table 31</div>
+        <div class="seats">Table 32</div>
+        <div class="seats">Table 33</div>
+        <div class="seats">Table 34</div>
+        <div class="seats">Table 35</div>
+        <div class="seats">Table 36</div>
+        <div class="seats">Table 37</div>
+        <div class="seats">Table 38</div>
+        <div class="seats">Table 39</div>
+        <div class="seats">Table 40</div>
+    </div>
+    <script src="data/seats.js"></script>
+</body>
+</html>
