@@ -74,7 +74,8 @@ function favUpdateCount() {
     }
   });
   fCount.textContent = favCount >= 10 ? '9+' : favCount;
-}
+};
+
 
 let lastScrollTop = 0;
 const topNav = document.querySelector('.arrow-ctr');
@@ -213,14 +214,14 @@ products.forEach((product) => {
     <div class="card-ctr" id="${product.id}">
       <div class="card">
         <div class="img-section">
-          <img src="${product.image}" alt="${product.desc.name}" />
+          <img class="image" src="${product.image}" alt="${product.desc.name}" />
           <div class="heart-ctr" onclick="toggleHeart(this);">🤍</div>
         </div>
         <div class="alert-cart">
           <p class="cart-response-label"></p>
         </div>
         <div class="details-section">
-          <h1>${product.desc.name}</h1>
+          <h1 class="name">${product.desc.name}</h1>
           <p class="description">${product.desc.about}</p>
           <div class="rating-price-container">
             <div class="rating-box">
@@ -237,12 +238,12 @@ products.forEach((product) => {
             <div class="qty-box">
               <label for="qty">Qty</label>
               <select id="qty" class="selectQty">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
               </select>
             </div>
-            <div class="order-btn"><button>Order Now</button></div>
+            <div class="order-btn"><button onclick="window.location.href='seats.html'";>Order Now</button></div>
             <div class="add-to-cart-box">
               <button class="cart-btn" data-coffee-id="${product.id}">&#128722; Add to Cart</button>
             </div>
@@ -254,7 +255,8 @@ products.forEach((product) => {
 
  document.querySelector('.ctr').innerHTML = productsHTML;
 
-  
+
+
 
 
 
@@ -332,3 +334,24 @@ setTimeout(()=>{
 };
 
 
+const orderNowButtons = document.querySelectorAll('.order-btn button');
+
+orderNowButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const product = button.closest('.card-ctr');
+    const productImage = product.querySelector('.image').src; // we need only that clicked url image
+    const productName = product.querySelector('.name').textContent;
+    const productPrice = product.querySelector('.price-box').textContent;
+    const productQty = parseInt(product.querySelector('.selectQty').value);
+
+    const cart1=[
+      { img:productImage,
+        name:productName,
+        price:productPrice,
+        qty:productQty
+      }
+    ];
+    localStorage.setItem('orderItemData',JSON.stringify(cart1));
+
+  });
+});
