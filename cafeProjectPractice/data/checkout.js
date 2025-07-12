@@ -30,12 +30,12 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    infoBox.innerHTML = `
+       infoBox.innerHTML = `
       <h3>Cart Summary</h3>
       <p>Total Items: ${totalItems}</p>
       <p><strong>Total Price: ₹${totalPrice}</strong></p>
-      <button style="padding:10px 20px; margin-top:10px; background:#28a745; color:#fff; border:none; border-radius:6px; cursor:pointer;">
-        Proceed to Checkout
+      <button onclick="window.location.href='cartTable.html'" style="padding:10px 20px; margin-top:10px; background:#28a745; color:#fff; border:none; border-radius:6px; cursor:pointer;">
+        Select table and Order
       </button>
     `;
   }
