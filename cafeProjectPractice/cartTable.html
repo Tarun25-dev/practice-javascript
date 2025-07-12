@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <style>
+         *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color:#f5f6fa;
+            background: radial-gradient(circle at center, #3b2e2a,#1c1b18);
+            color: #f0e6d2;
+        }
+        nav i{
+            font-size:20px;
+            margin:10px;
+            cursor: pointer;
+        }
+        nav label{
+            font-size: 21px;
+            cursor: pointer;
+        }
+        .fa-arrow-left{
+            transition:all 0.3s ease-out;
+        }
+        .fa-arrow-left.hoverArrow{
+            transform: translateX(-2px);
+            color: red;
+        }
+        .labelback{
+            transition:all 0.3s ease-out;
+        }
+        .labelback.hoverlabel{
+            color: red;
+        }
+        .ctr-card-wrapper{
+            max-width:100%;
+            height:auto;    
+            display: flex;
+            padding:50px;
+            gap:2.2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .seats{
+            height:150px;
+            width:200px;
+            border:1px solid #e0e0e0;
+            margin:40px 40px;
+            border-radius:16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-items: center;
+            background-color:white;
+            padding:10px;
+            box-shadow:0 4px 12px rgba(0, 0, 0, 0.3);
+            transition:all 0.3s ease;
+            font-size:22px;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            cursor: pointer;
+            background-image: url(source/table.png);
+            
+        }
+        .seats:hover{
+            box-shadow:0 6px 18px rgba(0, 0, 0, 0.15);
+            transform: translateY(-4px);
+        }
+        @media (max-width:789px) {
+            .seats{
+                margin:20px;
+            }
+        }
+        .tableNumber{
+            color:rgb(3, 154, 255);
+            font-size:20px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin:10px 5px;
+        }
+        .alert{
+            display: none;
+            background-color:#fff;
+            border:1px solid #ccc;
+            padding: 50px;
+            width:300px;
+            border-radius:15px;
+            position: fixed;
+            top:3%; left:50%;
+            transform:translateX(-50%);
+            box-shadow:0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .alert button{
+           padding:12px;
+           margin:8px;
+           font-size: 16px;
+           color:black;
+           transition:all 0.4s ease-in-out;
+           border: none;
+           background-color: #ccc;
+           border-radius:8px;
+           cursor: pointer;
+
+        }
+        .pay-btn:hover{
+           background-color:green;
+           color:white;
+           box-shadow:0 4px 12px rgba(0, 0, 0, 0.3);
+        } 
+         .close-btn:hover{
+           background-color:rgb(110, 5, 5);
+           color:white;
+           box-shadow:0 4px 12px rgba(0, 0, 0, 0.3);
+        } 
+
+
+        
+    </style>
+</head>
+<body>
+    <nav><i class="fas fa-arrow-left" onclick="window.location.href='cart.html'";></i><label onclick="window.location.href='coffee.html'"; for="back" class="labelback">Go back</label></nav>
+      <div class="ctr-card-wrapper">
+        <div class="seats">Table 1</div>
+        <div class="seats">Table 2</div>
+        <div class="seats">Table 3</div>
+        <div class="seats">Table 4</div>
+        <div class="seats">Table 5</div>
+        <div class="seats">Table 6</div>
+        <div class="seats">Table 7</div>
+        <div class="seats">Table 8</div>
+        <div class="seats">Table 9</div>
+        <div class="seats">Table 10</div>
+        <div class="seats">Table 11</div>
+        <div class="seats">Table 12</div>
+        <div class="seats">Table 13</div>
+        <div class="seats">Table 14</div>
+        <div class="seats">Table 15</div>
+        <div class="seats">Table 16</div>
+        <div class="seats">Table 17</div>
+        <div class="seats">Table 18</div>
+        <div class="seats">Table 19</div>
+        <div class="seats">Table 20</div>
+        <div class="seats">Table 21</div>
+        <div class="seats">Table 22</div>
+        <div class="seats">Table 23</div>
+        <div class="seats">Table 24</div>
+        <div class="seats">Table 25</div>
+        <div class="seats">Table 26</div>
+        <div class="seats">Table 27</div>
+        <div class="seats">Table 28</div>
+        <div class="seats">Table 29</div>
+        <div class="seats">Table 30</div>
+        <div class="seats">Table 31</div>
+        <div class="seats">Table 32</div>
+        <div class="seats">Table 33</div>
+        <div class="seats">Table 34</div>
+        <div class="seats">Table 35</div>
+        <div class="seats">Table 36</div>
+        <div class="seats">Table 37</div>
+        <div class="seats">Table 38</div>
+        <div class="seats">Table 39</div>
+        <div class="seats">Table 40</div>
+        </div>
+<div class="alert">
+    <p class="tableNumber"></p>
+    <button class="pay-btn" onclick="payAlert()">Proceed to Pay</button>
+    <button class="close-btn" onclick="cancelAlert()">Cancel</button>
+</div>
+        <script>
+            
+const goback =document.querySelector('.labelback');
+const arrow =document.querySelector('.fa-arrow-left');
+goback.addEventListener('mouseenter',()=>{
+  arrow.classList.add('hoverArrow');
+});
+goback.addEventListener('mouseleave',()=>{
+  arrow.classList.remove('hoverArrow');
+});
+arrow.addEventListener('mouseenter',()=>{
+  goback.classList.add('hoverlabel');
+});
+arrow.addEventListener('mouseleave',()=>{
+  goback.classList.remove('hoverlabel');
+});
+
+
+function showAlert(){
+    document.querySelector('.alert').style.display ='block';
+}
+function cancelAlert(){
+    document.querySelector('.alert').style.display='none';
+}
+
+const seat=document.querySelectorAll('.seats');
+seat.forEach((table)=>{
+    table.addEventListener('click',()=>{
+        const tablePara =document.querySelector('.tableNumber');
+        tablePara.innerHTML=`${table.innerHTML}`;
+        showAlert();
+    });
+});
+
+
+
+        </script>
+</body>
+</html>
