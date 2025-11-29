@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qr Code Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+   <h2>Qr Code Generator</h2>
+
+<!-- Input box where user types text or link -->
+<input type="text" id="text" placeholder="enter text....">
+
+<!-- Button to generate QR code when clicked -->
+<button onclick="generateqr()">Generate</button>
+
+<!-- Empty box where QR code will appear -->
+<div id="qrcode"></div>
+
+<script>
+    // Function that runs when user clicks the Generate button
+    function generateqr() {
+
+        // Get the value typed in the input box
+        const text = document.getElementById("text").value;
+
+        // Clear the previous QR code (if any)
+        document.getElementById("qrcode").innerHTML = "";
+
+        // Create a new QR code inside the <div>
+        new QRCode(document.getElementById("qrcode"), {
+            text: text,   // The text or link to convert into QR
+            width: 200,   // Width of the QR code image
+            height: 200   // Height of the QR code image
+        });
+    }
+</script>
+<!--
+What is QRCode.js?
+
+QRCode.js is a small JavaScript library that helps generate QR codes easily.
+
+It has a built-in function called QRCode().
+When we create a new QRCode object, it automatically draws the QR code based on the text we give.
+
+-->
+
+<!--
+How It Works
+
+This project uses the QRCode.js library, which is a ready-made JavaScript tool for generating QR codes.
+
+Working Process:
+
+User enters text or a link in the input box.
+
+When the Generate button is clicked, the function generateqr() runs.
+
+Inside the function:
+
+The input value is taken from the text field.
+
+The QR code display area is cleared.
+
+The QRCode library is called using the new keyword.
+
+The library converts the given text into a QR code image and displays it inside the webpage.
+
+-->
+</body>
+</html>
