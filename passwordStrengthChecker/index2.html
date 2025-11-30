@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password length checker</title>
+</head>
+<body>
+<h2>Password Strength Checker</h2>
+
+<!-- Input box where user types the password -->
+<input 
+  type="password" 
+  id="password" 
+  placeholder="Enter password..." 
+  oninput="checkStrength()" >
+
+
+<!-- This paragraph will show Weak / Medium / Strong -->
+<p id="strength"></p>
+
+<script>
+  // Function that checks how strong the password is
+  function checkStrength() {
+
+    // Getting the password typed by the user
+    const pwd = document.getElementById("password").value;
+
+    // Getting the place where we will show the result
+    const strengthText = document.getElementById("strength");
+
+    // Check if password has at least one UPPERCASE letter (A–Z)
+    const hasUpper = /[A-Z]/.test(pwd);
+
+    // Check if password has at least one NUMBER (0–9)
+    const hasNumber = /[0-9]/.test(pwd);
+
+    // Check if password has at least one SPECIAL CHARACTER
+    // (!, @, #, $, %, ^, &, *)
+    const hasSymbol = /[!@#$%^&*]/.test(pwd);
+
+    //STRONG password (check this FIRST)
+    if (pwd.length >= 8 && hasUpper && hasNumber && hasSymbol) {
+      strengthText.innerHTML = "Strong Password";
+      strengthText.style.color = "green";
+    }
+
+    //  MEDIUM password
+    else if (pwd.length >= 6 && (hasNumber || hasUpper)) {
+      strengthText.innerHTML = "Medium Password";
+      strengthText.style.color = "orange";
+    }
+
+    //  WEAK password
+    else {
+      strengthText.innerHTML = "Weak Password";
+      strengthText.style.color = "red";
+    }
+  }
+</script>
+
+</body>
+</html>
