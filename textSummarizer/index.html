@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Summarizer (OpenRouter API)</title>
+</head>
+<body>
+
+    <h2>Text Summarizer using OpenRouter + Mistral</h2>
+
+    <!-- User input text box -->
+    <textarea id="inputText" rows="5" cols="50" placeholder="Enter text to summarize..."></textarea>
+    <br><br>
+
+    <!-- Button triggers summarize() -->
+    <button onclick="summarize()">Summarize</button>
+
+    <h3>Summary:</h3>
+    <div id="output" style="white-space:pre-wrap"></div>
+
+<script>
+
+    //  Your OpenRouter API Key 
+    // Get it from: https://openrouter.ai/settings/keys
+    const API_KEY = "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";  
+
+    //  OpenRouter API URL (always same)
+    const API_URL = "https://openrouter.ai/api/v1/chat/completions";
+
+    /*
+         summarize()
+        Called when the user clicks the "Summarize" button.
+        What it does:
+           1. Read user input text
+           2. Send a POST request to OpenRouter
+           3. Get summary from AI model
+           4. Display the summary
+    */
+    async function summarize() {
+
+        // 1️ Get user input text
+        const text = document.getElementById("inputText").value;
+
+        // 2️ Make POST request to OpenRouter
+        const response = await fetch(API_URL, {
+            method: "POST",
+
+            // Headers tell OpenRouter:
+            // - we send JSON
+            // - we authenticate using a Bearer API key
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${API_KEY}`,
+                
+                //   Required header in OpenRouter
+                //   Identifies your app.  
+                //   Put your name, website, GitHub, or anything unique.
+                "HTTP-Referer": "https://yourapp.com",
+                "X-Title": "Text Summarizer App"
+            },
+
+            // 3️ Body sent to OpenRouter
+            // - model: which AI you want
+            // - messages: your conversation messages
+            body: JSON.stringify({
+                model: "mistralai/mistral-7b-instruct:free",  // ✅ Valid Mistral model
+
+                messages: [
+                    {
+                        role: "user",
+                        content: "Summarize this: " + text
+                    }
+                ]
+            })
+        });
+
+        // 4️ Convert JSON string → JS object
+        const data = await response.json();
+
+        // 5️ Debug log (shows full response structure)
+        console.log("Full API Response:", data);
+
+        // Extract summary text safely using optional chaining (?.)
+        // Try to read the summary from the API response safely.
+        // If any part (choices, message, content) is missing, it returns undefined.
+        // Then "||" gives a fallback message so the app never crashes.
+        const summary =
+            data?.choices?.[0]?.message?.content ||
+            "Error: No summary generated.";
+
+        // 6️ Show output
+        document.getElementById("output").innerText = summary;
+    }
+</script>
+
+</body>
+</html>
