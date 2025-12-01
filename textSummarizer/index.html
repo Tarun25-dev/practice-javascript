@@ -9,87 +9,91 @@
 
     <h2>Text Summarizer using OpenRouter + Mistral</h2>
 
-    <!-- User input text box -->
+    <!-- Input box where user types text -->
     <textarea id="inputText" rows="5" cols="50" placeholder="Enter text to summarize..."></textarea>
     <br><br>
 
-    <!-- Button triggers summarize() -->
+    <!-- Button that runs the summarize() function -->
     <button onclick="summarize()">Summarize</button>
 
     <h3>Summary:</h3>
+
+    <!-- This div will show the final summary -->
     <div id="output" style="white-space:pre-wrap"></div>
 
 <script>
 
-    //  Your OpenRouter API Key 
-    // Get it from: https://openrouter.ai/settings/keys
-    const API_KEY = "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";  
+    // ❗ IMPORTANT: NEVER PUT YOUR REAL API KEY IN FRONTEND CODE
+    // Anyone can view your source code and steal the key.
+    // Safest: keep API key in backend only.
+    const API_KEY = "YOUR_API_KEY_HERE";
 
-    //  OpenRouter API URL (always same)
+    // This is the fixed API endpoint for OpenRouter
     const API_URL = "https://openrouter.ai/api/v1/chat/completions";
 
     /*
-         summarize()
-        Called when the user clicks the "Summarize" button.
+        summarize()
+        Runs when user clicks the button.
+
         What it does:
-           1. Read user input text
-           2. Send a POST request to OpenRouter
-           3. Get summary from AI model
-           4. Display the summary
+        1. Reads text from the textarea
+        2. Sends text to OpenRouter API for summarizing
+        3. Receives summary response
+        4. Shows the summary on the page
     */
     async function summarize() {
 
-        // 1️ Get user input text
+        // Get the user's input text from the textbox
         const text = document.getElementById("inputText").value;
 
-        // 2️ Make POST request to OpenRouter
+        // Send request to OpenRouter API
         const response = await fetch(API_URL, {
             method: "POST",
 
-            // Headers tell OpenRouter:
-            // - we send JSON
-            // - we authenticate using a Bearer API key
+            // Headers tell API what we are sending and who we are
             headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${API_KEY}`,
-                
-                //   Required header in OpenRouter
-                //   Identifies your app.  
-                //   Put your name, website, GitHub, or anything unique.
+                "Content-Type": "application/json",          // We send JSON data
+                "Authorization": `Bearer ${API_KEY}`,        // Bearer = sending our API key securely
+
+                // Required by OpenRouter for identification
                 "HTTP-Referer": "https://yourapp.com",
                 "X-Title": "Text Summarizer App"
             },
 
-            // 3️ Body sent to OpenRouter
-            // - model: which AI you want
-            // - messages: your conversation messages
+            // Body = actual data we send to the AI model
             body: JSON.stringify({
-                model: "mistralai/mistral-7b-instruct:free",  // ✅ Valid Mistral model
+                model: "mistralai/mistral-7b-instruct:free",  // AI model to use
 
+                // Messages work same as ChatGPT conversation
                 messages: [
                     {
                         role: "user",
-                        content: "Summarize this: " + text
+                        content: "Summarize this: " + text   // What we want the AI to summarize
                     }
                 ]
             })
         });
 
-        // 4️ Convert JSON string → JS object
+        // Convert API response (JSON text → JS object)
         const data = await response.json();
 
-        // 5️ Debug log (shows full response structure)
+        //  Print full response in console (for debugging)
         console.log("Full API Response:", data);
 
-        // Extract summary text safely using optional chaining (?.)
-        // Try to read the summary from the API response safely.
-        // If any part (choices, message, content) is missing, it returns undefined.
-        // Then "||" gives a fallback message so the app never crashes.
+        /*
+             Extract summary safely:
+
+            data?.choices?.[0]?.message?.content
+
+            - "?.": optional chaining → avoids errors if something is missing
+            - If any value is missing, the whole expression becomes undefined
+            - "||" → fallback value so app never crashes
+        */
         const summary =
             data?.choices?.[0]?.message?.content ||
             "Error: No summary generated.";
 
-        // 6️ Show output
+        //  Show final summary on the page
         document.getElementById("output").innerText = summary;
     }
 </script>
