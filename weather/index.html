@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+    #city {
+        width: 150px;
+        
+    }
+    #temp{
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+    <h1>Weather Forecast App</h1>
+    <select name="" id="state" onchange="loadCities()">
+        <option value="">--Select State--</option>
+        <option value="Andhra Pradesh">Andhra Pradesh</option>
+        <option value="Telangana">Telangana</option>
+    </select>
+    <select name="" id="city" onchange="getcity()">
+        <option value="">--Select City--</option>
+    </select>
+    <div id="temp"></div>
+    <div id="humidity"></div>
+    <div id="weather"></div>
+    <script>
+        const cityByState={
+            "Andhra Pradesh":["Nandyal", "Kurnool", "Kadapa", "Anantapur", "Vijayawada", "Guntur"],
+            "Telangana":["Hyderabad", "Warangal", "Karimnagar", "Nizamabad"]
+        };
+        //this is a JavaScript object, and inside it, each key holds an array of values.
+        function loadCities(){
+            const state=document.getElementById("state").value;
+            const city=document.getElementById("city");
+            // First remove old cities and show the default message "Select City"
+            city.innerHTML='<option value="">--Select City--</option>';
+            //Checks if the selected state exists in the object citiesByState.
+            if(cityByState[state]){
+                //Loops through all cities inside the selected state
+                cityByState[state].forEach(cityName =>{
+                //Creates a new <option> tag in JavaScript
+                const option=document.createElement("option");
+                //Assigns the “value” attribute of the option.
+                option.value=cityName;
+                //example it will do like <option value="city">city</option> like that through loop all cites in selected state
+                option.textContent=cityName;
+                city.appendChild(option);
+                //appendChild() is a JavaScript method used to add a new HTML element as a child of another element.
+                //here city is a parent element and option is a child element
+                });
+
+            }
+
+        }
+        const API_KEY="my api key";
+        function getcity(){
+            const city=document.getElementById("city");    
+            const selectedCity=city.value;
+            console.log(selectedCity); 
+            if(selectedCity===""){
+                return;
+            }
+            const url=`https://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&appid=${API_KEY}&units=metric`;
+            fetch(url) //Sends request to API (Promise starts).
+            .then(res=>res.json()) //When API responds, convert response into JSON.
+            .then(data=>{ //When JSON conversion is done, process the data.
+            const temperature=data.main.temp;
+            const humidity=data.main.humidity;
+            const weather=data.weather[0].description;
+            const icon = getWeatherIcon(data.weather[0].main);
+            const temp=document.getElementById("temp").innerHTML=`<h3>Temperature</h3><i class="fa-solid fa-temperature-high"></i><br><p>${temperature}<sup>&deg;</sup>C</p>`;
+            const hum=document.getElementById("humidity").innerHTML=`<h3>Humidity</h3><i class="fa-solid fa-droplet"></i><br><p>${humidity}%</p>`;
+            const weath=document.getElementById("weather").innerHTML=`<h3>Weather</h3><i class="fa-solid ${icon}"></i><br><p>${weather}</p>`;
+
+           });
+        }
+        function getWeatherIcon(mainWeather) {
+        switch(mainWeather) {
+        case "Clear": return "fa-sun";
+        case "Clouds": return "fa-cloud";
+        case "Rain": return "fa-cloud-rain";
+        case "Thunderstorm": return "fa-bolt";
+        case "Snow": return "fa-snowflake";
+        case "Mist": return "fa-smog";
+        default: return "fa-cloud";
+    }
+};
+
+       
+
+
+    </script>
+</body>
+</html>
